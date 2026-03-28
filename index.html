@@ -22,6 +22,9 @@
   .hero-badge { display:inline-block; border:1px solid var(--gold); color:var(--gold-lt); font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; padding:4px 18px; border-radius:20px; margin-bottom:20px; }
   .hero h1 { font-size:clamp(1.8rem,5vw,3rem); font-weight:normal; letter-spacing:.02em; margin-bottom:12px; line-height:1.25; }
   .hero h1 em { color:var(--gold-lt); font-style:normal; }
+  .hero h1 .sh-city { color:#4db8cc; }
+  .hero h1 .sz-city { color:#e07040; }
+  .hero h1 .hk-city { color:#b08acc; }
   .hero-sub { font-size:1.05rem; opacity:.8; margin-bottom:32px; }
   .hero-dates { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-bottom:32px; }
   .hero-date-item { text-align:center; }
@@ -73,7 +76,10 @@
   .badge-pending { display:inline-block; background:rgba(201,168,76,.25); color:var(--gold-lt); font-size:.62rem; padding:2px 7px; border-radius:3px; letter-spacing:.06em; }
 
   /* ── CITY BANNER ── */
-  .city-banner { padding:48px 24px 36px; color:#fff; }
+  .city-banner { padding:48px 24px 36px; color:#fff; position:relative; overflow:hidden; }
+  .city-banner::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,.45); z-index:0; }
+  .city-banner img.bg-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-1; }
+  .city-banner-inner { position:relative; z-index:1; }
   .city-banner.sh { background:linear-gradient(135deg,var(--sh-dark),var(--sh-mid)); }
   .city-banner.sz { background:linear-gradient(135deg,var(--sz-dark),var(--sz-mid)); }
   .city-banner.hk { background:linear-gradient(135deg,var(--hk-dark),var(--hk-mid)); }
@@ -168,7 +174,7 @@
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-badge">Tam Family · November – December 2026</div>
-  <h1>Shanghai · Shenzhen · <em>Hong Kong</em></h1>
+  <h1><span class="sh-city">Shanghai</span> · <span class="sz-city">Shenzhen</span> · <span class="hk-city">Hong Kong</span></h1>
   <p class="hero-sub">A 12-night family journey — roam freely, meet for dinner</p>
   <div class="hero-dates">
     <div class="hero-date-item"><span class="label">Depart SFO</span><span class="value">Sat · Nov 21, 2026</span></div>
@@ -280,6 +286,7 @@
 <!-- ═══ SHANGHAI ═══ -->
 <section class="city-section" id="shanghai">
   <div class="city-banner sh">
+    <img class="bg-img" src="imgs/shanghai-hero-city-banner.webp" alt="Shanghai skyline" onerror="this.style.display='none'">
     <div class="city-banner-inner">
       <div class="eyebrow">City 01 · Shanghai 上海 · Nights 1–3</div>
       <h2>Shanghai</h2>
