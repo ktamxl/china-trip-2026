@@ -88,8 +88,8 @@
 
   /* ── DAY CARDS ── */
   .days-container { max-width:900px; margin:0 auto; padding:28px 24px 0; }
-  .day-card { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:18px; overflow:hidden; display:grid; grid-template-columns:76px 1fr; }
-  .day-label { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:20px 6px; color:#fff; font-family:sans-serif; text-align:center; }
+  .day-card { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:18px; overflow:hidden; display:grid; grid-template-columns:76px 1fr; min-width:0; }
+  .day-label { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:20px 6px; color:#fff; font-family:sans-serif; text-align:center; overflow:hidden; }
   .day-card.sh .day-label { background:var(--sh-mid); }
   .day-card.sz .day-label { background:var(--sz-mid); }
   .day-card.hk .day-label { background:var(--hk-mid); }
@@ -328,6 +328,11 @@
 
     <!-- Nov 24 -->
     <div class="day-card sh">
+      <div class="day-label"><span class="dn">24</span><span class="dm">Nov</span><span class="dw">Tue</span></div>
+      <div class="day-body">
+        <h3>The Bund, Yu Garden &amp; Xiaolongbao</h3>
+        <ul class="act-list">
+          <li><span class="act-icon">🌇</span><div class="act-main"><span class="act-name">The Bund Night View 外灘</span> <span class="tag tip">Evening walk</span><div class="act-tip">Best at night — the colonial Puxi buildings lit up against the Pudong skyline is one of the world's great city views. Walk from the EDITION in ~10 minutes.</div></div></li>
           <li><span class="act-icon">🏯</span><div class="act-main"><span class="act-name">Yu Garden 豫園</span> <span class="tag tip">2–3 hrs</span><div class="act-tip">Open 9AM–4:30PM · Ming Dynasty garden &amp; Old City bazaar · Worth every step</div></div></li>
           <li><span class="act-icon">🥟</span><div class="act-main"><span class="act-name">Qiao Ai Lai Lai Xiao Long 橋愛來來小籠</span> <span class="tag eat">Lunch</span> <span class="tag book">Book Ahead!</span> <span class="tag star">⭐ Michelin</span><div class="act-tip">Asia Top 100 · Opens 8AM–2PM &amp; 3PM–8PM · Cram roe xiaolongbao = the best on the planet</div></div></li>
           <li><span class="act-icon">🚶</span><div class="act-main"><span class="act-name">Afternoon: Nanjing Road shopping or French Concession</span><div class="act-tip">Free roam — split up and explore what interests each group</div></div></li>
