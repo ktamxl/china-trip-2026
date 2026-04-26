@@ -3,987 +3,622 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Restaurants — Tam Family China Adventure 2026</title>
+<title>Attractions — Tam Family China Adventure 2026</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --ink: #1a1a2e; --soft: #f5f2ec; --white: #ffffff;
     --gold: #c9a84c; --gold-lt: #f0d98a;
-    --sh-dark: #0d3d4f; --sh-mid: #1a6880; --sh-lt: #e8f4f8;
-    --sz-dark: #7b2d00; --sz-mid: #c04a0c; --sz-lt: #fdf0e8;
-    --hk-dark: #3b1f5e; --hk-mid: #6b3fa0; --hk-lt: #f3eeff;
-    --radius: 16px; --shadow: 0 6px 24px rgba(0,0,0,.13);
-    --radius-sm: 10px;
+    --sh-dark: #0d3d4f; --sh-mid: #1a6880;
+    --zj-dark: #2d4a1e; --zj-mid: #5a8a3a;
+    --sz-dark: #7b2d00; --sz-mid: #c04a0c;
+    --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,.12);
   }
   html { scroll-behavior: smooth; }
-  body { font-family: Georgia, 'Times New Roman', serif; background: var(--soft); color: var(--ink); line-height: 1.7; }
+  body { font-family: Georgia,'Times New Roman',serif; background:var(--soft); color:var(--ink); line-height:1.7; }
 
-  .hero {
-    background: linear-gradient(160deg,#1a0d2e 0%,#2d1b52 50%,#3b1f5e 100%);
-    color: #fff; text-align: center;
-    padding: 80px 24px 64px;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,.06)"/></svg>') repeat;
-    background-size: 28px 28px;
-  }
-  .hero-badge { display:inline-block; border:1px solid var(--gold); color:var(--gold-lt); font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; padding:5px 20px; border-radius:20px; margin-bottom:20px; }
-  .hero h1 { font-size:clamp(2rem,6vw,3.6rem); font-weight:normal; letter-spacing:.02em; margin-bottom:12px; line-height:1.2; }
+  /* ── HERO ── */
+  .hero { background: linear-gradient(160deg,#1a2e1a 0%,#2d4a1e 50%,#3d6030 100%); color:#fff; text-align:center; padding:60px 24px 48px; }
+  .hero-badge { display:inline-block; border:1px solid var(--gold); color:var(--gold-lt); font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; padding:4px 16px; border-radius:20px; margin-bottom:16px; }
+  .hero h1 { font-size:clamp(1.8rem,5vw,2.8rem); font-weight:normal; letter-spacing:.02em; margin-bottom:10px; }
   .hero h1 em { color:var(--gold-lt); font-style:normal; }
-  .hero-sub { font-size:1.05rem; opacity:.75; margin-bottom:10px; max-width:600px; margin-left:auto; margin-right:auto; }
-  .hero-tagline { font-size:.82rem; opacity:.55; font-family:sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+  .hero-sub { font-size:.95rem; opacity:.8; }
 
+  /* ── STICKY NAV ── */
   .sticky-nav { position:sticky; top:0; z-index:100; background:var(--ink); display:flex; justify-content:center; overflow-x:auto; scrollbar-width:none; }
   .sticky-nav::-webkit-scrollbar { display:none; }
-  .sticky-nav a { color:rgba(255,255,255,.7); text-decoration:none; font-family:sans-serif; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:13px 18px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+  .sticky-nav a { color:rgba(255,255,255,.7); text-decoration:none; font-family:sans-serif; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; padding:12px 16px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
   .sticky-nav a:hover { color:var(--gold); }
+  .sticky-nav a.active { color:var(--gold); border-bottom-color:var(--gold); }
 
-  .city-banner { padding:56px 24px 36px; color:#fff; }
-  .city-banner.sh { background:linear-gradient(135deg,var(--sh-dark),var(--sh-mid)); }
-  .city-banner.sz { background:linear-gradient(135deg,var(--sz-dark),var(--sz-mid)); }
-  .city-banner.hk { background:linear-gradient(135deg,var(--hk-dark),var(--hk-mid)); }
-  .city-banner-inner { max-width:900px; margin:0 auto; }
-  .city-banner .eyebrow { font-family:sans-serif; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; opacity:.7; margin-bottom:8px; }
-  .city-banner h2 { font-size:clamp(2rem,6vw,3rem); font-weight:normal; margin-bottom:8px; }
-  .city-banner .dates-tag { font-family:sans-serif; font-size:.88rem; opacity:.85; margin-bottom:10px; }
-  .city-banner .city-desc { font-size:.88rem; opacity:.8; max-width:600px; }
+  /* ── BACK LINK ── */
+  .back-bar { max-width:900px; margin:24px auto 0; padding:0 24px; }
+  .back-link { font-family:sans-serif; font-size:.78rem; color:var(--zj-mid); text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .back-link:hover { color:var(--ink); }
 
-  /* Featured HK */
-  .featured-section { padding:40px 24px 0; max-width:960px; margin:0 auto; }
-  .featured-card {
-    background: linear-gradient(135deg,#1a0d2e, #3b1f5e);
-    border-radius:20px; padding:48px 40px; color:#fff;
-    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
-    box-shadow: 0 12px 48px rgba(59,31,94,.35);
-    margin-bottom:8px;
-  }
-  .featured-card .feat-left h2 { font-size:clamp(1.5rem,3vw,2.2rem); font-weight:normal; color:var(--gold-lt); margin-bottom:6px; line-height:1.3; }
-  .featured-card .feat-left .subtitle { font-size:.85rem; opacity:.7; font-style:italic; margin-bottom:16px; }
-  .featured-card .feat-left p { font-size:.88rem; opacity:.82; line-height:1.85; margin-bottom:16px; }
-  .featured-card .feat-right { position:relative; }
-  .featured-card .feat-right img { width:100%; height:320px; object-fit:cover; border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,.4); }
-  .featured-badge { position:absolute; top:14px; right:14px; background:var(--gold); color:var(--ink); font-size:.65rem; font-family:sans-serif; font-weight:bold; letter-spacing:.08em; padding:4px 10px; border-radius:20px; }
+  /* ── INTRO ── */
+  .intro { max-width:900px; margin:28px auto; padding:0 24px; text-align:center; }
+  .intro p { font-size:.95rem; opacity:.75; }
 
-  .tag { display:inline-block; font-size:.65rem; padding:3px 9px; border-radius:20px; font-family:sans-serif; font-weight:bold; vertical-align:middle; }
-  .tag.award { background:#fce4ec; color:#880e4f; }
-  .tag.star { background:#fff3e0; color:#e65100; }
-  .tag.mich { background:#e8f5e9; color:#1b5e20; }
-  .tag.pick { background:#e3f2fd; color:#0d47a1; }
+  /* ── CITY TABS ── */
+  .city-tabs { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:24px auto; max-width:900px; padding:0 24px; }
+  .city-tab { display:inline-flex; align-items:center; gap:8px; padding:10px 24px; border-radius:40px; font-family:sans-serif; font-size:.85rem; text-decoration:none; transition:all .25s; font-weight:bold; }
+  .city-tab.sh { background:var(--sh-mid); color:#fff; }
+  .city-tab.zj { background:var(--zj-mid); color:#fff; }
+  .city-tab.sz { background:var(--sz-mid); color:#fff; }
+  .city-tab:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.2); opacity:.9; }
+  .city-tab .emoji { font-size:1.1rem; }
 
-  .dish-list { list-style:none; margin-top:12px; }
-  .dish-list li { display:flex; gap:8px; padding:6px 0; border-top:1px solid rgba(255,255,255,.1); font-size:.82rem; }
-  .dish-list li:first-child { border:none; }
-  .dish-icon { font-size:1rem; flex-shrink:0; margin-top:2px; }
-  .dish-name { color:#f0d98a; font-weight:bold; }
-  .dish-note { opacity:.72; font-size:.78rem; }
+  /* ── SECTION ── */
+  .section-block { max-width:900px; margin:0 auto; padding:0 24px 48px; }
+  .section-block h2 { font-size:1.6rem; font-weight:normal; margin-bottom:8px; color:var(--ink); }
+  .section-block .section-desc { font-size:.88rem; opacity:.6; margin-bottom:28px; font-family:sans-serif; }
 
-  .resto-meta { display:flex; flex-wrap:wrap; gap:10px; font-size:.77rem; font-family:sans-serif; background:rgba(255,255,255,.1); border-radius:8px; padding:10px 14px; color:rgba(255,255,255,.78); margin-top:16px; }
-  .resto-meta span { display:flex; align-items:center; gap:4px; }
+  /* ── COMING SOON CARD ── */
+  .coming-soon { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:48px 24px; text-align:center; }
+  .coming-soon .emoji-big { font-size:3rem; margin-bottom:12px; display:block; }
+  .coming-soon h3 { font-size:1.2rem; font-weight:normal; margin-bottom:8px; }
+  .coming-soon p { font-size:.85rem; opacity:.6; }
 
-  /* Cards */
-  .cards-section { padding:32px 24px 0; max-width:960px; margin:0 auto; }
-  .resto-card { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:28px; overflow:hidden; display:grid; grid-template-columns:1fr; }
-  .resto-card.reverse { direction:ltr; }
-  .resto-img { width:100%; height:320px; object-fit:cover; display:block; flex-shrink:0; }
-  .resto-body { padding:28px 30px; }
-  .resto-eyebrow { font-family:sans-serif; font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; margin-bottom:6px; }
-  .resto-body h3 { font-size:1.3rem; font-weight:normal; margin-bottom:4px; color:var(--ink); }
-  .resto-sub { font-size:.82rem; opacity:.6; margin-bottom:14px; font-style:italic; }
-  .resto-desc { font-size:.87rem; line-height:1.8; margin-bottom:14px; color:#333; }
-  .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
-  .sh .resto-eyebrow { color:var(--sh-mid); }
-  .sz .resto-eyebrow { color:var(--sz-mid); }
-  .hk .resto-eyebrow { color:var(--hk-mid); }
+  /* ── FOOTER ── */
+  footer { text-align:center; padding:32px 24px; font-family:sans-serif; font-size:.75rem; opacity:.45; color:var(--ink); border-top:1px solid rgba(0,0,0,.08); margin-top:32px; }
 
-  /* Tips */
-  .tips-section { padding:48px 24px 64px; }
-  .tips-section h2 { text-align:center; font-weight:normal; font-size:1.7rem; margin-bottom:32px; color:var(--ink); }
-  .tips-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; max-width:900px; margin:0 auto; }
-  .tip-card { background:#fff; border-radius:var(--radius); padding:22px; box-shadow:0 2px 14px rgba(0,0,0,.07); }
-  .tip-icon { font-size:1.6rem; margin-bottom:10px; }
-  .tip-title { font-family:sans-serif; font-size:.85rem; font-weight:bold; margin-bottom:6px; }
-  .tip-body { font-size:.82rem; color:#555; line-height:1.6; }
-
-  footer { background:var(--ink); color:rgba(255,255,255,.45); text-align:center; padding:32px 24px; font-family:sans-serif; font-size:.8rem; }
-  footer .gold { color:var(--gold); }
-
-  @media (max-width:768px) {
-    .resto-card, .resto-card.reverse { grid-template-columns:1fr; }
-    .resto-card.reverse .resto-img { order:0; }
-    .resto-img { width:100%; height:240px; min-height:unset; }
-    .featured-card { grid-template-columns:1fr; }
-  }
-  @media print { .sticky-nav { display:none; } }
+  .attraction-card { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden; display:grid; grid-template-columns:68px 1fr; transition:transform .2s; }
+  .attraction-card:hover { transform:translateY(-2px); }
+  .attraction-num { display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; padding:16px 8px; text-align:center; min-height:100px; }
+  .attraction-emoji { font-size:1.5rem; display:block; }
+  .attraction-num-label { font-size:.55rem; opacity:.7; text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
+  .attraction-body { padding:16px 18px 14px 14px; }
+  .attraction-body h3 { font-size:1.05rem; font-weight:normal; margin-bottom:4px; color:var(--ink); }
+  .attraction-chinese { font-size:.75rem; font-family:sans-serif; margin-bottom:8px; }
+  .attraction-desc { font-size:.78rem; font-family:sans-serif; color:var(--ink); opacity:.75; margin-bottom:8px; }
+  .attraction-info { font-size:.72rem; color:#555; margin-bottom:8px; line-height:1.6; font-family:sans-serif; }
+  .attraction-fam-label { font-family:sans-serif; font-size:.7rem; font-weight:bold; margin-bottom:5px; }
+  .attraction-famous { font-size:.82rem; opacity:.7; margin-bottom:8px; }
+  .attraction-highlight-label { font-size:.7rem; color:var(--ink); font-weight:bold; margin-bottom:8px; }
+  .attraction-tags { display:flex; flex-wrap:wrap; gap:5px; }
+  .attraction-tag { display:inline-block; font-size:.6rem; padding:2px 8px; border-radius:20px; font-family:sans-serif; background:var(--soft); }
+  .attraction-tag.highlight { background:var(--gold); }
 </style>
-</head>
-<body>
+<div class="hero-badge">Tam Family China 2026</div>
+  <h1>🍽️ Restaurants</h1>
+  <p class="hero-sub">Top 10 must-eat restaurants across Shanghai · Zhujiajiao · Shenzhen</p>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">Tam Family · November – December 2026</div>
-  <h1>Where We <em>Eat</em> 🥢</h1>
-  <p class="hero-sub">A curated guide to the best tables on the trip — world-ranked fine dining, legendary neighbourhood institutions, and everything in between.</p>
-  <div class="hero-tagline">Shanghai · Shenzhen · Hong Kong</div>
-</section>
 
 <nav class="sticky-nav">
-  <a href="#hk">Hong Kong</a>
-  <a href="#shanghai">Shanghai</a>
-  <a href="#shenzhen">Shenzhen</a>
-  <a href="#tips">Tips</a>
-  <a href="index.html">← Trip Home</a>
+  <a href="index.html">Home</a>
+  <a href="attractions.html">🍽️ Restaurants</a>
+  <a href="#shanghai" class="active">🌆 Shanghai</a>
+  <a href="#zhujiajiao">🌸 Zhujiajiao</a>
+  <a href="#shenzhen">🏙️ Shenzhen</a>
+  <a href="hotels.html">🏨 Hotels</a>
 </nav>
-
-<!-- HONG KONG -->
-<section class="city-banner hk" id="hk">
-  <div class="city-banner-inner">
-    <div class="eyebrow">City 03 · Hong Kong · December 2–5, 2026</div>
-    <h2>Hong Kong</h2>
-    <div class="dates-tag">🌃 One of the world's great dining cities</div>
-    <div class="city-desc">A place where Cantonese cooking reaches its absolute pinnacle — and where a new generation of chefs is quietly rewriting the rulebook.</div>
-  </div>
-</section>
-
-<!-- THE CHAIRMAN — FEATURED -->
-<div class="featured-section">
-  <div class="resto-card" style="background:linear-gradient(135deg,#1a0d2e,#3b1f5e);">
-    <img class="resto-img" src="imgs/the-chairman-new.png" alt="The Chairman restaurant" style="width:100%;height:420px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;" onerror="this.style.display='none'">
-    <div class="resto-body" style="color:#fff;">
-      <div class="eyebrow" style="font-family:sans-serif; font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px;">★ Asia's No.1 Restaurant · 2026</div>
-      <h2 style="color:#f0d98a; font-size:2rem; font-weight:normal; margin-bottom:6px;">大班樓 · The Chairman</h2>
-      <div class="resto-sub" style="color:rgba(255,255,255,.7); font-size:.85rem; margin-bottom:16px;">中環威靈頓街198號 The Wellington · ⭐ 1 Michelin Star</div>
-      <div class="tag-row">
-        <span class="tag award">🏆 Asia's 50 Best — No. 1, 2026</span>
-        <span class="tag star">⭐ Michelin 1 Star</span>
-        <span class="tag pick">🌿 No shark's fin, sea cucumber or bird's nest — eco-friendly by philosophy</span>
-      </div>
-      <p style="font-size:.88rem; opacity:.82; line-height:1.85; margin-bottom:12px;">Cantonese cuisine has a history of two thousand years. Today it has evolved to become the most popular and widely influential cuisine among the "eight culinary classical styles" of China. The reason for its success boils down to one keyword: <strong style="color:#f0d98a;">"freshness."</strong></p>
-      <p style="font-size:.88rem; opacity:.82; line-height:1.85; margin-bottom:12px;">The Chairman's aspiration is to continue this legacy. As much as possible, they use locally sourced ingredients, products from local condiment stores, and seafood from local fishermen — sent to the restaurant <strong>every morning at 6 AM from Aberdeen Fish Market</strong>. Their cooking style is fundamentally built on tradition, bringing out the original flavours of the ingredients rather than showing off. <em>"The most simple food demands the highest level of culinary skills."</em></p>
-      <p style="font-size:.88rem; opacity:.82; line-height:1.85; margin-bottom:14px;">A few examples: their razor clams are steamed with <strong>aged lemon aged over 10 years</strong>. Their smoked baby pigeon is prepared traditionally with <strong>20-day-old pigeons</strong> until the bones are tender. Their chilli jam is made with <strong>slow-cooked oxtail</strong>. Even the beancurd sheets come from the famous local store <strong>Shu Kee</strong>. The Chairman soy sauce chicken uses herbs <em>more expensive than the chicken itself</em>.</p>
-      <ul class="dish-list">
-        <li><span class="dish-icon">🦀</span><div><span class="dish-name">Steamed Fresh Flowery Crab</span><br><span class="dish-note">The dish that made the restaurant famous. Hand-picked daily from Aberdeen Fish Market at 6AM. Worth a trip to Hong Kong on its own.</span></div></li>
-        <li><span class="dish-icon">🍗</span><div><span class="dish-name">The Chairman Soy Sauce Chicken</span><br><span class="dish-note">House signature. Herbs used are more expensive than the chicken itself. A quiet masterpiece.</span></div></li>
-        <li><span class="dish-icon">🐦</span><div><span class="dish-name">Smoked Baby Pigeon with Longjing Tea</span><br><span class="dish-note">Prepared the traditional way with 20-day-old pigeons until the bones are tender.</span></div></li>
-        <li><span class="dish-icon">🐚</span><div><span class="dish-name">Razor Clams Steamed with Aged Lemon</span><br><span class="dish-note">Lemon aged over 10 years. Fragrant, briny, extraordinary.</span></div></li>
-      </ul>
-      <div class="resto-meta">
-        <span>📍 The Wellington, 198 Wellington St, Central, Hong Kong</span>
-        <span>🕐 Lunch 12–3PM · Dinner 6–10PM (Closed Sunday)</span>
-        <span>🌐 thechairman.hk — book 6–8 weeks ahead</span>
-        <span>👔 Smart casual dress code</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SHANGHAI -->
-<section class="city-banner sh" id="shanghai">
-  <div class="city-banner-inner">
-    <div class="eyebrow">City 01 · Shanghai 上海 · November 23–28, 2026</div>
-    <h2>Shanghai</h2>
-    <div class="dates-tag">🏙️ Michelin-starred rooftops, legendary neighbourhood tables</div>
-    <div class="city-desc">From Asia's 100 Best Bars to 30-year-old xiaolongbao institutions — Shanghai rewards those who seek.</div>
-  </div>
-</section>
-
-<div class="cards-section">
-
-  <!-- ROOF Bar -->
-  <div class="resto-card">
-    <img class="resto-img" src="imgs/roof-bar-shanghai-edition-new.png" alt="ROOF Bar The Shanghai EDITION open-air terrace" style="width:100%;height:380px;object-fit:cover;" onerror="this.style.display='none'">
-    <img class="resto-img" src="imgs/shanghai-edition-roof-bar-night-view.jpg" alt="ROOF Bar The Shanghai EDITION night view" style="width:100%;height:380px;object-fit:cover;" onerror="this.style.display='none'">
-    <div class="resto-body sh">
-      <div class="resto-eyebrow">🍸 Rooftop Bar · The Shanghai EDITION · 29th Floor</div>
-      <h3>ROOF Bar</h3>
-      <div class="resto-sub">199 Nanjing Road East · Open 5:30PM–1AM nightly (Fri/Sat until 2AM)</div>
-      <div class="tag-row">
-        <span class="tag award">🏆 Asia's 100 Best Bars 2026</span>
-        <span class="tag pick">📍 29th Floor · The Shanghai EDITION</span>
-      </div>
-      <p class="resto-desc">Located on the 29th floor and surrounded by a stunning ivy-covered trellis, ROOF is an open-air lounge area offering guests a comfortable, intimate setting for casual drinks. Featuring one of the most spectacular panoramic views of Pudong from the Bund, the bar serves a range of classic and innovative libations prepared by EDITION's expert mixologist.</p>
-      <p class="resto-desc">Arrive just before sunset to secure a window table — the moment the Pudong skyline ignites is one you'll remember. Perfect for arriving-night drinks, celebratory toasts, or a nightcap after Nanjing Road.</p>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 The Shanghai EDITION, 199 Nanjing Road East, 29F</span>
-        <span>🕐 5:30PM–1AM nightly (Fri/Sat until 2AM)</span>
-        <span>🎫 No reservations — first come, first served</span>
-        <span>💰 Cocktails ~¥120–180</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Xin Rong Ji -->
-  <div class="resto-card">
-    <img class="resto-img" src="imgs/xin-rong-ji-new.jpg" alt="Xin Rong Ji restaurant" style="width:100%;height:380px;object-fit:cover;" onerror="this.style.display='none'">
-    <div class="resto-body sh">
-      <div class="resto-eyebrow">⭐ Michelin Star · Est. 1995 · Jade's Pick</div>
-      <h3>新榮記 · Xin Rong Ji</h3>
-      <div class="resto-sub">688 Nanjing West Road, Jing'an · ~5 min from The Shanghai EDITION</div>
-      <div class="tag-row">
-        <span class="tag star">🏆 No. 1 Chinese Restaurant Brand in the World</span>
-        <span class="tag mich">⭐ MICHELIN 1 Star · World's 50 Best Discovery</span>
-        <span class="tag pick">🚶 5 min walk from EDITION</span>
-      </div>
-      <p class="resto-desc" style="font-size:.87rem;line-height:1.8;margin-bottom:12px;"><em style="font-size:.85rem;color:var(--sh-mid);">1995 年 · The launch of Xin Rong Ji</em></p>
-      <p class="resto-desc">Xin Rong Ji is a name that embodies the meaning of <strong>"Flourishing Prosperity."</strong> On October 1, 1995, the first Xin Rong Ji restaurant opened in <strong>Taizhou</strong>, the birthplace of the Tiantai School of Buddhism. Rooted in the bounty of the East China Sea, Xin Rong Ji has gradually expanded to Hangzhou, Ningbo, Chengdu, Xi'an, Wuhan, Shenzhen, Suzhou, Jiangxi, Hainan — and internationally to <strong>Hong Kong</strong> and <strong>Tokyo</strong>.</p>
-      <p class="resto-desc">Xin Rong Ji adheres to the culinary philosophy of <strong>"First Seek the Authentic, Then Achieve the Sublime."</strong> Guided by the <strong>Three True Fires</strong> — genuine ingredients, authentic flavours, and sincere hospitality — they are devoted to revealing the inherent essence of every ingredient.</p>
-      <ul class="dish-list" style="color:#333;">
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🐟</span><div><span class="dish-name" style="color:var(--ink);">Braised Yellow Croaker 手燒黃魚</span><br><span class="dish-note">The dish that made the restaurant famous. Wild yellow croaker with handmade rice cakes in a rich, nostalgic Taizhou sauce. Order without hesitation.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🥟</span><div><span class="dish-name" style="color:var(--ink);">Pork &amp; Crab Roe Soup Dumplings</span><br><span class="dish-note">Michelin inspectors' favourite. Delicate xiao long bao with rich crab roe filling.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🦆</span><div><span class="dish-name" style="color:var(--ink);">Baked Duck Foie Gras Buns</span><br><span class="dish-note">A Xin Rong Ji original — luxury meets tradition. Truffle-scented, extraordinary.</span></div></li>
-      </ul>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 688 Nanjing West Road, Jing'an (5 min walk from The Shanghai EDITION)</span>
-        <span>🕐 Lunch 11:30AM–2PM · Dinner 5:30–10PM</span>
-        <span>🌐 xinrongji.com · Book via Dianping or phone</span>
-        <span>💰 ¥500–1,000+/person · Premium but worth every yuan</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Qiao Ai Lai Lai -->
-  <div class="resto-card">
-    <img class="resto-img" src="imgs/qiao-ai-lai-lai-new.png" alt="Qiao Ai Lai Lai xiaolongbao" style="width:100%;height:380px;object-fit:cover;" onerror="this.style.display='none'">
-    <div class="resto-body sh">
-      <div class="resto-eyebrow">🥟 Bib Gourmand · Est. ~2005 · Near The Bund</div>
-      <h3>橋愛來來小籠 · Qiao Ai Lai Lai</h3>
-      <div class="resto-sub">336 Yunnan Road, Huangpu · Open 8AM–2PM &amp; 3–8PM · Closed Monday</div>
-      <div class="tag-row">
-        <span class="tag mich">⭐ MICHELIN Bib Gourmand</span>
-        <span class="tag star">🌟 Asia's 50 Best Must-Visit</span>
-        <span class="tag pick">💰 ~¥60–100/person (exceptional value!)</span>
-      </div>
-      <p class="resto-desc"><strong>Bib Gourmand: good quality, good value cooking.</strong></p>
-      <p class="resto-desc">This simple little shop tucked away in a bustling alley has been packed with hungry diners ever since it opened its doors <strong>20 years ago</strong>. The chefs are always busy in the kitchen making xiao long bao, the crab roe variety being the most popular. Brace yourself for an even bigger crowd in hairy crab season, when wontons, spring rolls and soups are generously loaded with crabmeat and roe. The classic soupy pork buns are another must-try.</p>
-      <ul class="dish-list" style="color:#333;">
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🥟</span><div><span class="dish-name" style="color:var(--ink);">Crab Roe Xiaolongbao 蟹粉小籠包</span><br><span class="dish-note">The crown jewel. Rich crab roe filling, gossamer wrapper. Peak season: November. Order 1–2 portions per person.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🥟</span><div><span class="dish-name" style="color:var(--ink);">Classic Soupy Pork Buns 鮮肉小籠包</span><br><span class="dish-note">The benchmark. Perfectly seasoned pork, pristine broth inside.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🥟</span><div><span class="dish-name" style="color:var(--ink);">Hairy Crab Season Specials</span><br><span class="dish-note">Wontons, spring rolls and soups loaded with crabmeat & roe. November is peak — expect the longest queues of the year.</span></div></li>
-      </ul>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 336 Yunnan Road, Huangpu (near The Bund)</span>
-        <span>🕐 8AM–2PM · 3–8PM · Closed Monday</span>
-        <span>🎫 No reservations — arrive before 1PM on weekends</span>
-        <span>⚠️ Expect 20–45 min queue · Peak hairy crab season: November</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Xintiandi -->
-  <div class="resto-card">
-    <img class="resto-img" src="imgs/xintiandi-new.png" alt="Xintiandi Shanghai Shikumen heritage architecture" style="width:100%;height:380px;object-fit:cover;" onerror="this.style.display='none'">
-    <div class="resto-body sh">
-      <div class="resto-eyebrow">🍽️ Dining District · Multiple Cuisines · Evening</div>
-      <h3>新天地 · Xintiandi</h3>
-      <div class="resto-sub">Huangpu District · Open daily until late</div>
-      <div class="tag-row">
-        <span class="tag pick">🏛️ Shikumen Heritage Architecture</span>
-        <span class="tag star">🌃 Vibrant Nightlife & Dining Combined</span>
-      </div>
-      <p class="resto-desc">Shanghai's most atmospheric dining neighbourhood — 1920s Shikumen townhouses converted into excellent restaurants, bars and cafés. The setting is genuinely beautiful: lantern-lit alleys, restored stone archways, warm lighting. Perfect for a family group dinner when everyone wants something different.</p>
-      <p class="resto-desc"><strong>Recommendations within Xintiandi:</strong> Sir Stanley's for elevated Shanghainese, Kommune for vibrant social dining, Azul for Spanish tapas with a view. Or wander freely — every doorway is worth exploring.</p>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 Xintiandi, Huangpu (Metro: South Huangpi Road, Lines 1/10)</span>
-        <span>🕐 Most places: 11AM–11PM, bars until late</span>
-        <span>🚇 ~5 min from ROOF Bar by DiDi</span>
-        <span>💰 Wide range — ¥80–500+/person</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- SHENZHEN -->
-<section class="city-banner sz" id="shenzhen">
-  <div class="city-banner-inner">
-    <div class="eyebrow">City 02 · Shenzhen 深圳 · November 28 – December 2, 2026</div>
-    <h2>Shenzhen</h2>
-    <div class="dates-tag">🌆 Modern, ambitious, and full of pleasant surprises</div>
-    <div class="city-desc">Sea World Shekou is the culinary heart of Shenzhen's best eating — waterfront dining, excellent international restaurants, and some of the best value seafood in China.</div>
-  </div>
-</section>
-
-<div class="cards-section" style="padding-bottom:48px;">
-
-<!-- Tao Tao Ju -->
-  <div class="resto-card">
-    <img class="resto-img" src="imgs/tao-tao-ju-new.png" alt="Tao Tao Ju dim sum restaurant Guangzhou" style="width:100%;height:380px;object-fit:cover;" onerror="this.style.display='none'">
-    <div class="resto-body sz">
-      <div class="resto-eyebrow">🥟 Guangzhou · Est. 1880 · Iconic Cantonese Institution</div>
-      <h3>陶陶居酒家 · Tao Tao Ju</h3>
-      <div class="resto-sub">Guangzhou · Private Room Dining · Open 6:30PM – Midnight</div>
-      <div class="tag-row">
-        <span class="tag star">🏆 One of Guangzhou's Oldest & Most Esteemed Cantonese Restaurants</span>
-        <span class="tag pick">🥟 200+ Dim Sum Varieties</span>
-        <span class="tag">🌿 Lingnan Heritage · Rose Gold &amp; Olive Green Decor</span>
-      </div>
-      <p class="resto-desc">Tao Tao Ju is one of the most authentic dim sum restaurants in Guangzhou — ranked among the very best, if not <em>the</em> best. Named <strong>"House of Happiness,"</strong> this century-old establishment has been delighting visitors since <strong>1880</strong> with a calm and rich dining experience steeped in tradition and flavour.</p>
-      <p class="resto-desc">For tourists, this authentic evening tea restaurant gives you the option to try every facet of Cantonese culinary culture. With over <strong>200 varieties of dim sum</strong>, Tao Tao Ju ensures you can try an enormous range — we recommend coming with a large group so you can order more dishes.</p>
-      <p class="resto-desc">You will be seated in a <strong>private dining room</strong> — decorated in rose gold and olive green, paying homage to Lingnan architectural heritage. Helmed by a seasoned chef from Hong Kong with over three decades of expertise, the dim sum is impeccably crafted.</p>
-      <p class="resto-desc">Operating from <strong>6:30PM until midnight</strong>, it is perfect for an evening meal after exploring the city.</p>
-      <ul class="dish-list" style="color:#333;">
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🥮</span><div><span class="dish-name" style="color:var(--ink);">Nai Huang Bao 奶黃包</span><br><span class="dish-note">The signature dish. Exquisitely blending milk and egg yolks — rich, silky, extraordinary. A Tao Tao Ju trademark.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🥟</span><div><span class="dish-name" style="color:var(--ink);">Traditional Dim Sum Selection</span><br><span class="dish-note">Over 200 varieties to choose from. Come with a large group and order everything you can.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🍵</span><div><span class="dish-name" style="color:var(--ink);">Traditional Afternoon Tea</span><br><span class="dish-note">Sweet treats and traditional tea service — the Cantonese way.</span></div></li>
-      </ul>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 Guangzhou, China (Taxi/DiDi from city centre)</span>
-        <span>🕐 6:30PM – Midnight daily</span>
-        <span>🚗 Parking available · Air conditioning · Terrace</span>
-        <span>💰 ¥150–400/person · Private room dining experience</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sea World Shekou -->
-  <div class="resto-card reverse">
-    <img class="resto-img" src="imgs/sea-world-shenzhen-minghua-ship-waterfront-night.jpg" alt="Sea World Shekou waterfront at night" onerror="this.style.display='none'">
-    <div class="resto-body sz">
-      <div class="resto-eyebrow">🌊 Waterfront Dining · Shekou · Evening Hotspot</div>
-      <h3>海上世界 · Sea World Shekou</h3>
-      <div class="resto-sub">Sea World Plaza, Shekou · Open daily until late</div>
-      <div class="tag-row">
-        <span class="tag pick">🚢 Minghua Ship Landmark · Open-air promenade</span>
-        <span class="tag star">🌃 One of Shekou's Best Evening Areas</span>
-      </div>
-      <p class="resto-desc">Sea World Shekou is the social heart of Shenzhen — a vast waterfront complex anchored by the Minghua Ship, permanently moored and converted into a dining and entertainment destination. The plaza comes alive at night with hundreds of restaurants and bars spilling onto the waterfront promenade. A wonderful place for a relaxed family dinner with bay views.</p>
-      <p class="resto-desc"><strong>Highlights:</strong> Pizzeria Alla Torre (authentic wood-fired Italian with a stunning terrace), premium Chinese seafood (point-and-choose live tanks), Korean BBQ, Japanese izakaya, and the lively deck bars around the Minghua Ship.</p>
-      <ul class="dish-list" style="color:#333;">
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🍕</span><div><span class="dish-name" style="color:var(--ink);">Pizzeria Alla Torre — Wood-fired Pizza</span><br><span class="dish-note">Widely considered one of the best pizzas in Guangdong. Authentic Italian, waterfront terrace. Outstanding pasta too.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🦐</span><div><span class="dish-name" style="color:var(--ink);">Live Seafood — any Chinese restaurant</span><br><span class="dish-note">Shekou is known for live seafood markets. Point, choose, have it cooked to order. Exceptional quality for the price.</span></div></li>
-        <li style="border-color:rgba(0,0,0,.07);"><span class="dish-icon">🍺</span><div><span class="dish-name" style="color:var(--ink);">Minghua Deck — Evening Drinks</span><br><span class="dish-note">The outdoor deck around the Minghua Ship has multiple affordable bars and a genuinely lively atmosphere.</span></div></li>
-      </ul>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 Sea World Plaza, Shekou, Nanshan District</span>
-        <span>🚇 Metro Line 2 to Sea World Station (Exit A)</span>
-        <span>🕐 Restaurants: 11AM–11PM · Bars: until 1–2AM</span>
-        <span>💰 ¥100–400/person depending on venue</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- OCT Harbour -->
-  <div class="resto-card">
-    <img class="resto-img" src="imgs/andaz-shenzhen-bay-luxury-hotel-exterior-skyline.jpg" alt="OCT Harbour Shenzhen" onerror="this.style.display='none'">
-    <div class="resto-body sz">
-      <div class="resto-eyebrow">🌆 Waterfront Complex · OCT Harbour · Bay Views</div>
-      <h3>歡樂港灣 · OCT Harbour</h3>
-      <div class="resto-sub">Nanshan District · Open daily · Great at sunset</div>
-      <div class="tag-row">
-        <span class="tag pick">🌅 No.5 Family Attraction in Guangdong</span>
-        <span class="tag star">🎡 Home of the Bay Glory Ferris Wheel</span>
-      </div>
-      <p class="resto-desc">Shenzhen's most sophisticated waterfront development — a stunning mix of parkland, public art, dining, and entertainment built around a 120,000 sqm harbour. The Bay Glory Ferris Wheel (the third tallest in China) provides a spectacular backdrop, and the lakeside promenade is lined with excellent restaurants and cafés. Perfect for a leisurely dinner as the sun goes down.</p>
-      <p class="resto-desc"><strong>Try:</strong> The Anpha Seafood Restaurant for premium Cantonese, or grab a table at one of the many Western restaurants overlooking the water. The atmosphere here is unlike anywhere else in Shenzhen.</p>
-      <div class="resto-meta" style="background:#f8f6f0; color:#555;">
-        <span>📍 OCT Harbour, Nanshan District (Metro Line 5 to Linkia Park)</span>
-        <span>🕐 Open 24 hrs — restaurants 11AM–11PM</span>
-        <span>🎡 Bay Glory Ferris Wheel: 10:30AM–10PM</span>
-        <span>💰 ¥120–500+/person</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- TIPS -->
-<section class="tips-section" id="tips">
-  <h2>🍽️ Dining Essentials</h2>
-  <div class="tips-grid">
-    <div class="tip-card">
-      <div class="tip-icon">💳</div>
-      <div class="tip-title">Payment</div>
-      <div class="tip-body">Most restaurants in Shanghai and Shenzhen accept <strong>WeChat Pay and Alipay</strong>. Some smaller neighbourhood spots still prefer cash. In Hong Kong, cash and credit cards are universally accepted.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">📱</div>
-      <div class="tip-title">Reservations</div>
-      <div class="tip-body"><strong>The Chairman:</strong> Book 6–8 weeks ahead via thechairman.hk. <strong>ROOF Bar:</strong> No reservations — arrive at sunset. Most other restaurants: walk in or ask Jade to call ahead.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🍜</div>
-      <div class="tip-title">Xiaolongbao Etiquette</div>
-      <div class="tip-body">Let them cool for a moment — the broth inside is searingly hot. Gently lift with chopsticks, poke a small hole to release steam, then eat in one go. Never dunk in vinegar aggressively — it breaks the skin.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🦀</div>
-      <div class="tip-title">Crab Season</div>
-      <div class="tip-body"><strong>November is peak hairy crab season</strong> in Shanghai — order crab roe xiaolongbao at Qiao Ai Lai Lai without hesitation. Hairy crab is traditionally paired with Shaoxing wine and ginger vinegar.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🥢</div>
-      <div class="tip-title">Tipping Culture</div>
-      <div class="tip-body">Tipping is <strong>not customary</strong> in mainland China — service charges are built in. In Hong Kong, 10% is appreciated at upscale restaurants if a service charge isn't already added.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🍺</div>
-      <div class="tip-title">What to Drink</div>
-      <div class="tip-body">Ask for <strong>Baijai</strong> (Tsingtao) with street food. Pair Cantonese dishes with <strong>茉莉花茶 jasmine tea</strong>. At The Chairman, let the staff recommend a wine or sake pairing — they're exceptional at matching.</div>
-    </div>
-  </div>
-</section>
-
 <!-- CITY TABS -->
 <div class="city-tabs">
   <a href="#shanghai" class="city-tab sh">🌆 Shanghai</a>
   <a href="#zhujiajiao" class="city-tab zj">🌸 Zhujiajiao</a>
   <a href="#shenzhen" class="city-tab sz">🏙️ Shenzhen</a>
 </div>
-  <!-- ── SHANGHAI ── -->
-  <div class="section-block" id="shanghai">
-    <h2>🌆 Shanghai · Top 10 Must-Eat Restaurants</h2>
-    <p class="section-desc">Based on 2025 Dianping Must-Eat List + Tripadvisor + Michelin Guide · Nov 23–27</p>
 
-    <!-- 1. 南翔馒头店 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🥟</span><span class="label">#1</span></div>
-      <div class="rest-body">
-        <h3>Nanxiang Steamed Bun Shop · 南翔饅頭店</h3>
-        <div class="chinese">豫園店 · Est. 1900 · China's Most Iconic Xiaolongbao</div>
-        <div class="rest-info">
-          <span>📍 黃浦區豫園路87號（豫園商城九曲橋旁）| 🚇 Line 10/14 豫園站，步行5分鐘</span>
-          <span>📞 021-63554206 | 🕐 7:30–20:00（地庫1層外賣；2-3層堂食）</span>
-          <span>💰 ¥91/人 | ⭐ 4.6 Dianping | 🏆 2025 必吃榜 · Tripadvisor #1 城隍廟</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">The pinnacle of Shanghai xiaolongbao — thin-skinned, broth-stuffed parcels you drink through a straw. Queues snake out daily. Must-order: Fresh Pork Xiaolongbao (鮮肉小籠), Crab Roe Xiaolongbao (蟹黃小籠), Giant Soup Dumpling (蟹黃灌湯包). The original and still the best since 1900.</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥟 Must-Order: Xiaolongbao</span>
-          <span class="rest-tag">⏱️ Queue expected · Arrive before 10am</span>
-          <span class="rest-tag">⭐ #1 Dianping · 125 years old</span>
-        </div>
+<div class="section-block" id="shanghai">
+  <h2>🌆 Shanghai</h2>
+  <p class="section-desc">Global metropolis meets old-world glamour — the Bund, Gardens, and skyward ambition.</p>
+
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🥟</span>
+        <span class="attraction-num-label">#1</span>
+      </div>
+      <div class="attraction-body">
+        <h3>萊萊小籠·喬艾 (Lailai Xiaolongbao)</h3>
+        <div class="attraction-chinese">萊萊小籠·喬艾（黃浦店）</div>
+        <div class="attraction-desc">米芝蓮必比登推介 · 滬上蟹膏小籠首選 · Est. 1990s</div>
+        <div class="attraction-info">📍 黃浦區黃河路127號 | 🚇 地鐵1/2/8 南京西路站<br>📞 021-63276878 | 🕐 7:30–20:00<br>💰 ¥70/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">招牌純蟹膏小籠包含滿滿蟹膏，搭配店家特調薑絲醋，濃郁鮮香。蟹粉餛飩、蟹粉薺菜羹亦為人氣之選。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Pure Crab Roe Xiaolongbao · Crab Roe Wonton</div>
+        <div class="attraction-tags">⭐ Michelin Bib · 🦀 Crab Roe Special</div>
       </div>
     </div>
-
-    <!-- 2. 绿波廊 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🥢</span><span class="label">#2</span></div>
-      <div class="rest-body">
-        <h3>Green Wave Corridor · 綠波廊</h3>
-        <div class="chinese">豫園路店 · Est. 1979 · Michelin Guide · Historic Shanghai Cuisine</div>
-        <div class="rest-info">
-          <span>📍 黃浦區豫園路115號（九曲橋畔，城隍廟對面）| 🚇 Line 10/14 豫園站</span>
-          <span>📞 021-63280602 | 🕐 午市 11:00–14:00 · 晚市 17:00–20:30</span>
-          <span>💰 ¥165/人 | ⭐ Michelin Guide · Dianping 4.5</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">A legendary Shanghai dining room steps from the ancient Nine-Cornered Bridge. Housed in a building that dates back to 1559. The Michelin Guide says: "Signature dishes include Radish Shred Pastry (蘿蔔絲酥餅), Osmanthus Rice Cake (桂花拉糕), Eyebrow Prawn Wontons (眉毛酥蝦仁春卷), Crab Roe Xiaolongbao (蟹粉小籠包)." Don't miss them all.</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥢 Must-Order: Radish Shred Pastry + Osmanthus Cake</span>
-          <span class="rest-tag">🏛️ Built 1559 · Historic</span>
-          <span class="rest-tag">⭐ Michelin Guide</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🥟</span>
+        <span class="attraction-num-label">#2</span>
+      </div>
+      <div class="attraction-body">
+        <h3>南翔饅頭店 (Nanxiang Steamed Bun Shop)</h3>
+        <div class="attraction-chinese">南翔饅頭店（豫園店）· Est. 1900</div>
+        <div class="attraction-desc">中國傳奇小籠包 · 皮薄灌湯 · 百年老字號</div>
+        <div class="attraction-info">📍 黃浦區豫園路87號（豫園商城九曲橋旁）| 🚇 地鐵10/14 豫園站<br>📞 021-63554206 | 🕐 7:30–20:00<br>💰 ¥91/人 | ⭐ Dianping 4.6 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">上海最傳奇小籠包——薄皮、湯多、鮮美。鮮肉小籠、蟹黃小籠、蟹黃灌湯包必點。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Fresh Pork Xiaolongbao · Crab Roe Xiaolongbao</div>
+        <div class="attraction-tags">🏆 125年傳奇 · 🥟 必吃小籠</div>
       </div>
     </div>
-
-    <!-- 3. 佳家汤包 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🍜</span><span class="label">#3</span></div>
-      <div class="rest-body">
-        <h3>Jia Jia Tang Bao · 佳家湯包</h3>
-        <div class="chinese">黃河路店 · Est. 1990s · Top-Rated Soup Dumplings · Dianping 4.8</div>
-        <div class="rest-info">
-          <span>📍 黃浦區黃河路127號（南京西路步行街近地鐵）| 🚇 Line 1/2/8 南京西路站</span>
-          <span>📞 021-63278868 | 🕐 6:30–20:30</span>
-          <span>💰 ¥70/人 | ⭐ Dianping 4.8 · 2025 必吃榜</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shanghai locals' secret xiaolongbao spot — fewer tourists than Nanxiang, same legendary quality. The soup broth is rich and gelatinous; the skin is delicate yet holds together. Must-order: Pure Crab Roe Soup Dumpling (純蟹黃湯包), Fresh Pork Soup Dumpling (鮮肉湯包). Many say the crab roe version rivals the best in the world.</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🍜 Must-Order: Pure Crab Roe Tangbao</span>
-          <span class="rest-tag">🕕 Opens 6:30am · Early bird friendly</span>
-          <span class="rest-tag">⭐ Dianping 4.8 · Local favourite</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🥢</span>
+        <span class="attraction-num-label">#3</span>
+      </div>
+      <div class="attraction-body">
+        <h3>綠波廊 (Green Wave Corridor)</h3>
+        <div class="attraction-chinese">綠波廊（豫園路店）· Est. 1979 · Michelin Guide</div>
+        <div class="attraction-desc">明朝古蹟內 · 傳奇本幫菜 · 九曲橋畔</div>
+        <div class="attraction-info">📍 黃浦區豫園路115號（九曲橋畔，城隍廟對面）| 🚇 地鐵10/14 豫園站<br>📞 021-63280602 | 🕐 午市 11:00–14:00 · 晚市 17:00–20:30<br>💰 ¥165/人 | ⭐ Michelin Guide · Dianping 4.5</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">1559年古蹟內用餐，傳奇本幫菜。必點：蘿蔔絲酥餅、桂花拉糕、眉毛酥蝦仁春卷、蟹粉小籠包、八寶鴨、松鼠桂魚。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Radish Shred Pastry · Osmanthus Cake · Eight-Treasure Duck</div>
+        <div class="attraction-tags">⭐ 米芝蓮推介 · 🏛️ 明朝古蹟</div>
       </div>
     </div>
-
-    <!-- 4. 小杨生煎 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🥟</span><span class="label">#4</span></div>
-      <div class="rest-body">
-        <h3>Xiao Yang Sheng Jian · 小楊生煎</h3>
-        <div class="chinese">黃河路店 · Est. 1992 · Shanghai's #1 Shengjianbao</div>
-        <div class="rest-info">
-          <span>📍 黃浦區黃河路41號（近南京西路步行街）| 🚇 Line 1/2 南京西路站</span>
-          <span>📞 021-63279777 | 🕐 7:00–22:00</span>
-          <span>💰 ¥30–50/人 | ⭐ Dianping 4.5 · 上海名點 · 2025 必吃榜</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shanghai's most famous pan-fried pork bun (生煎包). Thin skin, copious soup inside, sesame-crusted bottom fried to a crisp. Dozens of branches citywide — every meal feels like the original. Must-order: Pork Shengjianbao (鮮肉生煎), Beef + Glass Noodle Soup (牛肉粉絲湯). A must for any Shanghai visitor.</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥟 Must-Order: Pan-Fried Pork Bun + Beef Soup</span>
-          <span class="rest-tag">💰 Budget-friendly · ¥30–50</span>
-          <span class="rest-tag">⭐ 30+ branches citywide</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🍜</span>
+        <span class="attraction-num-label">#4</span>
+      </div>
+      <div class="attraction-body">
+        <h3>佳家湯包 (Jia Jia Tang Bao)</h3>
+        <div class="attraction-chinese">佳家湯包（黃河路店）· Dianping 4.7</div>
+        <div class="attraction-desc">蟹粉湯包傳奇 · 皮薄汁多 · Est. 1990s</div>
+        <div class="attraction-info">📍 黃浦區黃河路127號（南京西路步行街近）| 🚇 地鐵1/2/8 南京西路站<br>📞 021-63276878 | 🕐 7:30–20:00<br>💰 ¥70/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">純蟹粉湯包（¥108）為鎮店之寶，湯水豐富，蟹味濃郁。鮮肉湯包同樣出色，魚丸湯必配。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Pure Crab Roe Soup Dumpling · Fresh Pork Soup Dumpling</div>
+        <div class="attraction-tags">⭐ Dianping 4.7 · 🦀 Pure Crab Roe</div>
       </div>
     </div>
-
-    <!-- 5. 三玛璐酒家 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🥘</span><span class="label">#5</span></div>
-      <div class="rest-body">
-        <h3>San Ma Lu · 三瑪璐酒樓</h3>
-        <div class="chinese">漢口路店 · Est. 1996 · 2025 Dianping Must-Eat List</div>
-        <div class="rest-info">
-          <span>📍 黃浦區漢口路413號（南京東路商圈，近山西南路）| 🚇 Line 2/10 南京東路站</span>
-          <span>📞 021-63517909 | 🕐 9:00–21:30</span>
-          <span>💰 ¥80–100/人 | ⭐ Dianping 2025 必吃榜 · 28 years old</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">A neighbourhood Benbang (本幫) institution since 1996. The name comes from the old Shanghai street name "三瑪璐" (Three Ma Road). Renowned for authentic Shanghai home cooking — the kind locals grew up on. Must-order: Wasabi Shrimp (芥末蝦仁), Braised Pork Liver (醬爆豬肝), Dry Pot Bullfrog (干鍋牛蛙), Pan-Fried Pork Chops (上海小排).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥘 Must-Order: Wasabi Shrimp + Braised Pork Liver</span>
-          <span class="rest-tag">🏠 29-year neighbourhood favourite</span>
-          <span class="rest-tag">⭐ 2025 Dianping Must-Eat</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🥟</span>
+        <span class="attraction-num-label">#5</span>
+      </div>
+      <div class="attraction-body">
+        <h3>小楊生煎 (Xiao Yang Sheng Jian)</h3>
+        <div class="attraction-chinese">小楊生煎（黃河路店）· Est. 1992</div>
+        <div class="attraction-desc">上海生煎包名店 · 上海名點小吃</div>
+        <div class="attraction-info">📍 黃浦區黃河路97號（近南京西路步行街）| 🚇 地鐵1/2 南京西路站<br>📞 021-53751793 | 🕐 6:30–22:00<br>💰 ¥30–50/人 | ⭐ Dianping 4.5 · 上海名點</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">薄皮、香脆、湯多——上海街頭生煎包代表。鮮肉生煎、蝦仁生煎、牛肉粉絲湯。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Pan-Fried Pork Bun + Beef Soup</div>
+        <div class="attraction-tags">💰 超抵食 · 🍳 上海名點</div>
       </div>
     </div>
-
-    <!-- 6. 老吉堂上海本帮菜 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🍖</span><span class="label">#6</span></div>
-      <div class="rest-body">
-        <h3>Old Ji Tang Benbang · 老吉堂上海本幫菜</h3>
-        <div class="chinese">外灘店 · Est. 2010s · Award-Winning Shanghai Cuisine · Dianping 4.6</div>
-        <div class="rest-info">
-          <span>📍 黃浦區北京東路118號（近外灘）| 🚇 Line 2/10 南京東路站</span>
-          <span>📞 021-6323 1818 | 🕐 11:00–14:00 · 17:00–21:30</span>
-          <span>💰 ¥218/人 | ⭐ Dianping 4.6</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Award-winning Shanghainese Benbang cuisine steps from the Bund. The restaurant brings traditional recipes into an elegant setting. Must-order: Red-Cooked Pork (紅燒肉), Drunken Chicken (醉雞), Stir-Fried Shrimp with Longjing Tea (龍井蝦仁), Crab Roe Tofu (蟹粉豆腐).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🍖 Must-Order: Red-Cooked Pork + Drunken Chicken</span>
-          <span class="rest-tag">🌃 Near the Bund · Evening dinner ideal</span>
-          <span class="rest-tag">⭐ Award-winning Benbang</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🥘</span>
+        <span class="attraction-num-label">#6</span>
+      </div>
+      <div class="attraction-body">
+        <h3>三瑪璐酒樓 (San Ma Lu)</h3>
+        <div class="attraction-chinese">三瑪璐酒樓（漢口路店）· Est. 1996</div>
+        <div class="attraction-desc">2025 Dianping必吃榜 · 28年本幫老店</div>
+        <div class="attraction-info">📍 黃浦區漢口路413號（南京東路商圈）| 🚇 地鐵2/10 南京東路站<br>📞 021-63517909 | 🕐 9:00–21:30<br>💰 ¥90–100/人 | ⭐ Dianping 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">街坊食堂，地道本幫。芥末蝦仁、醬爆豬肝、干鍋牛蛙、上海小排。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Wasabi Shrimp · Braised Pork Liver · Dry Pot Bullfrog</div>
+        <div class="attraction-tags">🏠 28年街坊食堂 · ⭐ 2025必吃</div>
       </div>
     </div>
-
-    <!-- 7. 粤菜·向群饭店 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🦐</span><span class="label">#7</span></div>
-      <div class="rest-body">
-        <h3>Yue Xiang Qun · 粵·向群飯店</h3>
-        <div class="chinese">上海浦東店 · Est. 1970s · Dianping 4.7 · Authentic Cantonese</div>
-        <div class="rest-info">
-          <span>📍 浦東新區浦東南路1285號（近世紀大道）| 🚇 Line 2 上海科技館站</span>
-          <span>📞 021-5833 8888 | 🕐 11:00–14:30 · 17:00–21:30</span>
-          <span>💰 ¥150/人 | ⭐ Dianping 4.7 · 2025 必吃榜</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">One of Shanghai's most beloved Cantonese restaurants — a local institution since the 1970s. Renowned for wok-hei (鍋氣) — that elusive breath of the wok. Must-order: Salted Chicken (鹽焗雞), Steamed Fish with Ginger & Scallion (清蒸石斑), Crispy Pork Belly (脆皮燒肉), Century Egg with Pork Congee (皮蛋瘦肉粥).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🦐 Must-Order: Salted Chicken + Steamed Fish</span>
-          <span class="rest-tag">🥘 Authentic Cantonese · wok-hei</span>
-          <span class="rest-tag">⭐ 50+ years old</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🍖</span>
+        <span class="attraction-num-label">#7</span>
+      </div>
+      <div class="attraction-body">
+        <h3>老吉堂上海本幫菜 (Old Ji Tang Benbang)</h3>
+        <div class="attraction-chinese">老吉堂上海本幫菜（外灘店）</div>
+        <div class="attraction-desc">外灘附近 · Dianping 4.6 · 紅燒肉人氣</div>
+        <div class="attraction-info">📍 黃浦區北京東路118號（近外灘）| 🚇 地鐵2/10 南京東路站<br>📞 021-6323 1818 | 🕐 11:00–14:00 · 17:00–21:30<br>💰 ¥218/人 | ⭐ Dianping 4.6</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">紅燒肉、醉雞、龍井蝦仁、蟹粉豆腐。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Red-Cooked Pork · Drunken Chicken</div>
+        <div class="attraction-tags">🌃 近外灘 · ⭐ 紅燒肉名店</div>
       </div>
     </div>
-
-    <!-- 8. 南-Clock -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🥧</span><span class="label">#8</span></div>
-      <div class="rest-body">
-        <h3>Guangming Village · 光明邨</h3>
-        <div class="chinese">黃浦區南京西路店 · Est. 1949 · Shanghai Heritage Cake Shop</div>
-        <div class="rest-info">
-          <span>📍 黃浦區南京西路1172號（近黃河路）| 🚇 Line 1/2/8 南京西路站</span>
-          <span>📞 021-6322 3998 | 🕐 8:00–20:00</span>
-          <span>💰 ¥40–60/人 | ⭐ Dianping 4.4 · 76 years old</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shanghai's most beloved old-school bakery since 1949 — the queue snakes around the block every weekend for their signature鲜肉月饼 (savoury pork mooncake) and各式本幫糕點. No-frills, no atmosphere, perfect food. Must-order: Pork Mooncake (鮮肉月餅), Walnut Tofu (核桃豆腐), Assorted Pastries (各款糕點).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥧 Must-Order: Pork Mooncake + Assorted Pastries</span>
-          <span class="rest-tag">🏠 76-year heritage bakery · Queue expected</span>
-          <span class="rest-tag">⭐ Local institution</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🦐</span>
+        <span class="attraction-num-label">#8</span>
+      </div>
+      <div class="attraction-body">
+        <h3>粵·向群飯店 (Yue Xiang Qun)</h3>
+        <div class="attraction-chinese">粵·向群飯店（浦東店）· Est. 1970s</div>
+        <div class="attraction-desc">50年傳統 · Dianping 4.7 · 粵菜經典</div>
+        <div class="attraction-info">📍 浦東新區浦東南路1285號（近世紀大道）| 🚇 地鐵2 上海科技館站<br>📞 021-5833 8888 | 🕐 11:00–14:30 · 17:00–21:30<br>💰 ¥150/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">鹽焗雞、清蒸石斑、脆皮燒肉、皮蛋瘦肉粥。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Salted Chicken · Steamed Fish · Crispy Pork Belly</div>
+        <div class="attraction-tags">🥘 地道粵菜 · ⭐ 50年傳統</div>
       </div>
     </div>
-
-    <!-- 9. 大壶春 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🥟</span><span class="label">#9</span></div>
-      <div class="rest-body">
-        <h3>Da Hu Chun · 大壺春</h3>
-        <div class="chinese">雲南路店 · Est. 1927 · Shanghai's #2 Shengjianbao · Dianping 4.5</div>
-        <div class="rest-info">
-          <span>📍 黃浦區雲南路60號（近南京西路）| 🚇 Line 8 曲阜路站</span>
-          <span>📞 021-6328 0293 | 🕐 6:30–19:00</span>
-          <span>💰 ¥30–50/人 | ⭐ Dianping 4.5 · 2025 必吃榜 · 98 years old</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shanghai's oldest surviving shengjianbao (pan-fried bun) specialist — founded in 1927. Unlike the薄皮派 xiaolongbao at Nanxiang, Da Hu Chun uses a thick发酵面皮 — fluffy, doughy, and utterly satisfying. The opposite school of pan-fried buns. Must-order: Shengjianbao (生煎包), Beef Soup (牛肉湯).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥟 Must-Order: Thick-Skin Shengjianbao</span>
-          <span class="rest-tag">🕕 Opens 6:30am · Breakfast perfect</span>
-          <span class="rest-tag">⭐ 98 years old · Original recipe</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🥧</span>
+        <span class="attraction-num-label">#9</span>
+      </div>
+      <div class="attraction-body">
+        <h3>光明邨 (Guangming Village)</h3>
+        <div class="attraction-chinese">光明邨大酒家（南京西路店）· Est. 1949</div>
+        <div class="attraction-desc">上海老字號糕點 · 76年歷史</div>
+        <div class="attraction-info">📍 黃浦區南京西路1172號（近黃河路）| 🚇 地鐵1/2/8 南京西路站<br>📞 021-6322 3998 | 🕐 8:00–20:00<br>💰 ¥40–60/人 | ⭐ Dianping 4.4 · 76年歷史</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">鮮肉月餅（每逢周末排長龍）、核桃豆腐、各款本幫糕點。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Pork Mooncake · Walnut Tofu · Assorted Pastries</div>
+        <div class="attraction-tags">🏠 76年老店 · 🥧 上海糕點傳奇</div>
       </div>
     </div>
-
-    <!-- 10. 蔡嘉甜品 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sh-mid);"><span class="emoji">🍰</span><span class="label">#10</span></div>
-      <div class="rest-body">
-        <h3>Mr. Choi Patisserie · 蔡嘉甜品</h3>
-        <div class="chinese">豫園店 · Est. 2010s · Shanghai's #1 French Pastry · Dianping 4.8</div>
-        <div class="rest-info">
-          <span>📍 黃浦區豫園百貨天裕樓對面（豫園商圈）| 🚇 Line 10/14 豫園站</span>
-          <span>📞 （見大眾點評）| 🕐 10:00–22:00</span>
-          <span>💰 ¥50/人 | ⭐ Dianping 4.8+ · Top-rated in Shanghai</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shanghai's most celebrated French patisserie — their legendary Napoleon (拿破侖) has won devoted fans citywide. Layer upon layer of ultra-crisp mille-feuille with fresh cream — light, never cloying. Also exceptional: seasonal fruit tarts, cream puffs, chocolate fondants. The ideal afternoon stop after exploring Yuyuan Garden.</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🍰 Must-Order: Napoleon + Seasonal Tarts</span>
-          <span class="rest-tag">🌸 Perfect after Yuyuan Garden</span>
-          <span class="rest-tag">⭐ Shanghai's #1 Pastry Shop</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sh-mid);">
+        <span class="attraction-emoji">🍰</span>
+        <span class="attraction-num-label">#10</span>
+      </div>
+      <div class="attraction-body">
+        <h3>蔡嘉甜品 (Mr. Choi Patisserie)</h3>
+        <div class="attraction-chinese">蔡嘉甜品（豫園店）· Dianping 4.8</div>
+        <div class="attraction-desc">上海第一法式甜品店 · 招牌拿破侖</div>
+        <div class="attraction-info">📍 黃浦區豫園百貨天裕樓對面（豫園商圈）| 🚇 地鐵10/14 豫園站<br>📞 （見大眾點評）| 🕐 10:00–22:00<br>💰 ¥50/人 | ⭐ Dianping 4.8+</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">招牌拿破侖千層酥被譽為上海最出色，層層酥脆奶油，輕盈不膩。季限定水果撻、忌廉泡芙、朱古力Fondant。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Napoleon · Seasonal Fruit Tart</div>
+        <div class="attraction-tags">🍰 上海第一甜品 · ⭐ Dianping 4.8</div>
       </div>
     </div>
-  </div>
-  <!-- ── ZHUJIAJIAO ── -->
-  <div class="section-block" id="zhujiajiao">
-    <h2>🌸 Zhujiajiao · Top 10 Must-Eat Restaurants</h2>
-    <p class="section-desc">Water town farmhouse cuisine · 400-year-old culinary heritage · Nov 26</p>
+<div class="section-block" id="zhujiajiao">
+  <h2>🌸 Zhujiajiao · Top 10</h2>
+  <p class="section-desc">Riverside farmhouse flavours · 400-year water town culinary traditions · Nov 26</p>
 
-    <!-- 1. 古桥人家水上餐厅 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🐟</span><span class="label">#1</span></div>
-      <div class="rest-body">
-        <h3>Ancient Bridge Family · 古橋人家•水上餐廳</h3>
-        <div class="chinese">朱家角古鎮店 · Dianping 4.5 · Riverside · Top Rated in Zhujiajiao</div>
-        <div class="rest-info">
-          <span>📍 朱家角古鎮景區內（放生橋附近，水上平台）| 🚇 Line 17 朱家角站，步行10分鐘</span>
-          <span>📞 （見大眾點評）| 🕐 10:30–21:00</span>
-          <span>💰 ¥77/人 | ⭐ Dianping 4.5 · 458+ 點評</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Zhujiajiao's most beloved riverside restaurant — dining on a floating deck with lantern light on the canal. The kitchen serves fresh river fish daily, caught each morning. Must-order: Salted River Shrimp (鹽水河蝦), Steamed Eel (招牌河鰻), Silver Fish Scrambled Eggs (銀魚炒蛋), Osmanthus Cake (桂花糕), Local Free-Range Chicken (本地雞).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🐟 Must-Order: Steamed River Eel + Salted Shrimp</span>
-          <span class="rest-tag">🌊 Waterfront dining · Magic evening</span>
-          <span class="rest-tag">⭐ Top-rated in Zhujiajiao</span>
-        </div>
+<div class="section-block" id="zhujiajiao">
+  <h2>🌸 Zhujiajiao · Top 10</h2>
+  <p class="section-desc">Riverside farmhouse flavours · 400-year water town culinary traditions · Nov 26</p>
+
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🐟</span>
+        <span class="attraction-num-label">#1</span>
+      </div>
+      <div class="attraction-body">
+        <h3>古橋人家水上餐廳 (Ancient Bridge Family)</h3>
+        <div class="attraction-chinese">古橋人家•水上餐廳</div>
+        <div class="attraction-desc">朱家角超人氣 · Dianping 4.5 · 河畔平台</div>
+        <div class="attraction-info">📍 朱家角古鎮景區內（放生橋附近）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 10:30–21:00<br>💰 ¥77/人 | ⭐ Dianping 4.5</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">水上平台用餐，燈籠倒影在河面。招牌河鰻、銀魚炒蛋、鹽水河蝦、本地雞。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Steamed River Eel + Salted Shrimp</div>
+        <div class="attraction-tags">🌊 水上平台 · 🏆 朱家角人氣</div>
       </div>
     </div>
-
-    <!-- 2. 放生桥菜馆 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🦐</span><span class="label">#2</span></div>
-      <div class="rest-body">
-        <h3>Fangsheng Bridge Restaurant · 放生橋菜館</h3>
-        <div class="chinese">朱家角鎮北大街172號 · Est. 1990s · Dianping 4.6 · #1 on Trip.com</div>
-        <div class="rest-info">
-          <span>📍 朱家角鎮北大街172號（放生橋旁）| 🚇 Line 17 朱家角站</span>
-          <span>📞 021-59246658 | 🕐 11:00–20:00</span>
-          <span>💰 ¥100/人 | ⭐ Dianping 4.6 · Trip.com #1 朱家角餐廳</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">The go-to restaurant for Zhujiajiao locals since the 1990s — steps from the iconic Fangsheng Bridge. Water town home cooking at its best. Must-order: Braised Zha Meat (扎肉 — Zhujiajiao signature pork belly), Salted River Shrimp (鹽水河蝦), Steamed White Fish (清蒸白水魚), Eel Shred in Oil (響油鱔絲), Oil-Braised Jiaobai (油燜茭白).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🦐 Must-Order: Braised Zha Meat + River Shrimp</span>
-          <span class="rest-tag">🌉 Iconic bridge view</span>
-          <span class="rest-tag">⭐ #1 on Trip.com · Local favourite</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🦐</span>
+        <span class="attraction-num-label">#2</span>
+      </div>
+      <div class="attraction-body">
+        <h3>放生橋菜館 (Fangsheng Bridge Restaurant)</h3>
+        <div class="attraction-chinese">放生橋菜館 · Est. 1990s</div>
+        <div class="attraction-desc">朱家角代表餐廳 · Dianping 4.6 · Trip.com #1</div>
+        <div class="attraction-info">📍 朱家角鎮北大街172號（放生橋旁）| 🚇 地鐵17號線朱家角站<br>📞 021-59246658 | 🕐 11:00–20:00<br>💰 ¥100/人 | ⭐ Dianping 4.6 · Trip.com #1</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">扎肉（朱家角名菜）、鹽水河蝦、清蒸白水魚、響油鱔絲。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Braised Zha Meat + River Shrimp</div>
+        <div class="attraction-tags">🌉 放生橋旁 · ⭐ #1 Trip.com</div>
       </div>
     </div>
-
-    <!-- 3. 狀元樓 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🏮</span><span class="label">#3</span></div>
-      <div class="rest-body">
-        <h3>Zhuangyuan Lou · 狀元樓</h3>
-        <div class="chinese">北大街（明清老街）· Est. 1800s · 200+ Year Heritage · Dianping 4.4</div>
-        <div class="rest-info">
-          <span>📍 朱家角古鎮北大街（明清老街核心）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 10:00–21:00</span>
-          <span>💰 ¥60–80/人 | ⭐ Dianping 4.4 · 200+ years old</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">One of Zhujiajiao's oldest restaurants — the name means "Scholars' Hall," evoking the scholar-official tradition. The 200-year-old timber building with hand-hewn beams is itself a reason to visit. Must-order: Hand-Made Zongzi with Pulled Pork (手作粽子), Red-Cooked Pork (紅燒肉), River Fish Soup (河魚湯), Local Chicken (本地土雞).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🏮 Must-Order: Hand-Made Zongzi + Red-Cooked Pork</span>
-          <span class="rest-tag">📸 Heritage building · 200+ years</span>
-          <span class="rest-tag">⭐ One of oldest in Zhujiajiao</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🏮</span>
+        <span class="attraction-num-label">#3</span>
+      </div>
+      <div class="attraction-body">
+        <h3>狀元樓 (Zhuangyuan Lou)</h3>
+        <div class="attraction-chinese">狀元樓 · 1800s</div>
+        <div class="attraction-desc">朱家角最古老餐廳 · 200年曆史</div>
+        <div class="attraction-info">📍 朱家角古鎮北大街（明清老街核心）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 10:00–21:00<br>💰 ¥60–80/人 | ⭐ Dianping 4.4 · 200年历史</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">明清古樓用餐，學者之堂。手作粽子、紅燒肉、河魚湯、本地土雞。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Hand-Made Zongzi + Red-Cooked Pork</div>
+        <div class="attraction-tags">🏛️ 200年古蹟 · 📸 打卡勝地</div>
       </div>
     </div>
-
-    <!-- 4. 清代舒宅角里大院 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🏛️</span><span class="label">#4</span></div>
-      <div class="rest-body">
-        <h3>Qingdai Shuzhai · 清代舒宅角里大院</h3>
-        <div class="chinese">朱家角古鎮 · 清代古宅改建 · Heritage Building Restaurant · Dianping 4.6</div>
-        <div class="rest-info">
-          <span>📍 朱家角古鎮內（北大街南端）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 11:00–20:30</span>
-          <span>💰 ¥90–120/人 | ⭐ Dianping 4.6 · 清代古宅</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Dining inside a restored Qing Dynasty courtyard home — original timber beams, stone floors, lantern light. One of the most atmospheric dining experiences in any ancient water town. Try the farmhouse-style set menus: Steamed River Fish (清蒸河鮮), Zha Meat with Glutinous Rice (扎肉糯米飯), Wild Vegetable Dumplings (野菜水餃).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🏛️ Must-Order: Set Menu (Heritage Experience)</span>
-          <span class="rest-tag">📸 Qing Dynasty courtyard dining</span>
-          <span class="rest-tag">⭐ Top atmosphere · Dianping 4.6</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🏛️</span>
+        <span class="attraction-num-label">#4</span>
+      </div>
+      <div class="attraction-body">
+        <h3>清代舒宅角里大院 (Qingdai Shuzhai)</h3>
+        <div class="attraction-chinese">清代舒宅角里大院</div>
+        <div class="attraction-desc">清代古宅改建 · Dianping 4.6</div>
+        <div class="attraction-info">📍 朱家角古鎮內（北大街南端）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 11:00–20:30<br>💰 ¥90–120/人 | ⭐ Dianding 4.6</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">清代古院內用餐，雕花樑柱、灯笼光。手作套飯：清蒸河鮮、扎肉糯米飯、野菜水餃。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Set Menu (Heritage Experience)</div>
+        <div class="attraction-tags">🏛️ 清代古宅 · 📸 打卡勝地</div>
       </div>
     </div>
-
-    <!-- 5. 酒罈老灶柴火飯 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🔥</span><span class="label">#5</span></div>
-      <div class="rest-body">
-        <h3>Jiu Tan Lao Zao · 酒罈老灶柴火飯</h3>
-        <div class="chinese">朱家角古鎮 · 柴火灶燒 · Dianping 4.5 · Authentic Farmhouse</div>
-        <div class="rest-info">
-          <span>📍 朱家角古鎮（近放生橋）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 10:30–20:30</span>
-          <span>💰 ¥65–85/人 | ⭐ Dianping 4.5</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Firewood-cooked meals over an open flame — the old farmhouse way. The smoky aroma infuses every dish. Must-order: Charcoal-Fired Red-Cooked Pork (柴火紅燒肉), Firewood Chicken Soup (柴火土雞湯), Smoked Fish (燻魚), Farmhouse Vegetables (农家青菜).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🔥 Must-Order: Charcoal Pork + Firewood Chicken Soup</span>
-          <span class="rest-tag">🍚 Firewood cooking · Authentic</span>
-          <span class="rest-tag">⭐ Popular · Arrive before 12pm</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🔥</span>
+        <span class="attraction-num-label">#5</span>
+      </div>
+      <div class="attraction-body">
+        <h3>酒罈老灶柴火飯 (Jiu Tan Lao Zao)</h3>
+        <div class="attraction-chinese">酒罈老灶柴火飯</div>
+        <div class="attraction-desc">柴火灶燒 · Dianping 4.5</div>
+        <div class="attraction-info">📍 朱家角古鎮（近放生橋）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 10:30–20:30<br>💰 ¥65–85/人 | ⭐ Dianping 4.5</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">柴火灶燒烤，焦香十足。柴火紅燒肉、柴火土雞湯、燻魚、農家青菜。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Charcoal Pork + Firewood Chicken Soup</div>
+        <div class="attraction-tags">🔥 柴火灶 · 🍚 地道風味</div>
       </div>
     </div>
-
-    <!-- 6. 漕溪人家酒樓 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🍶</span><span class="label">#6</span></div>
-      <div class="rest-body">
-        <h3>Cao Xi Ren Jia · 漕溪人家酒樓</h3>
-        <div class="chinese">朱家角古鎮 · Dianping 4.4 · Water Town Cuisine · Affordable</div>
-        <div class="rest-info">
-          <span>📍 朱家角鎮漕河街（古鎮北段）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 10:30–20:00</span>
-          <span>💰 ¥55–75/人 | ⭐ Dianping 4.4</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">A local favourite tucked away in the quieter north canal area of the ancient town. Home-cooked Zhujiajiao dishes at approachable prices. Specialties: Braised Pork Belly with Taro (芋頭紅燒肉), River Shrimp with Leeks (韭菜河蝦), Crispy Rice Crust (鍋巴).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🍶 Must-Order: Braised Pork + River Shrimp</span>
-          <span class="rest-tag">🏠 Local neighbourhood favourite</span>
-          <span class="rest-tag">💰 Budget-friendly · ¥55–75</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🍶</span>
+        <span class="attraction-num-label">#6</span>
+      </div>
+      <div class="attraction-body">
+        <h3>漕溪人家酒樓 (Cao Xi Ren Jia)</h3>
+        <div class="attraction-chinese">漕溪人家酒樓</div>
+        <div class="attraction-desc">朱家角 · Dianping 4.4 · 實惠之選</div>
+        <div class="attraction-info">📍 朱家角鎮漕河街（古鎮北段）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 10:30–20:00<br>💰 ¥55–75/人 | ⭐ Dianping 4.4</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">地道水鄉家常小炒，經濟實惠。芋頭紅燒肉、韭菜河蝦、鍋巴。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Braised Pork + River Shrimp</div>
+        <div class="attraction-tags">💰 超值之選 · 🏠 街坊最愛</div>
       </div>
     </div>
-
-    <!-- 7. 弘德楼 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🥢</span><span class="label">#7</span></div>
-      <div class="rest-body">
-        <h3>Hong De Lou · 弘德樓</h3>
-        <div class="chinese">朱家角古鎮 · Dianping 4.3 · Traditional Courtyard Restaurant</div>
-        <div class="rest-info">
-          <span>📍 朱家角古鎮景區內（課植園附近）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 10:00–20:30</span>
-          <span>💰 ¥65–85/人 | ⭐ Dianping 4.3</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">A traditional courtyard restaurant offering authentic Zhujiajiao home cooking in a restored building. Known for generous portions and honest, hearty farmhouse flavour. Must-order: Zha Meat (扎肉), Steamed River Fish (清蒸河魚), Water Shield Soup (西湖蓴菜湯), Wontons in Broth (鮮肉餛飩).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🥢 Must-Order: Zha Meat + Steamed River Fish</span>
-          <span class="rest-tag">🏠 Hearty home cooking · Generous portions</span>
-          <span class="rest-tag">⭐ Traditional atmosphere</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🥢</span>
+        <span class="attraction-num-label">#7</span>
+      </div>
+      <div class="attraction-body">
+        <h3>弘德樓 (Hong De Lou)</h3>
+        <div class="attraction-chinese">弘德樓</div>
+        <div class="attraction-desc">傳統庭院 · Dianping 4.3</div>
+        <div class="attraction-info">📍 朱家角古鎮景區內（課植園附近）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 10:00–20:30<br>💰 ¥65–85/人 | ⭐ Dianping 4.3</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">傳統庭院餐館，實惠分量。扎肉、清蒸河魚、鮮肉餛飩。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Zha Meat + Steamed River Fish</div>
+        <div class="attraction-tags">🥢 傳統風味 · 🏠 份量實惠</div>
       </div>
     </div>
-
-    <!-- 8. 森林人家 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🌿</span><span class="label">#8</span></div>
-      <div class="rest-body">
-        <h3>Forest Family · 森林人家</h3>
-        <div class="chinese">朱家角古鎮 · Dianping 4.4 · Garden Setting · Peaceful</div>
-        <div class="rest-info">
-          <span>📍 朱家角古鎮景區內（近課植園）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 10:00–21:00</span>
-          <span>💰 ¥70–90/人 | ⭐ Dianping 4.4</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">A quiet garden restaurant set among bamboo and ancient trees — one of the few truly peaceful dining spots in the ancient town. The kitchen serves farm-to-table dishes with local seasonal ingredients. Must-order: Bamboo Shoots with River Shrimp (竹筍河蝦), Steamed Chicken (清蒸土雞), Wild Vegetable Frittata (野菜蛋).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🌿 Must-Order: Seasonal Set Menu</span>
-          <span class="rest-tag">🌳 Garden setting · Peaceful escape</span>
-          <span class="rest-tag">⭐ Farm-to-table · Seasonal</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🌿</span>
+        <span class="attraction-num-label">#8</span>
+      </div>
+      <div class="attraction-body">
+        <h3>森林人家 (Forest Family)</h3>
+        <div class="attraction-chinese">森林人家</div>
+        <div class="attraction-desc">田園餐廳 · Dianping 4.4 · 清新</div>
+        <div class="attraction-info">📍 朱家角古鎮景區內（近課植園）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 10:00–21:00<br>💰 ¥70–90/人 | ⭐ Dianping 4.4</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">竹林古樹下的清幽餐廳，食材來自自家農場。竹筍河蝦、清蒸土雞、野菜蛋。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Seasonal Set Menu</div>
+        <div class="attraction-tags">🌳 田園風光 · 🥗 有機食材</div>
       </div>
     </div>
-
-    <!-- 9. 阿婆茶樓 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">☕</span><span class="label">#9</span></div>
-      <div class="rest-body">
-        <h3>Apo Tea House · 阿婆茶樓</h3>
-        <div class="chinese">北大街125號 · Est. 1990s · 100-Year-Old Tea House · Dianping 4.3</div>
-        <div class="rest-info">
-          <span>📍 朱家角鎮北大街125號（二樓，近放生橋）| 🚇 Line 17 朱家角站</span>
-          <span>📞 （見大眾點評）| 🕐 9:00–21:00</span>
-          <span>💰 ¥30–50/人 | ⭐ Dianping 4.3 · 100年曆史 · 2025 必吃榜</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">The iconic second-floor tea house overlooking the canal — wooden stairs, old teacups, the smell of osmanthus tea and rice wine cakes. Zhujiajiao's most atmospheric traditional experience. Must-order: Grandma Tea (阿婆茶), Osmanthus Cake (桂花糕), Rice Wine (米酒), Boiled peanuts (水煮花生).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">☕ Must-Order: Grandma Tea + Osmanthus Cake</span>
-          <span class="rest-tag">🌸 Iconic canal view · 2nd floor terrace</span>
-          <span class="rest-tag">⭐ #1 tea house experience in Zhujiajiao</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">☕</span>
+        <span class="attraction-num-label">#9</span>
+      </div>
+      <div class="attraction-body">
+        <h3>阿婆茶樓 (Apo Tea House)</h3>
+        <div class="attraction-chinese">阿婆茶樓 · Est. 1990s</div>
+        <div class="attraction-desc">百年茶樓 · Dianping 4.3 · 2025必吃榜</div>
+        <div class="attraction-info">📍 朱家角鎮北大街125號（二樓，近放生橋）| 🚇 地鐵17號線朱家角站<br>📞 （見大眾點評）| 🕐 9:00–21:00<br>💰 ¥30–50/人 | ⭐ Dianping 4.3 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">二樓茶館俯瞰河畔，樓梯、木桌、老茶杯。阿婆茶、桂花糕、米酒、水煮花生。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Grandma Tea + Osmanthus Cake</div>
+        <div class="attraction-tags">☕ 百年茶樓 · 📸 必打卡</div>
       </div>
     </div>
-
-    <!-- 10. 上海朱家角安麓酒店全日餐厅 -->
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--zj-mid);"><span class="emoji">🏨</span><span class="label">#10</span></div>
-      <div class="rest-body">
-        <h3>Zhujiajiao Amber Resort · 朱家角安麓酒店·全日餐廳</h3>
-        <div class="chinese">朱家角古鎮 · Dianping 4.8 · Luxurious Resort Dining · 《周生如故》拍攝地</div>
-        <div class="rest-info">
-          <span>📍 青浦區朱家角鎮課植園路177號（安麓酒店內）| 🚇 Line 17 朱家角站，車程5分鐘</span>
-          <span>📞 021-3923 7777 | 🕐 6:30–22:00（住店客人優先）</span>
-          <span>💰 ¥320/人 | ⭐ Dianping 4.8 ·  Luxury Resort · 《周生如故》拍攝地</span>
-        </div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Zhujiajiao's most luxurious dining experience — served at the Amber Resort, a converted 1920s estate. The setting is extraordinary: original Qing Dynasty architecture, lily ponds, scholars' gardens. The tasting menu changes with seasons. Must-order: Six-Treasure Tasting Set (六福鑒賞套餐), Slow-Braised Lamb (慢燉羊肉), Lotus Root in Osprey Sauce (糯米藕).</p>
-        <div class="rest-tags">
-          <span class="rest-tag highlight">🏨 Must-Order: Tasting Menu · Reserve ahead</span>
-          <span class="rest-tag">🌳 Resort setting · Historic estate</span>
-          <span class="rest-tag">⭐ Dianping 4.8 · Best in class</span>
-        </div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--zj-mid);">
+        <span class="attraction-emoji">🏨</span>
+        <span class="attraction-num-label">#10</span>
+      </div>
+      <div class="attraction-body">
+        <h3>朱家角安麓酒店·全日餐廳 (Zhujiajiao Amber Resort)</h3>
+        <div class="attraction-chinese">朱家角安麓酒店·全日餐廳 · Dianping 4.8</div>
+        <div class="attraction-desc">豪華度假酒店 · 《周生如故》拍攝地</div>
+        <div class="attraction-info">📍 青浦區朱家角鎮課植園路177號（安麓酒店內）| 🚇 地鐵17號線朱家角站，車程5分鐘<br>📞 021-3923 7777 | 🕐 6:30–22:00<br>💰 ¥320/人 | ⭐ Dianping 4.8 · Luxury Resort</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">奢華中式莊園，蓮花池、學者花園。六福鑒賞套餐、慢燉羊肉、糯米藕。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Tasting Menu (reserve ahead)</div>
+        <div class="attraction-tags">🏨 豪華莊園 · ⭐ 最高評分</div>
       </div>
     </div>
-  </div>
-  <!-- ── SHENZHEN ── -->
-  <div class="section-block" id="shenzhen">
-    <h2>🏙️ Shenzhen · Top 10 Must-Eat Restaurants</h2>
-    <p class="section-desc">Based on 2025 Dianping Must-Eat List · Black Pearl Guide · Nov 28 – Dec 1</p>
+<div class="section-block" id="shenzhen">
+  <h2>🏙️ Shenzhen · Top 10</h2>
+  <p class="section-desc">OCT Harbour · Shunde · Cantonese · Korean BBQ · Bay views · Nov 28 – Dec 1</p>
 
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🥩</span><span class="label">#1</span></div>
-      <div class="rest-body">
-        <h3>Xita Lao Tai Tai · 西塔老太太泥爐烤肉</h3>
-        <div class="chinese">南山旗艦店 · Est. 1997 Shenyang · #1 BBQ in Nanshan · Dianping 4.8</div>
-        <div class="rest-info"><span>📍 南山區粵海街道文心六路4號保利文化廣場B區1層35-36號</span><span>📞 （見大眾點評）| 🕐 11:00–23:00</span><span>💰 ¥120–150/人 | ⭐ Dianping 4.8 · #1 BBQ Nanshan</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Iconic Korean BBQ chain born in Shenyang 1997. Traditional Northern Korean clay pot charcoal grilling using菊花炭. 28 types of house-marinated meats. Must-order: Premium Beef Set (優質牛肉拼盤), Marinated Pork Neck (醃製五花肉), 老太太特選牛肉. Staff assist with grilling on request.</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🥩 Must-Order: Premium Beef Set + Marinated Pork</span><span class="rest-tag">🔥 Northern Korean charcoal tradition</span><span class="rest-tag">⭐ #1 BBQ in Nanshan</span></div>
+<div class="section-block" id="shenzhen">
+  <h2>🏙️ Shenzhen · Top 10</h2>
+  <p class="section-desc">OCT Harbour · Shunde · Cantonese · Korean BBQ · Bay views · Nov 28 – Dec 1</p>
+
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🥩</span>
+        <span class="attraction-num-label">#1</span>
+      </div>
+      <div class="attraction-body">
+        <h3>西塔老太太泥爐烤肉 (Xita Lao Tai Tai)</h3>
+        <div class="attraction-chinese">西塔老太太泥爐烤肉（南山旗艦店）· Est. 1997</div>
+        <div class="attraction-desc">#1 BBQ in Nanshan · Dianping 4.8</div>
+        <div class="attraction-info">📍 南山區粵海街道文心六路4號保利文化廣場B區1層35-36號<br>📞 （見大眾點評）| 🕐 11:00–23:00<br>💰 ¥120–150/人 | ⭐ Dianping 4.8 · #1 BBQ in Nanshan</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">1997年瀋陽傳統泥爐炭火烤肉，28種醃製肉類。優質牛肉拼盤、醃製五花肉、老太太特選牛肉。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Premium Beef Set + Marinated Pork Neck</div>
+        <div class="attraction-tags">🔥 泥爐炭火 · ⭐ #1 BBQ</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🥟</span><span class="label">#2</span></div>
-      <div class="rest-body">
-        <h3>Dian Du De · 點都德</h3>
-        <div class="chinese">南山華僑城店 · Est. 1933 Guangzhou · Premier Cantonese Dim Sum</div>
-        <div class="rest-info"><span>📍 南山區深南大道9018號華僑城大廈B/C座3樓（地鐵1號線華僑城站B口）</span><span>📞 0755-83325966 | 🕐 8:00–21:00</span><span>💰 ¥70–85/人 | ⭐ Dianping 4.4 · 2025 必吃榜 · 90+ years</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Guangzhou's beloved century-old dim sum institution — handcrafted to order, fresh from the kitchen. Must-order: Prawn Dumpling King (招牌蝦餃皇), Crispy Oil Stick (招牌靚油條), White Curry Fish Balls (咖喱魚蛋), Milky Custard Bun (椰汁鳳凰流沙包).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🥟 Must-Order: Prawn Dumpling + Crispy Oil Stick</span><span class="rest-tag">☕ Perfect 8am breakfast</span><span class="rest-tag">⭐ 90+ years old · Guangzhou heritage</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🥟</span>
+        <span class="attraction-num-label">#2</span>
+      </div>
+      <div class="attraction-body">
+        <h3>點都德 (Dian Du De)</h3>
+        <div class="attraction-chinese">點都德（南山華僑城店）· Est. 1933</div>
+        <div class="attraction-desc">90年粵式點心 · Dianping 4.4 · 2025必吃榜</div>
+        <div class="attraction-info">📍 南山區深南大道9018號華僑城大廈B/C座3樓（地鐵1號線華僑城站B口）<br>📞 0755-83325966 | 🕐 8:00–21:00<br>💰 ¥70–85/人 | ⭐ Dianping 4.4 · 90年歷史</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">手工即點即制，蝦餃皇、招牌油條、咖喱魚蛋、椰汁流沙包。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Prawn Dumpling + Crispy Oil Stick</div>
+        <div class="attraction-tags">☕ 早餐首選 · ⭐ 90年老字號</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🍲</span><span class="label">#3</span></div>
-      <div class="rest-body">
-        <h3>Xun Wei Shunde · 巡味順德菜</h3>
-        <div class="chinese">歡樂海岸店 · Dianping 4.6 · 2025 必吃榜 · Authentic Shunde</div>
-        <div class="rest-info"><span>📍 南山區歡樂海岸購物中心3樓（白石路）| 🚇 Line 9 深圳灣公園站，步行8分鐘</span><span>📞 （見大眾點評）| 🕐 11:00–14:00 · 17:00–21:30</span><span>💰 ¥126/人 | ⭐ Dianping 4.6 · 2025 必吃榜</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shunde — the birthplace of Cantonese cuisine. Every dish made to order. Evening outdoor terrace has bay views with fireworks every Sat 8:30pm. Must-order: Steamed Fish Head (清蒸魚頭), Shunde Fish Balls (順德魚茸羹), Crispy Pork Belly (脆皮燒肉), Double-Boiled Soup (老火例湯).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🍲 Must-Order: Steamed Fish + Shunde Fish Balls</span><span class="rest-tag">🌅 Bay view terrace · Sat fireworks</span><span class="rest-tag">⭐ 2025 必吃榜</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🍲</span>
+        <span class="attraction-num-label">#3</span>
+      </div>
+      <div class="attraction-body">
+        <h3>巡味順德菜 (Xun Wei Shunde)</h3>
+        <div class="attraction-chinese">巡味順德菜（歡樂海岸店）· Dianping 4.6</div>
+        <div class="attraction-desc">2025必吃榜 · 順德菜發源地</div>
+        <div class="attraction-info">📍 南山區歡樂海岸購物中心3樓（白石路）| 🚇 地鐵9號線深圳灣公園站<br>📞 （見大眾點評）| 🕐 11:00–14:00 · 17:00–21:30<br>💰 ¥126/人 | ⭐ Dianping 4.6 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">順德發源地風味，無味精、無添加。清蒸魚頭、順德魚茸羹、脆皮燒肉、老火例湯。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Steamed Fish + Shunde Fish Balls</div>
+        <div class="attraction-tags">🌅 灣區夜景 · 週六8:30pm煙花 · ⭐ 必吃榜</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🦢</span><span class="label">#4</span></div>
-      <div class="rest-body">
-        <h3>Tao Tao Ju · 陶陶居</h3>
-        <div class="chinese">深圳灣萬象城店 · Est. 1880 Guangzhou · 145-Year Cantonese Legend</div>
-        <div class="rest-info"><span>📍 南山區深圳灣萬象城L3層（後海站E口直達）| 🚇 Line 2/11 後海站</span><span>📞 0755-8652 1880 | 🕐 10:00–21:30</span><span>💰 ¥126/人 | ⭐ Dianping 4.7 · 145 years old</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Guangzhou's oldest restaurant brand, founded in 1880. The legendary Roast Goose (燒鵝) — crispy skin, juicy meat, plum sauce. Also: Steamed Scallop (粉絲蒸扇貝), Braised Abalone (鮑魚扒鴨掌), Egg Tarts (蛋撻).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🦢 Must-Order: Roast Goose + Steamed Scallop</span><span class="rest-tag">⭐ 145 years of Cantonese mastery</span><span class="rest-tag">🏛️ Historic Guangzhou institution</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🦢</span>
+        <span class="attraction-num-label">#4</span>
+      </div>
+      <div class="attraction-body">
+        <h3>陶陶居 (Tao Tao Ju)</h3>
+        <div class="attraction-chinese">陶陶居（深圳灣萬象城店）· Est. 1880</div>
+        <div class="attraction-desc">145年粵菜傳奇 · Dianping 4.7</div>
+        <div class="attraction-info">📍 南山區深圳灣萬象城L3層（後海站E口直達）| 🚇 地鐵2/11 後海站<br>📞 0755-8652 1880 | 🕐 10:00–21:30<br>💰 ¥126/人 | ⭐ Dianping 4.7 · 145年歷史</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">1880年廣州老字號，燒鵝傳奇——皮脆肉嫩。粉絲蒸扇貝、鮑魚扒鴨掌、蛋撻。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Roast Goose + Steamed Scallop</div>
+        <div class="attraction-tags">🦞 145年傳奇 · ⭐ 米芝蓮水準</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🐄</span><span class="label">#5</span></div>
-      <div class="rest-body">
-        <h3>Chao Xiang Si Hai · 潮香四海·家傳潮汕菜</h3>
-        <div class="chinese">南山店 · Dianping 4.8 · #1 Chaoshan Cuisine in Nanshan · 2025 必吃榜</div>
-        <div class="rest-info"><span>📍 南山區南油（近南海大道）| 🚇 Line 9 南油站</span><span>📞 （見大眾點評）| 🕐 11:00–14:00 · 17:00–22:00</span><span>💰 ¥99/人 | ⭐ Dianping 4.8 · 2025 必吃榜</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Nanshan's #1 Chaoshan cuisine — farm-direct ingredients from Chaoshan. Must-order: Beef Hot Pot (牛肉火鍋), Hand-Shaved Beef (現切牛肉), Tofu with Fish (魚腐燴豆腐), Chaoshan Cold Crab (潮汕凍蟹).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🐄 Must-Order: Beef Hot Pot + Hand-Shaved Beef</span><span class="rest-tag">🥘 Authentic Chaoshan · Farm-direct</span><span class="rest-tag">⭐ #1 Chaoshan in Nanshan · Dianping 4.8</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🐄</span>
+        <span class="attraction-num-label">#5</span>
+      </div>
+      <div class="attraction-body">
+        <h3>潮香四海·家傳潮汕菜 (Chao Xiang Si Hai)</h3>
+        <div class="attraction-chinese">潮香四海·家傳潮汕菜（南山店）</div>
+        <div class="attraction-desc">#1潮汕菜 · Dianping 4.8 · 2025必吃榜</div>
+        <div class="attraction-info">📍 南山區南油（近南海大道）| 🚇 地鐵9號線南油站<br>📞 （見大眾點評）| 🕐 11:00–14:00 · 17:00–22:00<br>💰 ¥99/人 | ⭐ Dianping 4.8 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">南山第一潮汕菜——農場直供。牛肉火鍋、現切牛肉、魚腐燴豆腐、潮汕凍蟹。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Beef Hot Pot + Hand-Shaved Beef</div>
+        <div class="attraction-tags">🥘 地道潮汕 · ⭐ #1 南山</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🦐</span><span class="label">#6</span></div>
-      <div class="rest-body">
-        <h3>Bing Sheng · 炳勝品味</h3>
-        <div class="chinese">深圳灣萬象城店 · Est. 1996 Guangzhou · Dianping 4.6 · Premium Cantonese</div>
-        <div class="rest-info"><span>📍 南山區深圳灣萬象城L3層（後海站E口）| 🚇 Line 2/11 後海站</span><span>📞 0755-8651 9999 | 🕐 10:30–21:30</span><span>💰 ¥180/人 | ⭐ Dianping 4.6 · 29 years old</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Guangzhou's most celebrated Cantonese chain — renowned for Seafood Hot Pot and live fish dishes. Signature: Giant Crab with Fermented Bean Curd (避風塘蟹), Salted Prawns (鹽焗大明蝦), White Cut Chicken (白切雞).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🦐 Must-Order: Giant Crab + Salted Prawns</span><span class="rest-tag">🦞 Premium live seafood · Guangzhou legend</span><span class="rest-tag">⭐ 29 years · Premium Cantonese</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🦐</span>
+        <span class="attraction-num-label">#6</span>
+      </div>
+      <div class="attraction-body">
+        <h3>炳勝品味 (Bing Sheng)</h3>
+        <div class="attraction-chinese">炳勝品味（深圳灣萬象城店）· Est. 1996</div>
+        <div class="attraction-desc">Premium Cantonese · Dianping 4.6</div>
+        <div class="attraction-info">📍 南山區深圳灣萬象城L3層（後海站E口）| 🚇 地鐵2/11 後海站<br>📞 0755-8651 9999 | 🕐 10:30–21:30<br>💰 ¥180/人 | ⭐ Dianping 4.6 · 29年歷史</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">海鮮火鍋聞名，避風塘蟹、鹽焗大明蝦、白切雞。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Giant Crab + Salted Prawns</div>
+        <div class="attraction-tags">🦞 海鮮火鍋 · ⭐ 29年老字號</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🥥</span><span class="label">#7</span></div>
-      <div class="rest-body">
-        <h3>Run Yi Si Ji · 潤頤四季椰子雞</h3>
-        <div class="chinese">海岸城店 · Dianping 4.5 · #1 Coconut Chicken in SZ</div>
-        <div class="rest-info"><span>📍 南山區海岸城購物中心3樓（後海站D口直達）| 🚇 Line 2/11 後海站</span><span>📞 （見大眾點評）| 🕐 11:00–21:30</span><span>💰 ¥90–110/人 | ⭐ Dianping 4.5 · #1 Coconut Chicken</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shenzhen's most famous coconut chicken (椰子雞) chain — fresh coconut water as broth base, no added seasonings. The coconut jelly dessert (椰子凍) is legendary. Must-order: Coconut Chicken (椰子雞), Coconut Jelly (椰子凍).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🥥 Must-Order: Coconut Chicken + Coconut Jelly</span><span class="rest-tag">🥥 Fresh coconut broth · No MSG</span><span class="rest-tag">⭐ #1 Coconut Chicken in SZ</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🥥</span>
+        <span class="attraction-num-label">#7</span>
+      </div>
+      <div class="attraction-body">
+        <h3>潤頤四季椰子雞 (Run Yi Si Ji)</h3>
+        <div class="attraction-chinese">潤頤四季椰子雞（海岸城店）</div>
+        <div class="attraction-desc">#1椰子雞 · Dianping 4.5</div>
+        <div class="attraction-info">📍 南山區海岸城購物中心3樓（後海站D口直達）| 🚇 地鐵2/11 後海站<br>📞 （見大眾點評）| 🕐 11:00–21:30<br>💰 ¥90–110/人 | ⭐ Dianping 4.5 · #1椰子雞</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">深圳最出名椰子雞——椰子水為湯底，無味精。椰子凍為鎮店甜品。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Coconut Chicken + Coconut Jelly</div>
+        <div class="attraction-tags">🥥 椰子水湯底 · ⭐ 深圳網紅</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🍲</span><span class="label">#8</span></div>
-      <div class="rest-body">
-        <h3>Nan Men Shuan Rou · 南門涮肉</h3>
-        <div class="chinese">深圳首店 · Dianping 4.7 · Northern Chinese Hot Pot · 2025 必吃榜</div>
-        <div class="rest-info"><span>📍 南山區歡樂海岸購物中心1樓 | 🚇 Line 9 深圳灣公園站</span><span>📞 （見大眾點評）| 🕐 11:00–22:00</span><span>💰 ¥100–120/人 | ⭐ Dianping 4.7 · 2025 必吃榜</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Shenzhen's go-to northern Chinese hot pot (涮羊肉) — thin-sliced lamb, sesame sauce, handmade rice noodles. Pure broth, no artificial flavourings. Must-order: Premium Lamb Slices (精選羊肉), Handmade Rice Noodles (手搟羊肉片), Beef Offal (內臟拼盤).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🍲 Must-Order: Lamb Hot Pot + Handmade Noodles</span><span class="rest-tag">🍜 Northern Chinese hot pot tradition</span><span class="rest-tag">⭐ 2025 必吃榜 · Dianping 4.7</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🍲</span>
+        <span class="attraction-num-label">#8</span>
+      </div>
+      <div class="attraction-body">
+        <h3>南門涮肉 (Nan Men Shuan Rou)</h3>
+        <div class="attraction-chinese">南門涮肉 · Dianping 4.7</div>
+        <div class="attraction-desc">北方羊肉火鍋 · 2025必吃榜</div>
+        <div class="attraction-info">📍 南山區歡樂海岸購物中心1樓| 🚇 地鐵9號線深圳灣公園站<br>📞 （見大眾點評）| 🕐 11:00–22:00<br>💰 ¥100–120/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">北方羊肉火鍋——手切羊肉、芝麻醬、手搟面。清澈湯底，無人工調味。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Lamb Hot Pot + Handmade Noodles</div>
+        <div class="attraction-tags">🍜 北方火鍋 · ⭐ 2025必吃</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🦐</span><span class="label">#9</span></div>
-      <div class="rest-body">
-        <h3>Hai Da Da · 海大大蒸汽海鮮餐廳</h3>
-        <div class="chinese">歡樂頌店 · Dianping 4.5 · Steam Seafood · Nanshan Favourite</div>
-        <div class="rest-info"><span>📍 南山區歡樂頌購物中心2樓 | 🚇 Line 1/11 僑城東站</span><span>📞 （見大眾點評）| 🕐 10:30–21:30</span><span>💰 ¥120–150/人 | ⭐ Dianping 4.5 · Live seafood tanks</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">Nanshan's favourite steam seafood — live tanks with 50+ species, cooked simply to preserve natural sweetness. Must-order: Steamed Crab (清蒸蟹), Steam Fish Head (蒸魚頭), Shellfish Platter (貝類拼盤), Steamed Prawns (蒜蓉蝦).</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🦐 Must-Order: Steamed Live Crab + Fish Head</span><span class="rest-tag">🦞 Live tanks · 50+ species daily</span><span class="rest-tag">⭐ Nanshan favourite · Steam cooking</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🦐</span>
+        <span class="attraction-num-label">#9</span>
+      </div>
+      <div class="attraction-body">
+        <h3>海大大蒸汽海鮮 (Hai Da Da)</h3>
+        <div class="attraction-chinese">海大大蒸汽海鮮餐廳（歡樂頌店）</div>
+        <div class="attraction-desc">50+海鮮品種 · Dianping 4.5</div>
+        <div class="attraction-info">📍 南山區歡樂頌購物中心2樓| 🚇 地鐵1/11 僑城東站<br>📞 （見大眾點評）| 🕐 10:30–21:30<br>💰 ¥120–150/人 | ⭐ Dianping 4.5 · 活海鮮</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">50+海鮮品種，蒸汽烹飪保持鮮甜。清蒸蟹、蒸魚頭、貝類拼盤、蒜蓉蝦。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Steamed Live Crab + Fish Head</div>
+        <div class="attraction-tags">🦞 活海鮮水箱 · ⭐ 蒸汽烹飪</div>
       </div>
     </div>
-
-    <div class="rest-card">
-      <div class="rest-num" style="background:var(--sz-mid);"><span class="emoji">🍜</span><span class="label">#10</span></div>
-      <div class="rest-body">
-        <h3>Shenzhen Science Life Hall · 深圳科學生活館</h3>
-        <div class="chinese">深圳灣文化廣場內 · 網紅複合餐飲 · Dianping 4.4 · Innovation & Lifestyle</div>
-        <div class="rest-info"><span>📍 南山區深圳灣文化廣場內（科苑南路2516號）| 🚇 Line 13 深圳灣體育中心站</span><span>📞 （見大眾點評）| 🕐 10:00–21:00</span><span>💰 ¥80–120/人 | ⭐ Dianping 4.4 · 灣區文化廣場</span></div>
-        <div class="famous-label">🏆 What It's Famous For:</div>
-        <p class="must-order">The buzzy dining complex inside MAD Architects' new Shenzhen Bay Cultural Plaza — 8 themed food zones: artisan noodles, craft coffee, oyster bar, craft cocktails. The iconic building alone is worth the visit. Best for: casual lunch between bay sightseeing, afternoon coffee, evening skyline drinks.</p>
-        <div class="rest-tags"><span class="rest-tag highlight">🍜 Must-Order: Artisan noodles + Craft coffee</span><span class="rest-tag">🏛️ Inside MAD Architects Cultural Plaza</span><span class="rest-tag">⭐ New-wave dining · Instagram spot</span></div>
+    <div class="attraction-card">
+      <div class="attraction-num" style="background:var(--sz-mid);">
+        <span class="attraction-emoji">🍜</span>
+        <span class="attraction-num-label">#10</span>
+      </div>
+      <div class="attraction-body">
+        <h3>深圳科學生活館 (Shenzhen Science Life Hall)</h3>
+        <div class="attraction-chinese">深圳科學生活館 · 深圳灣文化廣場內</div>
+        <div class="attraction-desc">新派複合餐飲 · Dianping 4.4</div>
+        <div class="attraction-info">📍 南山區深圳灣文化廣場內（科苑南路2516號）| 🚇 地鐵13號線深圳灣體育中心站<br>📞 （見大眾點評）| 🕐 10:00–21:00<br>💰 ¥80–120/人 | ⭐ Dianping 4.4</div>
+        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
+        <p class="attraction-famous">灣區文化廣場內8個美食區：手製麵食、特色咖啡、生蠔吧。MAD建築師作品大樓。</p>
+        <div class="attraction-highlight-label">⭐ Must-Order: Artisan Noodles + Craft Coffee</div>
+        <div class="attraction-tags">🏛️ MAD建築師作品 · ⭐ 新派餐飲</div>
       </div>
     </div>
-  </div>
-
 <footer>
+  Tam Family China Adventure 2026 · Prepared by Jade 💚
+</footer>
+
+<script>
+  // Highlight active nav tab
+  const sections = document.querySelectorAll('.section-block[id]');
+  const navLinks = document.querySelectorAll('.sticky-nav a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      const top = s.getBoundingClientRect().top;
+      if (top <= 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
