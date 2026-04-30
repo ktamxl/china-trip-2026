@@ -1,272 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attractions — Tam Family China Adventure 2026</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #1a1a2e; --soft: #f5f2ec; --white: #ffffff;
-    --gold: #c9a84c; --gold-lt: #f0d98a;
-    --sh-dark: #0d3d4f; --sh-mid: #1a6880;
-    --zj-dark: #2d4a1e; --zj-mid: #5a8a3a;
-    --sz-dark: #7b2d00; --sz-mid: #c04a0c;
-    --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,.12);
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: Georgia,'Times New Roman',serif; background:var(--soft); color:var(--ink); line-height:1.7; }
-
-  /* ── HERO ── */
-  .hero { background: linear-gradient(160deg,#1a2e1a 0%,#2d4a1e 50%,#3d6030 100%); color:#fff; text-align:center; padding:60px 24px 48px; }
-  .hero-badge { display:inline-block; border:1px solid var(--gold); color:var(--gold-lt); font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; padding:4px 16px; border-radius:20px; margin-bottom:16px; }
-  .hero h1 { font-size:clamp(1.8rem,5vw,2.8rem); font-weight:normal; letter-spacing:.02em; margin-bottom:10px; }
-  .hero h1 em { color:var(--gold-lt); font-style:normal; }
-  .hero-sub { font-size:.95rem; opacity:.8; }
-
-  /* ── STICKY NAV ── */
-  .sticky-nav { position:sticky; top:0; z-index:100; background:var(--ink); display:flex; justify-content:center; overflow-x:auto; scrollbar-width:none; }
-  .sticky-nav::-webkit-scrollbar { display:none; }
-  .sticky-nav a { color:rgba(255,255,255,.7); text-decoration:none; font-family:sans-serif; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; padding:12px 16px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
-  .sticky-nav a:hover { color:var(--gold); }
-  .sticky-nav a.active { color:var(--gold); border-bottom-color:var(--gold); }
-
-  /* ── BACK LINK ── */
-  .back-bar { max-width:900px; margin:24px auto 0; padding:0 24px; }
-  .back-link { font-family:sans-serif; font-size:.78rem; color:var(--zj-mid); text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
-  .back-link:hover { color:var(--ink); }
-
-  /* ── INTRO ── */
-  .intro { max-width:900px; margin:28px auto; padding:0 24px; text-align:center; }
-  .intro p { font-size:.95rem; opacity:.75; }
-
-  /* ── CITY TABS ── */
-  .city-tabs { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:24px auto; max-width:900px; padding:0 24px; }
-  .city-tab { display:inline-flex; align-items:center; gap:8px; padding:10px 24px; border-radius:40px; font-family:sans-serif; font-size:.85rem; text-decoration:none; transition:all .25s; font-weight:bold; }
-  .city-tab.sh { background:var(--sh-mid); color:#fff; }
-  .city-tab.zj { background:var(--zj-mid); color:#fff; }
-  .city-tab.sz { background:var(--sz-mid); color:#fff; }
-  .city-tab:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.2); opacity:.9; }
-  .city-tab .emoji { font-size:1.1rem; }
-
-  /* ── SECTION ── */
-  .section-block { max-width:900px; margin:0 auto; padding:0 24px 48px; }
-  .section-block h2 { font-size:1.6rem; font-weight:normal; margin-bottom:8px; color:var(--ink); }
-  .section-block .section-desc { font-size:.88rem; opacity:.6; margin-bottom:28px; font-family:sans-serif; }
-
-  /* ── COMING SOON CARD ── */
-  .coming-soon { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:48px 24px; text-align:center; }
-  .coming-soon .emoji-big { font-size:3rem; margin-bottom:12px; display:block; }
-  .coming-soon h3 { font-size:1.2rem; font-weight:normal; margin-bottom:8px; }
-  .coming-soon p { font-size:.85rem; opacity:.6; }
-
-  /* ── FOOTER ── */
-  footer { text-align:center; padding:32px 24px; font-family:sans-serif; font-size:.75rem; opacity:.45; color:var(--ink); border-top:1px solid rgba(0,0,0,.08); margin-top:32px; }
-
-  .attraction-card { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden; display:grid; grid-template-columns:68px 1fr; transition:transform .2s; }
-  .attraction-card:hover { transform:translateY(-2px); }
-  .attraction-num { display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; padding:16px 8px; text-align:center; min-height:100px; }
-  .attraction-emoji { font-size:1.5rem; display:block; }
-  .attraction-num-label { font-size:.55rem; opacity:.7; text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
-  .attraction-body { padding:16px 18px 14px 14px; }
-  .attraction-body h3 { font-size:1.05rem; font-weight:normal; margin-bottom:4px; color:var(--ink); }
-  .attraction-chinese { font-size:.75rem; font-family:sans-serif; margin-bottom:8px; }
-  .attraction-desc { font-size:.78rem; font-family:sans-serif; color:var(--ink); opacity:.75; margin-bottom:8px; }
-  .attraction-info { font-size:.72rem; color:#555; margin-bottom:8px; line-height:1.6; font-family:sans-serif; }
-  .attraction-fam-label { font-family:sans-serif; font-size:.7rem; font-weight:bold; margin-bottom:5px; }
-  .attraction-famous { font-size:.82rem; opacity:.7; margin-bottom:8px; }
-  .attraction-highlight-label { font-size:.7rem; color:var(--ink); font-weight:bold; margin-bottom:8px; }
-  .attraction-tags { display:flex; flex-wrap:wrap; gap:5px; }
-  .attraction-tag { display:inline-block; font-size:.6rem; padding:2px 8px; border-radius:20px; font-family:sans-serif; background:var(--soft); }
-  .attraction-tag.highlight { background:var(--gold); }
-</style>
-<div class="hero-badge">Tam Family China 2026</div>
-  <h1>🍽️ Restaurants</h1>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Restaurants — Tam Family China 2026</title><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--sh:#1a6880;--zj:#5a8a3a;--sz:#c04a0c;--gold:#c9a84c;--w:#fff;--soft:#f5f2ec}
+body{font-family:Georgia,'Times New Roman',serif;background:#f5f2ec;color:#1a1a2e;line-height:1.7}
+html{scroll-behavior:smooth}
+.hero{background:linear-gradient(160deg,#1a0d2e,#2d1b52);color:#fff;text-align:center;padding:52px 24px 40px}
+.hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:3px 14px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.6rem,5vw,2.6rem);font-weight:normal;margin-bottom:6px;letter-spacing:.02em}
+.hero-sub{font-size:.9rem;opacity:.8}
+.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:16px}
+.hs{text-align:center}
+.hs .v{font-size:1.4rem;font-weight:bold;color:var(--gold);display:block;font-family:sans-serif}
+.hs .l{font-size:.65rem;opacity:.65;text-transform:uppercase;letter-spacing:.1em;font-family:sans-serif;display:block}
+.sticky-nav{position:sticky;top:0;z-index:100;background:#1a0d2e;display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none}
+.sticky-nav a{color:rgba(255,255,255,.72);text-decoration:none;font-family:sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
+.sticky-nav a:hover{color:var(--gold)}
+.sticky-nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.ctabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px auto;max-width:900px;padding:0 24px}
+.ct{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:40px;font-family:sans-serif;font-size:.85rem;text-decoration:none;font-weight:bold;color:#fff;transition:all .25s}
+.ct:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.ct.sh{background:var(--sh)}
+.ct.zj{background:var(--zj)}
+.ct.sz{background:var(--sz)}
+.sb{max-width:900px;margin:0 auto;padding:0 24px 48px}
+.sb h2{font-size:1.6rem;font-weight:normal;margin-bottom:8px}
+.sb .sd{font-size:.88rem;opacity:.6;margin-bottom:28px;font-family:sans-serif}
+.c{background:var(--w);border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.13);margin-bottom:16px;overflow:hidden;display:grid;grid-template-columns:68px 1fr;transition:transform .2s}
+.c:hover{transform:translateY(-2px)}
+.cn{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--w);font-family:sans-serif;padding:16px 8px;text-align:center;min-height:100px}
+.ce{font-size:1.5rem;display:block}
+.cl{font-size:.55rem;opacity:.7;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+.cb{padding:16px 18px 14px 14px}
+.cb h3{font-size:1.05rem;font-weight:normal;margin-bottom:4px}
+.cchi{font-size:.75rem;font-family:sans-serif;margin-bottom:8px}
+.cinf{font-size:.72rem;color:#555;margin-bottom:8px;line-height:1.6;font-family:sans-serif}
+.clbl{font-family:sans-serif;font-size:.7rem;font-weight:bold;margin-bottom:5px}
+.cfam{font-size:.82rem;opacity:.7;margin-bottom:8px}
+.chl{font-size:.7rem;font-weight:bold;margin-bottom:8px}
+.ctags{display:flex;flex-wrap:wrap;gap:5px}
+.t{display:inline-block;font-size:.6rem;padding:2px 8px;border-radius:20px;font-family:sans-serif;background:var(--soft)}
+.t.hl{background:var(--gold)}
+footer{text-align:center;padding:28px 24px;font-family:sans-serif;font-size:.72rem;opacity:.4;border-top:1px solid rgba(0,0,0,.08);margin-top:16px}
+</style></head>
+<body>
+<div class="hero">
+  <div class="hero-badge">Tam Family China 2026</div>
+  <h1>Restaurants</h1>
   <p class="hero-sub">Top 10 must-eat restaurants across Shanghai · Zhujiajiao · Shenzhen</p>
+  <div class="hero-stats">
+    <div class="hs"><span class="v">30</span><span class="l">Restaurants</span></div>
+    <div class="hs"><span class="v">3</span><span class="l">Cities</span></div>
+    <div class="hs"><span class="v">Nov 23 – Dec 1</span><span class="l">Dates</span></div>
+  </div>
 </div>
-
-
 <nav class="sticky-nav">
   <a href="index.html">Home</a>
-  <a href="attractions.html">🍽️ Restaurants</a>
-  <a href="#shanghai" class="active">🌆 Shanghai</a>
-  <a href="#zhujiajiao">🌸 Zhujiajiao</a>
-  <a href="#shenzhen">🏙️ Shenzhen</a>
-  <a href="hotels.html">🏨 Hotels</a>
+  <a href="attractions.html">Attractions</a>
+  <a href="#shanghai" class="active">Shanghai</a>
+  <a href="#zhujiajiao">Zhujiajiao</a>
+  <a href="#shenzhen">Shenzhen</a>
+  <a href="hotels.html">Hotels</a>
 </nav>
-<!-- CITY TABS -->
-<div class="city-tabs">
-  <a href="#shanghai" class="city-tab sh">🌆 Shanghai</a>
-  <a href="#zhujiajiao" class="city-tab zj">🌸 Zhujiajiao</a>
-  <a href="#shenzhen" class="city-tab sz">🏙️ Shenzhen</a>
+<div class="ctabs">
+  <a href="#shanghai" class="ct sh">Shanghai</a>
+  <a href="#zhujiajiao" class="ct zj">Zhujiajiao</a>
+  <a href="#shenzhen" class="ct sz">Shenzhen</a>
 </div>
-
-<div class="section-block" id="shanghai">
-  <h2>🌆 Shanghai</h2>
-  <p class="section-desc">Global metropolis meets old-world glamour — the Bund, Gardens, and skyward ambition.</p>
-
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🥟</span>
-        <span class="attraction-num-label">#1</span>
-      </div>
-      <div class="attraction-body">
-        <h3>萊萊小籠·喬艾 (Lailai Xiaolongbao)</h3>
-        <div class="attraction-chinese">萊萊小籠·喬艾（黃浦店）</div>
-        <div class="attraction-desc">米芝蓮必比登推介 · 滬上蟹膏小籠首選 · Est. 1990s</div>
-        <div class="attraction-info">📍 黃浦區黃河路127號 | 🚇 地鐵1/2/8 南京西路站<br>📞 021-63276878 | 🕐 7:30–20:00<br>💰 ¥70/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">招牌純蟹膏小籠包含滿滿蟹膏，搭配店家特調薑絲醋，濃郁鮮香。蟹粉餛飩、蟹粉薺菜羹亦為人氣之選。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Pure Crab Roe Xiaolongbao · Crab Roe Wonton</div>
-        <div class="attraction-tags">⭐ Michelin Bib · 🦀 Crab Roe Special</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🥟</span>
-        <span class="attraction-num-label">#2</span>
-      </div>
-      <div class="attraction-body">
-        <h3>南翔饅頭店 (Nanxiang Steamed Bun Shop)</h3>
-        <div class="attraction-chinese">南翔饅頭店（豫園店）· Est. 1900</div>
-        <div class="attraction-desc">中國傳奇小籠包 · 皮薄灌湯 · 百年老字號</div>
-        <div class="attraction-info">📍 黃浦區豫園路87號（豫園商城九曲橋旁）| 🚇 地鐵10/14 豫園站<br>📞 021-63554206 | 🕐 7:30–20:00<br>💰 ¥91/人 | ⭐ Dianping 4.6 · 2025必吃榜</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">上海最傳奇小籠包——薄皮、湯多、鮮美。鮮肉小籠、蟹黃小籠、蟹黃灌湯包必點。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Fresh Pork Xiaolongbao · Crab Roe Xiaolongbao</div>
-        <div class="attraction-tags">🏆 125年傳奇 · 🥟 必吃小籠</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🥢</span>
-        <span class="attraction-num-label">#3</span>
-      </div>
-      <div class="attraction-body">
-        <h3>綠波廊 (Green Wave Corridor)</h3>
-        <div class="attraction-chinese">綠波廊（豫園路店）· Est. 1979 · Michelin Guide</div>
-        <div class="attraction-desc">明朝古蹟內 · 傳奇本幫菜 · 九曲橋畔</div>
-        <div class="attraction-info">📍 黃浦區豫園路115號（九曲橋畔，城隍廟對面）| 🚇 地鐵10/14 豫園站<br>📞 021-63280602 | 🕐 午市 11:00–14:00 · 晚市 17:00–20:30<br>💰 ¥165/人 | ⭐ Michelin Guide · Dianping 4.5</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">1559年古蹟內用餐，傳奇本幫菜。必點：蘿蔔絲酥餅、桂花拉糕、眉毛酥蝦仁春卷、蟹粉小籠包、八寶鴨、松鼠桂魚。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Radish Shred Pastry · Osmanthus Cake · Eight-Treasure Duck</div>
-        <div class="attraction-tags">⭐ 米芝蓮推介 · 🏛️ 明朝古蹟</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🍜</span>
-        <span class="attraction-num-label">#4</span>
-      </div>
-      <div class="attraction-body">
-        <h3>佳家湯包 (Jia Jia Tang Bao)</h3>
-        <div class="attraction-chinese">佳家湯包（黃河路店）· Dianping 4.7</div>
-        <div class="attraction-desc">蟹粉湯包傳奇 · 皮薄汁多 · Est. 1990s</div>
-        <div class="attraction-info">📍 黃浦區黃河路127號（南京西路步行街近）| 🚇 地鐵1/2/8 南京西路站<br>📞 021-63276878 | 🕐 7:30–20:00<br>💰 ¥70/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">純蟹粉湯包（¥108）為鎮店之寶，湯水豐富，蟹味濃郁。鮮肉湯包同樣出色，魚丸湯必配。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Pure Crab Roe Soup Dumpling · Fresh Pork Soup Dumpling</div>
-        <div class="attraction-tags">⭐ Dianping 4.7 · 🦀 Pure Crab Roe</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🥟</span>
-        <span class="attraction-num-label">#5</span>
-      </div>
-      <div class="attraction-body">
-        <h3>小楊生煎 (Xiao Yang Sheng Jian)</h3>
-        <div class="attraction-chinese">小楊生煎（黃河路店）· Est. 1992</div>
-        <div class="attraction-desc">上海生煎包名店 · 上海名點小吃</div>
-        <div class="attraction-info">📍 黃浦區黃河路97號（近南京西路步行街）| 🚇 地鐵1/2 南京西路站<br>📞 021-53751793 | 🕐 6:30–22:00<br>💰 ¥30–50/人 | ⭐ Dianping 4.5 · 上海名點</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">薄皮、香脆、湯多——上海街頭生煎包代表。鮮肉生煎、蝦仁生煎、牛肉粉絲湯。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Pan-Fried Pork Bun + Beef Soup</div>
-        <div class="attraction-tags">💰 超抵食 · 🍳 上海名點</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🥘</span>
-        <span class="attraction-num-label">#6</span>
-      </div>
-      <div class="attraction-body">
-        <h3>三瑪璐酒樓 (San Ma Lu)</h3>
-        <div class="attraction-chinese">三瑪璐酒樓（漢口路店）· Est. 1996</div>
-        <div class="attraction-desc">2025 Dianping必吃榜 · 28年本幫老店</div>
-        <div class="attraction-info">📍 黃浦區漢口路413號（南京東路商圈）| 🚇 地鐵2/10 南京東路站<br>📞 021-63517909 | 🕐 9:00–21:30<br>💰 ¥90–100/人 | ⭐ Dianping 2025必吃榜</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">街坊食堂，地道本幫。芥末蝦仁、醬爆豬肝、干鍋牛蛙、上海小排。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Wasabi Shrimp · Braised Pork Liver · Dry Pot Bullfrog</div>
-        <div class="attraction-tags">🏠 28年街坊食堂 · ⭐ 2025必吃</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🍖</span>
-        <span class="attraction-num-label">#7</span>
-      </div>
-      <div class="attraction-body">
-        <h3>老吉堂上海本幫菜 (Old Ji Tang Benbang)</h3>
-        <div class="attraction-chinese">老吉堂上海本幫菜（外灘店）</div>
-        <div class="attraction-desc">外灘附近 · Dianping 4.6 · 紅燒肉人氣</div>
-        <div class="attraction-info">📍 黃浦區北京東路118號（近外灘）| 🚇 地鐵2/10 南京東路站<br>📞 021-6323 1818 | 🕐 11:00–14:00 · 17:00–21:30<br>💰 ¥218/人 | ⭐ Dianping 4.6</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">紅燒肉、醉雞、龍井蝦仁、蟹粉豆腐。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Red-Cooked Pork · Drunken Chicken</div>
-        <div class="attraction-tags">🌃 近外灘 · ⭐ 紅燒肉名店</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🦐</span>
-        <span class="attraction-num-label">#8</span>
-      </div>
-      <div class="attraction-body">
-        <h3>粵·向群飯店 (Yue Xiang Qun)</h3>
-        <div class="attraction-chinese">粵·向群飯店（浦東店）· Est. 1970s</div>
-        <div class="attraction-desc">50年傳統 · Dianping 4.7 · 粵菜經典</div>
-        <div class="attraction-info">📍 浦東新區浦東南路1285號（近世紀大道）| 🚇 地鐵2 上海科技館站<br>📞 021-5833 8888 | 🕐 11:00–14:30 · 17:00–21:30<br>💰 ¥150/人 | ⭐ Dianping 4.7 · 2025必吃榜</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">鹽焗雞、清蒸石斑、脆皮燒肉、皮蛋瘦肉粥。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Salted Chicken · Steamed Fish · Crispy Pork Belly</div>
-        <div class="attraction-tags">🥘 地道粵菜 · ⭐ 50年傳統</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🥧</span>
-        <span class="attraction-num-label">#9</span>
-      </div>
-      <div class="attraction-body">
-        <h3>光明邨 (Guangming Village)</h3>
-        <div class="attraction-chinese">光明邨大酒家（南京西路店）· Est. 1949</div>
-        <div class="attraction-desc">上海老字號糕點 · 76年歷史</div>
-        <div class="attraction-info">📍 黃浦區南京西路1172號（近黃河路）| 🚇 地鐵1/2/8 南京西路站<br>📞 021-6322 3998 | 🕐 8:00–20:00<br>💰 ¥40–60/人 | ⭐ Dianping 4.4 · 76年歷史</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">鮮肉月餅（每逢周末排長龍）、核桃豆腐、各款本幫糕點。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Pork Mooncake · Walnut Tofu · Assorted Pastries</div>
-        <div class="attraction-tags">🏠 76年老店 · 🥧 上海糕點傳奇</div>
-      </div>
-    </div>
-    <div class="attraction-card">
-      <div class="attraction-num" style="background:var(--sh-mid);">
-        <span class="attraction-emoji">🍰</span>
-        <span class="attraction-num-label">#10</span>
-      </div>
-      <div class="attraction-body">
-        <h3>蔡嘉甜品 (Mr. Choi Patisserie)</h3>
-        <div class="attraction-chinese">蔡嘉甜品（豫園店）· Dianping 4.8</div>
-        <div class="attraction-desc">上海第一法式甜品店 · 招牌拿破侖</div>
-        <div class="attraction-info">📍 黃浦區豫園百貨天裕樓對面（豫園商圈）| 🚇 地鐵10/14 豫園站<br>📞 （見大眾點評）| 🕐 10:00–22:00<br>💰 ¥50/人 | ⭐ Dianping 4.8+</div>
-        <div class="attraction-fam-label">🏆 What It's Famous For:</div>
-        <p class="attraction-famous">招牌拿破侖千層酥被譽為上海最出色，層層酥脆奶油，輕盈不膩。季限定水果撻、忌廉泡芙、朱古力Fondant。</p>
-        <div class="attraction-highlight-label">⭐ Must-Order: Napoleon · Seasonal Fruit Tart</div>
-        <div class="attraction-tags">🍰 上海第一甜品 · ⭐ Dianping 4.8</div>
-      </div>
-    </div>
-<div class="section-block" id="zhujiajiao">
-  <h2>🌸 Zhujiajiao · Top 10</h2>
-  <p class="section-desc">Riverside farmhouse flavours · 400-year water town culinary traditions · Nov 26</p>
-
-
