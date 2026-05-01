@@ -1,69 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Restaurants — Tam Family China 2026</title><style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--sh:#1a6880;--zj:#5a8a3a;--sz:#c04a0c;--gold:#c9a84c;--w:#fff;--soft:#f5f2ec}
-body{font-family:Georgia,'Times New Roman',serif;background:#f5f2ec;color:#1a1a2e;line-height:1.7}
-html{scroll-behavior:smooth}
-.hero{background:linear-gradient(160deg,#1a0d2e,#2d1b52);color:#fff;text-align:center;padding:52px 24px 40px}
-.hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:3px 14px;border-radius:20px;margin-bottom:14px}
-.hero h1{font-size:clamp(1.6rem,5vw,2.6rem);font-weight:normal;margin-bottom:6px;letter-spacing:.02em}
-.hero-sub{font-size:.9rem;opacity:.8}
-.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:16px}
-.hs{text-align:center}
-.hs .v{font-size:1.4rem;font-weight:bold;color:var(--gold);display:block;font-family:sans-serif}
-.hs .l{font-size:.65rem;opacity:.65;text-transform:uppercase;letter-spacing:.1em;font-family:sans-serif;display:block}
-.sticky-nav{position:sticky;top:0;z-index:100;background:#1a0d2e;display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none}
-.sticky-nav a{color:rgba(255,255,255,.72);text-decoration:none;font-family:sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s}
-.sticky-nav a:hover{color:var(--gold)}
-.sticky-nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
-.ctabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px auto;max-width:900px;padding:0 24px}
-.ct{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:40px;font-family:sans-serif;font-size:.85rem;text-decoration:none;font-weight:bold;color:#fff;transition:all .25s}
-.ct:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.ct.sh{background:var(--sh)}
-.ct.zj{background:var(--zj)}
-.ct.sz{background:var(--sz)}
-.sb{max-width:900px;margin:0 auto;padding:0 24px 48px}
-.sb h2{font-size:1.6rem;font-weight:normal;margin-bottom:8px}
-.sb .sd{font-size:.88rem;opacity:.6;margin-bottom:28px;font-family:sans-serif}
-.c{background:var(--w);border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.13);margin-bottom:16px;overflow:hidden;display:grid;grid-template-columns:68px 1fr;transition:transform .2s}
-.c:hover{transform:translateY(-2px)}
-.cn{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--w);font-family:sans-serif;padding:16px 8px;text-align:center;min-height:100px}
-.ce{font-size:1.5rem;display:block}
-.cl{font-size:.55rem;opacity:.7;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
-.cb{padding:16px 18px 14px 14px}
-.cb h3{font-size:1.05rem;font-weight:normal;margin-bottom:4px}
-.cchi{font-size:.75rem;font-family:sans-serif;margin-bottom:8px}
-.cinf{font-size:.72rem;color:#555;margin-bottom:8px;line-height:1.6;font-family:sans-serif}
-.clbl{font-family:sans-serif;font-size:.7rem;font-weight:bold;margin-bottom:5px}
-.cfam{font-size:.82rem;opacity:.7;margin-bottom:8px}
-.chl{font-size:.7rem;font-weight:bold;margin-bottom:8px}
-.ctags{display:flex;flex-wrap:wrap;gap:5px}
-.t{display:inline-block;font-size:.6rem;padding:2px 8px;border-radius:20px;font-family:sans-serif;background:var(--soft)}
-.t.hl{background:var(--gold)}
-footer{text-align:center;padding:28px 24px;font-family:sans-serif;font-size:.72rem;opacity:.4;border-top:1px solid rgba(0,0,0,.08);margin-top:16px}
-</style></head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurants — Tam Family China 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sh-dark: #0d3d4f; --sh-mid: #1a6880; --sh-lt: #e8f4f8;
+    --zj-dark: #2d4a1e; --zj-mid: #5a8a3a; --zj-lt: #edf5e4;
+    --sz-dark: #5c1e00; --sz-mid: #c04a0c; --sz-lt: #fde8dc;
+    --gold: #c9a84c; --gold-lt: #f0d98a;
+    --ink: #1a1a2e; --soft: #f5f2ec; --white: #ffffff;
+    --radius: 14px; --shadow: 0 4px 24px rgba(0,0,0,.13);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: Georgia,'Times New Roman',serif; background: var(--soft); color: var(--ink); line-height: 1.7; }
+
+  /* ── HERO ── */
+  .hero { background: linear-gradient(160deg,#1a0d2e 0%,#2d1b52 55%,#3d2a6b 100%); color:#fff; text-align:center; padding:52px 24px 40px; }
+  .hero-badge { display:inline-block; border:1px solid var(--gold); color:var(--gold-lt); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; padding:3px 14px; border-radius:20px; margin-bottom:14px; }
+  .hero h1 { font-size:clamp(1.6rem,5vw,2.6rem); font-weight:normal; letter-spacing:.02em; margin-bottom:6px; }
+  .hero-sub { font-size:.9rem; opacity:.8; }
+  .hero-stats { display:flex; justify-content:center; gap:28px; flex-wrap:wrap; margin-top:16px; }
+  .hero-stat { text-align:center; }
+  .hero-stat .val { font-size:1.4rem; font-weight:bold; color:var(--gold-lt); display:block; font-family:sans-serif; }
+  .hero-stat .lab { font-size:.65rem; opacity:.65; text-transform:uppercase; letter-spacing:.1em; font-family:sans-serif; }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav { position:sticky; top:0; z-index:100; background:#1a0d2e; display:flex; justify-content:center; overflow-x:auto; scrollbar-width:none; }
+  .sticky-nav::-webkit-scrollbar { display:none; }
+  .sticky-nav a { color:rgba(255,255,255,.72); text-decoration:none; font-family:sans-serif; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding:11px 14px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+  .sticky-nav a:hover { color:var(--gold-lt); }
+  .sticky-nav a.active { color:var(--gold-lt); border-bottom-color:var(--gold-lt); }
+
+  /* ── SECTION HEADER ── */
+  .section { max-width:900px; margin:0 auto; padding:0 20px 40px; }
+  .section-header { padding:28px 0 20px; }
+  .section-header h2 { font-size:1.5rem; font-weight:normal; color:var(--ink); margin-bottom:4px; }
+  .section-header .sub { font-size:.82rem; opacity:.55; font-family:sans-serif; }
+
+  /* ── RESTAURANT CARD ── */
+  .card { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden; display:grid; grid-template-columns:68px 1fr; transition:transform .2s; }
+  .card:hover { transform:translateY(-2px); }
+  .card-num { display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; padding:16px 8px; text-align:center; min-height:120px; }
+  .card-num .emoji { font-size:1.6rem; display:block; }
+  .card-num .n { font-size:1rem; font-weight:bold; margin-top:4px; }
+  .card-body { padding:18px 20px 16px 16px; }
+  .card-body h3 { font-size:1.05rem; font-weight:normal; margin-bottom:4px; color:var(--ink); }
+  .card-body .chinese { font-size:.78rem; font-family:sans-serif; margin-bottom:8px; opacity:.7; }
+  .card-body p { font-size:.84rem; opacity:.72; margin-bottom:10px; line-height:1.6; }
+  .card-meta { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .card-meta .tag { display:inline-block; font-size:.6rem; padding:2px 8px; border-radius:20px; font-family:sans-serif; background:var(--soft); color:var(--ink); }
+  .card-meta .price { color:#c04a0c; font-weight:bold; }
+  .card-tags { display:flex; flex-wrap:wrap; gap:5px; }
+  .card-tag { display:inline-block; font-size:.6rem; padding:2px 8px; border-radius:20px; font-family:sans-serif; background:var(--sh-lt); color:var(--sh-dark); }
+  .card-tag.highlight { background:var(--gold); color:var(--ink); }
+  .card-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .map-link { display:inline-flex; align-items:center; gap:5px; padding:5px 12px; background:#1dad19; color:#fff; border-radius:5px; font-size:.7rem; font-family:sans-serif; text-decoration:none; font-weight:bold; transition:all .2s; }
+  .map-link:hover { opacity:.85; }
+  .card-footer { font-family:sans-serif; font-size:.65rem; color:#888; margin-top:6px; }
+
+  /* ── FOOTER ── */
+  footer { text-align:center; padding:28px 24px; font-family:sans-serif; font-size:.72rem; opacity:.4; color:var(--ink); margin-top:16px; border-top:1px solid rgba(0,0,0,.08); }
+</style>
+</head>
 <body>
+
+<!-- ── HERO ── -->
 <div class="hero">
   <div class="hero-badge">Tam Family China 2026</div>
-  <h1>Restaurants</h1>
-  <p class="hero-sub">Top 10 must-eat restaurants across Shanghai · Zhujiajiao · Shenzhen</p>
+  <h1>🍜 Restaurants</h1>
+  <p class="hero-sub">30 curated must-eat restaurants across Shanghai · Zhujiajiao · Shenzhen</p>
   <div class="hero-stats">
-    <div class="hs"><span class="v">30</span><span class="l">Restaurants</span></div>
-    <div class="hs"><span class="v">3</span><span class="l">Cities</span></div>
-    <div class="hs"><span class="v">Nov 23 – Dec 1</span><span class="l">Dates</span></div>
+    <div class="hero-stat"><span class="val">30</span><span class="lab">Restaurants</span></div>
+    <div class="hero-stat"><span class="val">3</span><span class="lab">Cities</span></div>
+    <div class="hero-stat"><span class="val">Nov 23–27</span><span class="lab">Dates</span></div>
   </div>
 </div>
+
+<!-- ── STICKY NAV ── -->
 <nav class="sticky-nav">
   <a href="index.html">Home</a>
   <a href="attractions.html">Attractions</a>
-  <a href="#shanghai" class="active">Shanghai</a>
-  <a href="#zhujiajiao">Zhujiajiao</a>
-  <a href="#shenzhen">Shenzhen</a>
   <a href="hotels.html">Hotels</a>
 </nav>
-<div class="ctabs">
-  <a href="#shanghai" class="ct sh">Shanghai</a>
-  <a href="#zhujiajiao" class="ct zj">Zhujiajiao</a>
-  <a href="#shenzhen" class="ct sz">Shenzhen</a>
-</div>
+
+<!-- ══════════════════════════════
+     SHANGHAI — 10 RESTAURANTS
+     ══════════════════════════════ -->
+<div class="section" id="shanghai">
+  <div class="section-header">
+    <h2>🏙️ Shanghai</h2>
+    <p class="sub">10 handpicked restaurants · Nov 23–24</p>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🥟</span>
+      <span class="n">1</span>
+    </div>
+    <div class="card-body">
+      <h3>萊萊小籠·喬艾</h3>
+      <div class="chinese">Lailai Xiaolongbao · 黃浦區黃河路127號</div>
+      <p>Michelin Bib Gourmand · Est. 1990s · Dianping 4.7 (2025必吃榜). Pure crab roe xiaolongbao is the house legend — rich, creamy crab filling with no pork dilution. Crab roe wonton and crab roe vegetable soup round out a truly unique menu.</p>
+      <div class="card-meta">
+        <span class="tag">Michelin Bib</span>
+        <span class="tag price">¥70/人</span>
+        <span class="tag">地鐵南京西路站</span>
+        <span class="tag">7:30–20:00</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Pure Crab Roe Xiaolongbao</span>
+        <span class="card-tag">Crab Roe Wonton</span>
+        <span class="card-tag">Crab Roe Veggie Soup</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=萊萊小籠黃河路127號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2355°N · 121.4682°E · ☎ 021-63276878</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🥟</span>
+      <span class="n">2</span>
+    </div>
+    <div class="card-body">
+      <h3>南翔饅頭店</h3>
+      <div class="chinese">Nanxiang Steamed Bun Shop · 豫園路87號 · 黃浦區</div>
+      <p>China's most legendary xiaolongbao · Est. 1900 · Dianping 4.6 (2025必吃榜). Thin-skinned, soup-filled perfection beside the Nine-Curve Bridge in Yu Garden. The original source of everything that came after — still run with care.</p>
+      <div class="card-meta">
+        <span class="tag">1900成立</span>
+        <span class="tag price">¥91/人</span>
+        <span class="tag">地鐵豫園站</span>
+        <span class="tag">7:30–20:00</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Fresh Pork Xiaolongbao</span>
+        <span class="card-tag">Crab Roe Xiaolongbao</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=南翔饅頭店豫園路87號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2242°N · 121.4855°E · ☎ 021-63554206</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🥢</span>
+      <span class="n">3</span>
+    </div>
+    <div class="card-body">
+      <h3>綠波廊</h3>
+      <div class="chinese">Green Wave Corridor · 豫園路115號 · 黃浦區</div>
+      <p>Michelin Guide · 1979 · 1559 Ming Dynasty heritage building · Dianping 4.5. Imperial craft dining by the Nine-Curve Bridge, across from City God Temple. Radish shred pastry, osmanthus cake, eight-treasure duck, squirrel mandarin fish.</p>
+      <div class="card-meta">
+        <span class="tag">Michelin Guide</span>
+        <span class="tag price">¥165/人</span>
+        <span class="tag">午市 11–14 · 晚市 17–20:30</span>
+        <span class="tag">豫園站</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Radish Shred Pastry · Osmanthus Cake</span>
+        <span class="card-tag">Eight-Treasure Duck</span>
+        <span class="card-tag">Squirrel Fish</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=綠波廊豫園路115號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2245°N · 121.4858°E · ☎ 021-63280602</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🍜</span>
+      <span class="n">4</span>
+    </div>
+    <div class="card-body">
+      <h3>佳家湯包</h3>
+      <div class="chinese">Jia Jia Soup Dumpling · 黃河路127號 · 黃浦區</div>
+      <p>Crab soup dumpling legend · Est. 1990s · Dianping 4.7 (2025必吃榜). Paper-thin skin holding oceans of rich, savory broth. Pure crab roe soup dumpling (¥108) is the treasure. Fish ball soup is the perfect companion.</p>
+      <div class="card-meta">
+        <span class="tag price">¥70/人</span>
+        <span class="tag">Dianping 4.7</span>
+        <span class="tag">南京西路站</span>
+        <span class="tag">7:30–20:00</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Pure Crab Roe Soup Dumpling</span>
+        <span class="card-tag">Fresh Pork Soup Dumpling</span>
+        <span class="card-tag">Fish Ball Soup</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=佳家湯包黃河路127號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2355°N · 121.4682°E · ☎ 021-63276878</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🥟</span>
+      <span class="n">5</span>
+    </div>
+    <div class="card-body">
+      <h3>小楊生煎</h3>
+      <div class="chinese">Xiao Yang Shengjian · 黃河路28號 · 黃浦區</div>
+      <p>Pan-fried pork bun icon · Est. 1994 · Dianping 4.6. Crispy sesame-bottomed shengjianbao, pan-fried to golden. Each bun holds a little lake of broth. Beef soup on the side is non-negotiable.</p>
+      <div class="card-meta">
+        <span class="tag price">¥40–60/人</span>
+        <span class="tag">Dianping 4.6</span>
+        <span class="tag">南京西路站</span>
+        <span class="tag">6:30–20:00</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Shengjianbao (4 pcs)</span>
+        <span class="card-tag">Beef Soup</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=小楊生煎黃河路&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2356°N · 121.4685°E</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🥘</span>
+      <span class="n">6</span>
+    </div>
+    <div class="card-body">
+      <h3>三瑪璐酒樓</h3>
+      <div class="chinese">San Ma Lu · 漢口路413號 · 黃浦區</div>
+      <p>2025 Dianping 必吃榜 · Est. 1996 · 28 years · Dianping 4.6. Neighborhood Shanghai bistro, neighbourhood institution. Wasabi shrimp, braised pork liver, dry pot bullfrog, Shanghai-style spareribs.</p>
+      <div class="card-meta">
+        <span class="tag">2025 必吃榜</span>
+        <span class="tag price">¥90–100/人</span>
+        <span class="tag">地鐵南京東路站</span>
+        <span class="tag">9:00–21:30</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Wasabi Shrimp · Braised Pork Liver</span>
+        <span class="card-tag">Dry Pot Bullfrog</span>
+        <span class="card-tag">Shanghai Spareribs</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=三瑪璐酒樓漢口路413號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2370°N · 121.4730°E · ☎ 021-63517909</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🍖</span>
+      <span class="n">7</span>
+    </div>
+    <div class="card-body">
+      <h3>老吉堂上海本幫菜</h3>
+      <div class="chinese">Old Ji Tang Benbang · 北京東路118號 · 黃浦區</div>
+      <p>Authentic benbang cuisine · Dianping 4.6 · Near The Bund. Red-cooked pork, drunken chicken, Longjing shrimp, crab roe tofu. The quintessential old-Shanghai taste in an unpretentious setting.</p>
+      <div class="card-meta">
+        <span class="tag price">¥218/人</span>
+        <span class="tag">Dianping 4.6</span>
+        <span class="tag">南京東路站</span>
+        <span class="tag">午市 11–14 · 晚市 17–21:30</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Red-Cooked Pork · Drunken Chicken</span>
+        <span class="card-tag">Longjing Shrimp</span>
+        <span class="card-tag">Crab Roe Tofu</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=老吉堂北京東路118號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2380°N · 121.4805°E · ☎ 021-63231818</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 8 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🦐</span>
+      <span class="n">8</span>
+    </div>
+    <div class="card-body">
+      <h3>粵·向群飯店</h3>
+      <div class="chinese">Yue Xiang Qun · 浦東南路1285號 · 浦東新區</div>
+      <p>50-year tradition · Dianping 4.7 (2025必吃榜). Cantonese + Shanghai fusion done right. Salted chicken, steamed rock cod, crispy pork belly, thin-skin congee. A local landmark that never disappoints.</p>
+      <div class="card-meta">
+        <span class="tag price">¥150/人</span>
+        <span class="tag">Dianping 4.7 · 50年老店</span>
+        <span class="tag">世紀大道站</span>
+        <span class="tag">午市 11–14:30 · 晚市 17–21:30</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Salted Chicken · Steamed Fish</span>
+        <span class="card-tag">Crispy Pork Belly</span>
+        <span class="card-tag">Congee</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=向群飯店浦東南路1285號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2305°N · 121.5080°E · ☎ 021-58338888</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 9 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🥧</span>
+      <span class="n">9</span>
+    </div>
+    <div class="card-body">
+      <h3>光明邨大酒家</h3>
+      <div class="chinese">Guangming Village · 南京西路1172號 · 黃浦區</div>
+      <p>Shanghai old-brand pastry specialist · Est. 1949 · 76 years · Dianping 4.4. Seasonal Shanghai pastries — pork mooncake, walnut tofu, assorted cakes. Expect a queue. Come early, skip the rush.</p>
+      <div class="card-meta">
+        <span class="tag">1949成立 · 76年歷史</span>
+        <span class="tag price">¥40–60/人</span>
+        <span class="tag">南京西路站</span>
+        <span class="tag">8:00–20:00</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Pork Mooncake · Walnut Tofu</span>
+        <span class="card-tag">Assorted Pastries</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=光明邨南京西路1172號&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2365°N · 121.4695°E · ☎ 021-63223998</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 10 -->
+  <div class="card">
+    <div class="card-num" style="background:var(--sh-mid);">
+      <span class="emoji">🍰</span>
+      <span class="n">10</span>
+    </div>
+    <div class="card-body">
+      <h3>蔡嘉甜品</h3>
+      <div class="chinese">Mr. Choi Patisserie · 豫園商圈 · 黃浦區</div>
+      <p>Shanghai's #1 French-style pastry · Dianping 4.8+ · High-profile regulars. The Napoleon is legendary — layers of crispy mille-feuille with diplomat cream, widely called Shanghai's best. Seasonal fruit tarts and chocolate fondants are exceptional.</p>
+      <div class="card-meta">
+        <span class="tag">上海第一法式甜品</span>
+        <span class="tag price">¥50/人</span>
+        <span class="tag">豫園站</span>
+        <span class="tag">10:00–22:00</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag highlight">⭐ Must-Order: Napoleon · Seasonal Fruit Tart</span>
+        <span class="card-tag">Chocolate Fondant</span>
+        <span class="card-tag">Cream Puffs</span>
+      </div>
+      <div class="card-actions">
+        <a class="map-link" href="https://www.amap.com/search?query=蔡嘉甜品豫園&city=310000" target="_blank" rel="noopener">🗺️ Amap →</a>
+        <span class="card-footer">📍 31.2240°N · 121.4850°E</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #shanghai -->
+
+<footer>
+  🍜 Tam Family China 2026 · restaurants.html · Shanghai section (10 restaurants)
+</footer>
+
+</body>
+</html>
