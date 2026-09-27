@@ -67,6 +67,26 @@
   .coords-list { display:flex; flex-direction:column; gap:4px; }
   .coords-row { font-family:monospace; font-size:.68rem; color:#333; background:#fff; padding:4px 8px; border-radius:4px; }
 
+  /* ── NIGHT LIGHT SHOWS ── */
+  .ls-body { padding:20px 22px 24px; }
+  .ls-lead { font-family:sans-serif; font-size:.84rem; color:#444; margin-bottom:14px; line-height:1.7; }
+  .ls-h4 { font-size:.92rem; font-weight:normal; color:var(--sz-dark); margin:22px 0 10px; padding-bottom:6px; border-bottom:1px solid rgba(0,0,0,.07); }
+  .ls-list { list-style:none; padding:0; margin:0; }
+  .ls-list li { font-family:sans-serif; font-size:.78rem; color:#444; line-height:1.7; padding:6px 0 6px 16px; position:relative; border-bottom:1px dashed rgba(0,0,0,.05); }
+  .ls-list li:last-child { border-bottom:none; }
+  .ls-list li::before { content:'▸'; position:absolute; left:0; color:var(--sz-mid); }
+  .ls-list li strong { color:var(--ink); }
+  .ls-callout { font-family:sans-serif; font-size:.78rem; line-height:1.7; border-radius:8px; padding:12px 14px; margin:12px 0; }
+  .ls-callout.warn { background:#fff3e0; border:1px solid #f5c070; color:#8a4200; }
+  .ls-callout.ok { background:#eef7ee; border:1px solid #b8ddb8; color:#2f5c2f; }
+  .ls-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:8px 0 4px; }
+  .ls-table { border-collapse:collapse; width:100%; min-width:640px; font-family:sans-serif; font-size:.72rem; }
+  .ls-table th { background:var(--sz-dark); color:#fff; text-align:left; padding:8px 10px; font-weight:600; white-space:nowrap; }
+  .ls-table td { padding:8px 10px; border-bottom:1px solid rgba(0,0,0,.07); color:#444; vertical-align:top; line-height:1.55; }
+  .ls-table tr:nth-child(even) td { background:rgba(0,0,0,.02); }
+  .ls-src { font-family:sans-serif; font-size:.68rem; color:#777; line-height:1.7; margin-top:20px; padding-top:14px; border-top:1px solid rgba(0,0,0,.07); }
+  @media (max-width:600px){ .ls-body { padding:16px; } .ls-h4 { font-size:.86rem; } }
+
   /* ── FOOTER ── */
   footer { text-align:center; padding:28px 24px; font-family:sans-serif; font-size:.72rem; opacity:.4; color:var(--ink); margin-top:16px; }
 </style>
@@ -88,6 +108,7 @@
 <!-- ── NAV ── -->
 <nav class="sticky-nav">
   <a href="attractions.html">← Attractions</a>
+  <a href="#lights">🌃 Light Shows</a>
   <a href="#map">🗺️ Maps</a>
   <a href="#stops">🚶 All Stops</a>
 </nav>
@@ -382,9 +403,74 @@
         <a class="stop-map-link" href="https://www.amap.com/search?query=深圳市民中心广场&city=440300" target="_blank" rel="noopener">🗺️ Street-level Viewing · 市民中心广场 →</a>
         <a class="stop-map-link" href="https://www.amap.com/search?query=莲花山公园&city=440300" target="_blank" rel="noopener" style="background:#1b5e9a;">🏔️ Panoramic View · 蓮花山 →</a>
       </div>
-      <div class="stop-note">⚠️ Show is currently under renovation/suspended — check status via <strong>i深圳 App</strong> or eyeshenzhen.com before visiting. Normally: <strong>Fri + Sat evenings</strong> (3 sessions: 7:30 / 8:30 / 9:30 PM · Summer) · 15 min per session · <strong>Free</strong> admission</div>
+      <div class="stop-note">⚠️ <strong>Dark since 30 Apr 2026</strong> for deep maintenance — due back <strong>1 Oct 2026</strong>. Should be running during our trip: <strong>Fri + Sat only</strong>, winter times <strong>19:00 / 20:00 / 21:00</strong>, ~15 min each · Free, but the plaza needs booking 3 days ahead · full detail in <a href="#lights" style="color:#a05000;">🌃 the light-show guide</a> below</div>
     </div>
   </div>
+
+<!-- ── NIGHT LIGHT SHOWS ── -->
+<div class="section" id="lights">
+  <div class="map-section">
+    <div class="map-header">
+      <h3>🌃 Night Light Shows — Schedule, Booking &amp; What's Actually Running</h3>
+    </div>
+    <div class="ls-body">
+      <p class="ls-lead">Shenzhen's signature free evening spectacle: entire CBD skylines turned into synchronised light canvases. Two shows matter for this trip — and the important detail is that right now only one of them is running.</p>
+
+      <div class="ls-callout warn">
+        ⚠️ <strong>Futian Civic Centre show is dark.</strong> Suspended since <strong>30 Apr 2026</strong> for deep maintenance and expected back on <strong>1 Oct 2026</strong> (National Day). By our dates (28 Nov – 1 Dec) it should be running again — but re-check before we go.
+      </div>
+
+      <h4 class="ls-h4">1 · Futian Civic Centre 福田市民中心灯光秀 — the flagship</h4>
+      <ul class="ls-list">
+        <li><strong>What it is</strong> — the city's largest building-façade light show, animated in sync across the CBD skyline around Civic Center Plaza.</li>
+        <li><strong>Nights</strong> — Fridays, Saturdays and statutory holidays · 3 shows a night · ~15 minutes each.</li>
+        <li><strong>Times</strong> — Apr–Oct 19:30 / 20:30 / 21:30 · <strong>Nov–Mar 19:00 / 20:00 / 21:00</strong> — our window is the winter schedule.</li>
+        <li><strong>Not shown on</strong> — Qingming holiday, 7 Jul, 18 Sep, 30 Sep, 13 Dec (interior lighting only). Cancelled in typhoon, rain or lightning warnings.</li>
+        <li><strong>Tickets</strong> — free, but <strong>Civic Center Plaza needs advance booking</strong> via the WeChat mini-program 「福田中心区夜景灯光预约导引服务」. Booking opens <strong>3 days ahead at 10:00</strong> for each session.</li>
+        <li><strong>No-booking viewing spots</strong> — Lianhua Mountain summit (best overhead panorama, crowded), Shenzhen Children's Palace entrance, and Yitian Rd / Jintian Rd northbound for the "inside it" view.</li>
+        <li><strong>Getting there</strong> — Metro Lines 2 / 4, <strong>Civic Center Station</strong>, Exits A / F → 3–5 min walk to the plaza.</li>
+      </ul>
+
+      <h4 class="ls-h4">2 · Talent Park 人才公园灯光秀 — the one over the water</h4>
+      <ul class="ls-list">
+        <li><strong>What it is</strong> — the show at Talent Park in Nanshan, watched across the lake with the Shenzhen Bay / Houhai skyline behind it: the "Spring Bamboo" (China Resources) tower plus Alibaba, Baidu and Tencent HQ lights reflecting on the water. Gentler and about 180° wide — far less overwhelming than Futian.</li>
+        <li><strong>Nights</strong> — Fridays, Saturdays and statutory holidays · ~15 minutes per session.</li>
+        <li><strong>Times</strong> — Apr–Oct 19:30 / 20:30 / 21:30 · <strong>Nov–Mar 19:00 / 20:00 / 21:00</strong>.</li>
+        <li><strong>Tickets</strong> — free, <strong>no reservation needed</strong> — just walk in.</li>
+        <li><strong>Best viewing spots</strong> — 星光桥 Starlight Bridge, π桥 Pi Bridge, and 无忧广场 Wuyou Square inside the park.</li>
+        <li><strong>Address</strong> — Talent Park, Yuehai Subdistrict, Nanshan District.</li>
+        <li><strong>Getting there</strong> — Metro Line 13 Talent Park Station Exit B / B1 → ~200 m to the north gate (closest); Lines 2 / 11 Houhai Station Exit H → ~1.2 km; Line 2 Dengliang Station Exit C → ~1 km (west gate).</li>
+        <li><strong>Notes</strong> — cancelled in rain. The park adjoins Shenzhen Bay Park, so it pairs perfectly with an evening seaside walk. This is also <a href="#stops" style="color:#1b5e9a;">Stop 1</a> on this page.</li>
+      </ul>
+      <div class="ls-callout ok">✅ <strong>Talent Park is the reliable choice</strong> while the Civic Centre show is under repair — free, no booking, and the better view for photographs.</div>
+
+      <h4 class="ls-h4">Other free shows around the city</h4>
+      <div class="ls-scroll">
+        <table class="ls-table">
+          <thead><tr><th>Show</th><th>Nights</th><th>Times</th><th>Booking</th><th>Where / Metro</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bao'an Waterfront Plaza</strong><br>宝安海滨广场</td><td>Fri, Sat + holidays</td><td>May–Aug 19:30–21:30 · other months 19:00–21:00 (hourly)</td><td>Free, no booking</td><td>Bao'an Waterfront Plaza · L5 Baohua Stn C / L1&amp;5 Bao'an Center Stn E</td></tr>
+            <tr><td><strong>OH Bay light &amp; water show</strong><br>欢乐港湾灯光水秀</td><td>Closed Mondays</td><td>Fountain: weekday 19:30, weekend 19:30 &amp; 20:30 · Water show: weekday 20:00, weekend 20:00 &amp; 21:00 (~15 min each)</td><td>Free, no booking</td><td>庆典广场, Bao'an · L5 Linhai Stn B2</td></tr>
+            <tr><td><strong>Sea World fountain light show</strong><br>海上世界</td><td>Tue–Thu &amp; Sun; Fri–Sat</td><td>Tue–Thu / Sun 19:00–21:00 every 30 min · Fri / Sat 19:00–21:30 every 30 min</td><td>Free, no booking</td><td>Minghua ship, Sea World Area C, Nanshan · L2 / L12 Sea World Stn</td></tr>
+            <tr><td><strong>Guanlan Ancient Market</strong><br>观澜古墟</td><td>Every night</td><td>19:30–20:40 (two projection pieces)</td><td>Free, no booking</td><td>Guanlan Ancient Market, Longhua · L4 Guanlan Stn B</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="ls-h4">For our dates — Saturday 28 November</h4>
+      <ul class="ls-list">
+        <li>Our Shenzhen leg runs <strong>Sat 28 Nov → Tue 1 Dec</strong>. Shows run Fridays, Saturdays and statutory holidays, so exactly one night inside our stay qualifies: <strong>Saturday 28 November</strong>. Set it for <strong>19:00 / 20:00 / 21:00</strong> — the winter schedule.</li>
+        <li>Sun 29 Nov, Mon 30 Nov and Tue 1 Dec are ordinary weeknights — don't expect a light show.</li>
+        <li>If we want the flagship, book the Civic Center Plaza slot <strong>3 days ahead (Wed 25 Nov, 10:00)</strong>, or skip the booking entirely and watch free from the Lianhua Mountain summit.</li>
+        <li>If we'd rather keep it easy: Talent Park needs no booking at all. Arrive <strong>30–45 minutes early</strong> on a Saturday for a spot on Starlight Bridge.</li>
+        <li>All of these are free, and rain or typhoon warnings cancel everything.</li>
+        <li>One thing not to be caught by: earlier roundups headlined "light show resumes 24 Sep" — that referred to the <strong>Sea World</strong> show, not Civic Centre. Civic Centre is the one returning 1 Oct.</li>
+      </ul>
+
+      <p class="ls-src"><strong>Sources</strong> — Shenzhen Bendibao "2026 free light-show roundup" (30 Aug 2026) · Shenzhen Bendibao Talent Park viewing guide · Shenzhen Window (shenchuang.com) guides to Talent Park and Civic Center · Sohu / QQ 2026 Mid-Autumn &amp; National Day holiday notices · Trip.com travel notes. Status as reported on <strong>26 Sep 2026</strong>; venue schedules and maintenance windows change, so confirm before travelling.</p>
+    </div>
+  </div>
+</div>
 
 <div class="section" id="map">
   <div class="map-section">
