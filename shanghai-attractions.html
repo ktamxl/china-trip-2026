@@ -65,6 +65,31 @@
   .map-link-btn { display:inline-flex; align-items:center; gap:5px; padding:8px 16px; background:#1dad19; color:#fff; border-radius:6px; font-size:.75rem; font-family:sans-serif; text-decoration:none; font-weight:bold; transition:all .2s; }
   .map-link-btn:hover { opacity:.85; transform:translateY(-1px); }
 
+  /* ── VIRAL EATS ── */
+  .ve-title { font-size:1.2rem; font-weight:normal; color:var(--ink); margin-bottom:6px; }
+  .ve-intro { font-family:sans-serif; font-size:.8rem; color:#3d4a52; line-height:1.75; margin-bottom:18px; }
+  .ve-card { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; margin-bottom:20px; }
+  .ve-head { padding:15px 20px 12px; border-bottom:1px solid rgba(0,0,0,.06); display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; }
+  .ve-head h3 { font-size:1rem; font-weight:normal; color:var(--ink); }
+  .ve-head .ve-cn { font-size:.72rem; color:var(--sh-mid); font-family:sans-serif; }
+  .ve-head .ve-badge { margin-left:auto; font-family:sans-serif; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; background:var(--gold); color:var(--ink); border-radius:20px; padding:3px 10px; white-space:nowrap; }
+  .ve-body { padding:16px 20px 20px; }
+  .ve-body p { font-family:sans-serif; font-size:.78rem; color:#444; line-height:1.8; }
+  .ve-body p strong { color:var(--ink); }
+  .ve-photos { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0 4px; }
+  .ve-photos img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; display:block; }
+  .ve-photos figcaption { font-family:sans-serif; font-size:.62rem; color:#8a8a8a; margin-top:5px; text-align:center; line-height:1.5; }
+  .ve-sub { font-family:sans-serif; font-size:.64rem; font-weight:bold; letter-spacing:.14em; text-transform:uppercase; color:var(--sh-mid); margin:18px 0 8px; }
+  .ve-list { list-style:none; padding:0; margin:0; }
+  .ve-list li { font-family:sans-serif; font-size:.78rem; color:#444; line-height:1.75; padding:5px 0 5px 16px; position:relative; border-bottom:1px dashed rgba(0,0,0,.05); }
+  .ve-list li:last-child { border-bottom:none; }
+  .ve-list li::before { content:'▸'; position:absolute; left:0; color:var(--sh-mid); }
+  .ve-list li strong { color:var(--ink); }
+  .ve-meta { font-family:sans-serif; font-size:.74rem; color:#4a5560; line-height:1.8; background:var(--sh-lt); border-radius:10px; padding:13px 15px; margin-top:16px; }
+  .ve-meta strong { color:var(--ink); }
+  .ve-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  @media (max-width:600px){ .ve-photos { grid-template-columns:1fr; } .ve-head h3 { font-size:.94rem; } .ve-body { padding:14px 16px 18px; } }
+
   /* ── FOOTER ── */
   footer { text-align:center; padding:28px 24px; font-family:sans-serif; font-size:.72rem; opacity:.4; color:var(--ink); margin-top:16px; }
 </style>
@@ -86,6 +111,7 @@
 <!-- ── NAV ── -->
 <nav class="sticky-nav">
   <a href="attractions.html">← Attractions</a>
+  <a href="#viraleats">🍜 Viral Eats</a>
   <a href="#map">🗺️ Maps</a>
   <a href="#stops">🚶 All Stops</a>
 </nav>
@@ -283,6 +309,105 @@
     </div>
   </div>
 
+</div>
+
+<!-- ── VIRAL EATS ── -->
+<div class="section" id="viraleats">
+  <h2 class="ve-title">🍜 Viral Eats</h2>
+  <p class="ve-intro">Three spots that keep turning up on social feeds — a matcha bar, a street-side pancake stall, and a fairytale bakery. All three fold neatly into the Shanghai days: Bian Jie and Matcha Wang are about a 10-minute walk apart on the Shaanxi South Road / Huaihai Road corner, and Apoli is a short ride west in the old French Concession.</p>
+
+  <!-- 1 · MATCHA WANG -->
+  <div class="ve-card">
+    <div class="ve-head">
+      <h3>Matcha Wang</h3>
+      <span class="ve-cn">抹茶 · HAI550 · 淮海中路</span>
+      <span class="ve-badge">☕ Drink</span>
+    </div>
+    <div class="ve-body">
+      <p>The matcha bar that had half of Shanghai queueing — it opened inside the HAI550 mall in December 2025 and still draws <strong>30–60 minute lines</strong> at peak times. The signature is a <strong>vanilla bean matcha latte finished with a hand-drawn sheep</strong> in the foam (she's called Lily), and you choose from three grades of matcha. For something less sweet, order the Nori Matcha Dirty.</p>
+      <div class="ve-photos">
+        <figure style="margin:0;"><img src="imgs/matcha-wang-lily-sheep-matcha-latte.jpg" alt="Vanilla bean matcha latte with sheep latte art at Matcha Wang, Shanghai" /><figcaption>The one everyone comes for — vanilla bean matcha latte with Lily the sheep</figcaption></figure>
+        <figure style="margin:0;"><img src="imgs/matcha-wang-matcha-whisking.jpg" alt="Matcha being whisked to order at Matcha Wang" /><figcaption>Whisked to order behind the counter</figcaption></figure>
+      </div>
+      <div class="ve-sub">What to order</div>
+      <ul class="ve-list">
+        <li><strong>Vanilla Bean Matcha Latte</strong> — the viral one, with the sheep drawn on top</li>
+        <li><strong>Nori Matcha Dirty</strong> — for dirty-matcha drinkers; savoury edge, less sweet</li>
+        <li>Choose your <strong>grade of matcha</strong> — three levels; the higher grades taste deeper and less bitter</li>
+      </ul>
+      <div class="ve-meta">
+        <strong>📍 Where:</strong> Shop L1-02, 1st floor, HAI550, 550 Huaihai Middle Road (淮海中路550号), Huangpu — on the Huaihai Road shopping strip.<br/>
+        <strong>🚇 Metro:</strong> 陕西南路 (Lines 1 / 10 / 12) or 淮海中路 (Line 13), both a short walk.<br/>
+        <strong>⏱️ Tip:</strong> expect a 30–60 minute line at weekends — go early, or on a weekday.
+      </div>
+      <div class="ve-links">
+        <a class="map-link-btn" href="https://www.amap.com/search?query=淮海中路550号&city=310000" target="_blank" rel="noopener">🗺️ Open in Amap · 淮海中路550号</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · BIAN JIE PANCAKE -->
+  <div class="ve-card">
+    <div class="ve-head">
+      <h3>Bian Jie Pancake</h3>
+      <span class="ve-cn">卞姐蛋饼 · 陕西南路</span>
+      <span class="ve-badge">🥞 Street Food</span>
+    </div>
+    <div class="ve-body">
+      <p>An old-school Shanghai <strong>egg pancake (蛋饼)</strong> stall at the corner of Shaanxi South Road and Changle Road — the kind of breakfast stop locals have been queueing at for years. Portions are generous, the edges come out crisp, and <strong>one pancake is a full meal</strong>. Besides the classic, Bian Jie does double-egg jianbings and pizza-inspired toppings, and the stall is known for giving back to the neighbourhood.</p>
+      <div class="ve-photos">
+        <figure style="margin:0;"><img src="imgs/bian-jie-pancake-jianbing.jpg" alt="Bian Jie Pancake jianbing wrapped in paper showing egg, scallion and crisp filling" /><figcaption>The order: a double-egg jianbing, wrapped hot out of the pan</figcaption></figure>
+        <figure style="margin:0;"><img src="imgs/bian-jie-pancake-stall.jpg" alt="Bian Jie Pancake stall with menu board on Shaanxi South Road" /><figcaption>The stall itself — menu board, prices, and the queue</figcaption></figure>
+      </div>
+      <div class="ve-sub">What to order</div>
+      <ul class="ve-list">
+        <li><strong>Double-egg jianbing (加双蛋)</strong> — the default order; eggy, crisp and sauced</li>
+        <li><strong>“Supreme King”</strong> — the loaded-everything version</li>
+        <li><strong>“Carnivore”</strong> — meat-heavy, for a bigger appetite</li>
+        <li>Ask for <strong>youtiao</strong> inside for extra crunch</li>
+      </ul>
+      <div class="ve-meta">
+        <strong>📍 Where:</strong> 162 South Shaanxi Road (陕西南路162号), near Changle Road, Huangpu.<br/>
+        <strong>🚇 Metro:</strong> 陕西南路 (Lines 1 / 10 / 12), then walk north up Shaanxi Road.<br/>
+        <strong>⏱️ Tip:</strong> it's a morning stall — go before the breakfast rush dies down. It's a ~10-minute walk from Matcha Wang, so do both in one outing.
+      </div>
+      <div class="ve-links">
+        <a class="map-link-btn" href="https://www.amap.com/search?query=卞姐蛋饼&city=310000" target="_blank" rel="noopener">🗺️ Open in Amap · 卞姐蛋饼</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 · APOLI ITABAKERY -->
+  <div class="ve-card">
+    <div class="ve-head">
+      <h3>Apoli Itabakery</h3>
+      <span class="ve-cn">意大利面包坊 · 兴国路</span>
+      <span class="ve-badge">🥐 Bakery</span>
+    </div>
+    <div class="ve-body">
+      <p>An Italian bakery in the former French Concession that looks lifted out of a storybook — stone walls, arched doorways, roots growing across the ceiling. That's why it gets called the Harry Potter bakery, and why the queue forms before the doors open. The good news: it's <strong>self-service and genuinely affordable</strong> — take a tray, pick pastries with the tongs, pay at the till, then collect your drinks at the window.</p>
+      <div class="ve-photos">
+        <figure style="margin:0;"><img src="imgs/apoli-itabakery-pastry-display.jpg" alt="Trays of pastries at Apoli Itabakery Shanghai" /><figcaption>The pastry case — tarts, pastel de nata and cakes by the tray</figcaption></figure>
+        <figure style="margin:0;"><img src="imgs/apoli-itabakery-pastry-counter.jpg" alt="Pastry counter with TOP 5 sign at Apoli Itabakery" /><figcaption>Start here: tray, tongs, then pay at the till</figcaption></figure>
+      </div>
+      <div class="ve-sub">What to order</div>
+      <ul class="ve-list">
+        <li><strong>Chocolate &amp; pistachio pastel de nata</strong> — the standout; crisp shell, rich custard</li>
+        <li><strong>A pot of tiramisu</strong> — rich and creamy, and it disappears fast</li>
+        <li><strong>Loaded ham &amp; cheese pretzel</strong> — the savoury pick</li>
+        <li><strong>Pistachio croissant</strong> or a <strong>chocolate snail roll</strong> — the pastry-case classics</li>
+        <li>Pair it with an <strong>iced coffee or matcha</strong> — made to order after you pay</li>
+      </ul>
+      <div class="ve-meta">
+        <strong>📍 Where:</strong> 380 Xingguo Road (兴国路380号), Changning District — around the corner from Wukang Mansion.<br/>
+        <strong>🚇 Metro:</strong> 交通大学 (Jiaotong University), Lines 10 / 11, Exit 7 — about a 500 m walk.<br/>
+        <strong>⏱️ Tip:</strong> no reservations, so you queue. Arrive at opening (9 am) to beat the worst of it. A loaded tray plus an iced coffee came to roughly ¥110 on one recent visit.
+      </div>
+      <div class="ve-links">
+        <a class="map-link-btn" href="https://www.amap.com/search?query=兴国路380号&city=310000" target="_blank" rel="noopener">🗺️ Open in Amap · 兴国路380号</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ── MAP OVERVIEW ── -->
