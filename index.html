@@ -125,6 +125,28 @@
   .tag.hotel { background:#f3e5f5; color:#6a1b9a; }
   .tag.star { background:#fff8e1; color:#e65100; }
 
+  /* ── EPA APPOINTMENT (Hong Kong, 4 Dec) ── */
+  .day-card[id] { scroll-margin-top:86px; }
+  .appt { background:#fffdf6; border:1px solid var(--gold); border-left:6px solid var(--gold); border-radius:8px; padding:15px 17px; margin:0 0 14px; }
+  .appt-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
+  .appt-kicker { font-family:sans-serif; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:#8a6d1f; }
+  .appt-when { background:var(--gold); color:#2a2100; font-family:sans-serif; font-size:.72rem; font-weight:bold; letter-spacing:.03em; padding:3px 10px; border-radius:20px; }
+  .appt-title { font-size:.98rem; color:var(--ink); font-weight:bold; line-height:1.45; margin-bottom:10px; }
+  .appt-grid { display:grid; grid-template-columns:96px 1fr; gap:7px 14px; font-size:.82rem; margin:0; }
+  .appt-grid dt { font-family:sans-serif; font-size:.63rem; letter-spacing:.1em; text-transform:uppercase; color:#8a6d1f; padding-top:3px; }
+  .appt-grid dd { color:#333; margin:0; line-height:1.55; }
+  .appt-steps { list-style:none; margin:12px 0 0; padding:11px 0 0; border-top:1px dashed rgba(201,168,76,.55); }
+  .appt-steps li { display:flex; gap:9px; font-size:.81rem; padding:3px 0; color:#3d3d3d; line-height:1.5; }
+  .appt-steps .n { flex:none; width:18px; height:18px; border-radius:50%; background:var(--gold); color:#2a2100; font-family:sans-serif; font-size:.66rem; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+  .appt-foot { margin-top:11px; padding-top:9px; border-top:1px dashed rgba(201,168,76,.55); font-size:.74rem; color:#6b6b6b; line-height:1.6; }
+  .appt-foot strong { color:#5a4200; }
+  .tag.appt { background:#fff4d1; color:#7a5c00; }
+  @media (max-width:600px) {
+    .appt { padding:13px 14px; }
+    .appt-grid { grid-template-columns:1fr; gap:1px 0; }
+    .appt-grid dt { margin-top:7px; }
+  }
+
   /* ── PRO TIPS ── */
   .pro-tips { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); margin:0 0 18px; overflow:hidden; border-top:4px solid var(--gold); }
   .pro-tips-header { padding:16px 22px 12px; background:#fffdf5; border-bottom:1px solid rgba(0,0,0,.06); display:flex; align-items:center; gap:8px; }
@@ -513,6 +535,7 @@
         <span class="hotel-chip">🏠 La Rossa Tower B · Ken, Mabel, Vanessa, Travis, Coleton &amp; Enzo · Tung Chung</span>
         <span class="hotel-chip">🏨 Novotel Citygate HK · Preston &amp; Sophia</span>
         <span class="hotel-chip">🥢 <a href="restaurants.html#hk">The Chairman — Asia's No.1 Restaurant</a></span>
+        <span class="hotel-chip">📜 <a href="#epa">Fri 4 Dec · 11:00 AM — EPA signing, Central</a></span>
       </div>
     </div>
   </div>
@@ -546,12 +569,42 @@
     </div>
 
     <!-- Dec 4 -->
-    <div class="day-card hk">
+    <div class="day-card hk" id="epa">
       <div class="day-label"><span class="dn">4</span><span class="dm">Dec</span><span class="dw">Fri</span></div>
       <div class="day-body">
-        <h3>Mong Kok, Harbour &amp; Symphony of Lights 🌃 — Last Night in HK!</h3>
+        <h3>EPA Signing → Mong Kok → Harbour &amp; Symphony of Lights 🌃 — Last Night in HK!</h3>
+
+        <div class="appt">
+          <div class="appt-head">
+            <span class="appt-kicker">Appointment · Confirmed</span>
+            <span class="appt-when">Friday 4 December 2026 · 11:00 AM</span>
+          </div>
+          <div class="appt-title">Execute the Enduring Power of Attorney (EPA) — Hong Kong assets</div>
+          <dl class="appt-grid">
+            <dt>Solicitor</dt>
+            <dd>Messrs. Y. K. Lau &amp; Chu — <strong>Noeline Lau</strong><br>Unit 1501B, World-Wide House, 19 Des Voeux Road Central, Hong Kong</dd>
+            <dt>Doctor</dt>
+            <dd>Dr Hung — 11:00 AM on 4 December, the slot the firm booked</dd>
+            <dt>Attorneys</dt>
+            <dd><strong>Vanessa Tam &amp; Preston Tam</strong> — both named to act under the EPA</dd>
+            <dt>Duration</dt>
+            <dd>Under 2 hours for the whole process, office to clinic and back</dd>
+          </dl>
+          <ol class="appt-steps">
+            <li><span class="n">1</span><span>Meet the firm at their office, Unit 1501B, World-Wide House, on Friday morning. Their staff walks you to the clinic.</span></li>
+            <li><span class="n">2</span><span>Dr Hung sees you at 11:00 AM and signs the EPA after the examination.</span></li>
+            <li><span class="n">3</span><span>You and the staff return to the office — <strong>Noeline Lau signs the EPA for you</strong> as solicitor.</span></li>
+            <li><span class="n">4</span><span>Done. Total time under two hours, then the rest of the day is free.</span></li>
+          </ol>
+          <div class="appt-foot">
+            <strong>Family:</strong> Vanessa and Preston — the two named in the EPA — can wait at the office; they do not need to go to the clinic.
+            Worth confirming with Noeline beforehand: which ID to bring, and whether both attorneys should sign on the day.<br>
+            <strong>Tel</strong> 2509-1108 &nbsp;·&nbsp; <strong>Fax</strong> 2509-1109 &nbsp;·&nbsp; Central, MTR Hong Kong Station / Central Station
+          </div>
+        </div>
+
         <ul class="act-list">
-          <li><span class="act-icon">🐟</span><div class="act-main"><span class="act-name">Mong Kok 旺角</span> <span class="tag tip">Morning/Afternoon</span><div class="act-tip">Goldfish Street, Sneaker Street, Ladies Market — Hong Kong at its most local &amp; bustling</div></div></li>
+          <li><span class="act-icon">🐟</span><div class="act-main"><span class="act-name">Mong Kok 旺角</span> <span class="tag tip">Afternoon</span><div class="act-tip">Goldfish Street, Sneaker Street, Ladies Market — Hong Kong at its most local &amp; bustling. Straight after the appointment: Central → Mong Kok is ~20 min on the Tsuen Wan line.</div></div></li>
           <li><span class="act-icon">🛍️</span><div class="act-main"><span class="act-name">Tsim Sha Tsui 尖沙咀</span> <span class="tag shop">Shopping</span><div class="act-tip">DFS duty-free, Avenue of Stars, harbour promenade · Go early for best spots!</div></div></li>
           <li><span class="act-icon">🍽️</span><div class="act-main"><span class="act-name">Final Family Dinner</span> <span class="tag eat">Special Dinner</span><div class="act-tip">🌟 Spring Moon at The Peninsula — ⭐ Michelin Cantonese, 5-min from Avenue of Stars. Book via peninsula.com. Dress well — it's a special last night. Reserve a table for 6:30PM so you finish before the 8PM Symphony of Lights!</div></div></li>
           <li><span class="act-icon">🌃</span><div class="act-main"><span class="act-name">Victoria Harbour — Symphony of Lights 維多利亞港</span> <span class="tag tip">8:00 PM nightly</span><div class="act-tip">2026 Global 100 Night Attractions · World-famous light show from Avenue of Stars. Walk from The Peninsula to the waterfront in 3 minutes!</div></div></li>
