@@ -147,6 +147,39 @@
     .appt-grid dt { margin-top:7px; }
   }
 
+  /* ── SHENZHEN LIGHT SHOW ── */
+  .show-card { background:linear-gradient(140deg,#0b1a29 0%,#12314a 55%,#1b4a63 100%); color:#e9f2f8; border-radius:var(--radius); padding:20px 22px; margin:0 0 18px; box-shadow:var(--shadow); }
+  .show-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .show-kicker { font-family:sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:#8fd3e8; }
+  .show-badge { background:rgba(143,211,232,.16); border:1px solid rgba(143,211,232,.45); color:#bfe9f5; font-family:sans-serif; font-size:.66rem; letter-spacing:.06em; padding:2px 9px; border-radius:20px; }
+  .show-title { font-size:1.12rem; font-weight:normal; font-style:italic; color:#fff; margin-bottom:6px; }
+  .show-lede { font-size:.85rem; line-height:1.6; color:#c5d8e4; font-family:sans-serif; margin-bottom:14px; }
+  .show-lede strong { color:#fff; }
+  .show-table { width:100%; border-collapse:collapse; font-family:sans-serif; font-size:.82rem; }
+  .show-table th { text-align:left; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:#8fb8cc; font-weight:normal; padding:0 8px 7px; border-bottom:1px solid rgba(143,211,232,.28); }
+  .show-table td { padding:8px; border-bottom:1px solid rgba(143,211,232,.14); color:#dceaf2; vertical-align:top; }
+  .show-table tr:last-child td { border-bottom:none; }
+  .show-table .d { white-space:nowrap; color:#fff; font-weight:bold; }
+  .show-table .t { white-space:nowrap; color:#ffe3a3; }
+  .show-table .off { color:#7f97a6; }
+  .show-table .on td { background:rgba(143,211,232,.08); }
+  .show-note { margin-top:12px; padding-top:10px; border-top:1px dashed rgba(143,211,232,.3); font-size:.75rem; line-height:1.65; color:#a9c4d2; font-family:sans-serif; }
+  .show-note strong { color:#fff; }
+  .tag.show { background:#e0f4ff; color:#0b4a63; }
+  @media (max-width:600px) {
+    .show-card { padding:16px; }
+    .show-table thead { display:none; }
+    .show-table, .show-table tbody, .show-table tr, .show-table td { display:block; width:auto; }
+    .show-table tr { padding:9px 0; border-bottom:1px solid rgba(143,211,232,.16); }
+    .show-table tr.on { background:rgba(143,211,232,.09); border-radius:6px; padding:9px 8px; margin:0 -8px; }
+    .show-table td { border:none; padding:1px 0; font-size:.79rem; }
+    .show-table td.d { display:inline-block; margin-right:7px; font-size:.82rem; }
+    .show-table td:nth-child(2) { display:inline-block; color:#c5d8e4; }
+    .show-table td.t { color:#ffe3a3; margin-top:3px; }
+    .show-table td:nth-child(4) { color:#a9c4d2; font-size:.75rem; }
+    .show-table tr:not(.on) td:nth-child(4) { display:none; }
+  }
+
   /* ── PRO TIPS ── */
   .pro-tips { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); margin:0 0 18px; overflow:hidden; border-top:4px solid var(--gold); }
   .pro-tips-header { padding:16px 22px 12px; background:#fffdf5; border-bottom:1px solid rgba(0,0,0,.06); display:flex; align-items:center; gap:8px; }
@@ -456,10 +489,51 @@
       <div class="dates-tag">Sat Nov 28 – Wed Dec 2 &nbsp;·&nbsp; 4 nights</div>
       <div class="hotel-chips">
         <span class="hotel-chip">🏨 <a href="hotels.html#shenzhen">Andaz Shenzhen Bay</a> · ★★★★★ · Bay views</span>
+        <span class="hotel-chip">🌃 <a href="#lightshow">Light show — Sat 28 Nov, 19:00</a></span>
       </div>
     </div>
   </div>
   <div class="days-container">
+
+    <div class="show-card" id="lightshow">
+      <div class="show-head">
+        <span class="show-kicker">Shenzhen Bay · Nightly programme</span>
+        <span class="show-badge">Free · 15 minutes a show</span>
+      </div>
+      <div class="show-title">The light show, seen from the room 🌃</div>
+      <div class="show-lede">
+        Your Andaz booking faces the water — the show lights the towers across Shenzhen Bay, so
+        <strong>the room itself is a viewing platform</strong>. For the front row, <strong>Talent Park 人才公园</strong>
+        is next door (2600 Keyuan South Road sits beside it): the bay-front park where the show is staged,
+        looking across the water to Hong Kong.
+      </div>
+      <table class="show-table">
+        <thead>
+          <tr><th>Night</th><th>Date</th><th>Show times</th><th>Where</th></tr>
+        </thead>
+        <tbody>
+          <tr class="on">
+            <td class="d">Sat</td><td>28 Nov</td><td class="t">19:00 · 20:00 · 21:00</td><td>From the room, or Talent Park</td>
+          </tr>
+          <tr>
+            <td class="d">Sun</td><td>29 Nov</td><td class="off">No show</td><td class="off">—</td>
+          </tr>
+          <tr>
+            <td class="d">Mon</td><td>30 Nov</td><td class="off">No show</td><td class="off">—</td>
+          </tr>
+          <tr>
+            <td class="d">Tue</td><td>1 Dec</td><td class="off">No show — departure day</td><td class="off">—</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="show-note">
+        <strong>Winter timetable (Nov–Mar):</strong> 19:00, 20:00 and 21:00, about 15 minutes each, on
+        <strong>Fridays and Saturdays</strong> and public holidays. Summer moves to 19:30 / 20:30 / 21:30.
+        Free — the Civic Center version in Futian needs a reservation on the 美丽深圳 WeChat account;
+        the bay show does not. Schedules are published week by week: ask the concierge on the day.
+      </div>
+    </div>
+
 
     <!-- Nov 28 -->
     <div class="day-card sz">
@@ -472,6 +546,7 @@
           <li><span class="act-icon">🛍️</span><div class="act-main"><span class="act-name">Shenzhen Bay Mixc 海上世界</span><div class="act-tip">Premium shopping mall right by the bay</div></div></li>
           <li><span class="act-icon">🌿</span><div class="act-main"><span class="act-name">Shenzhen Talent Park 人才公園</span> <span class="tag tip">1–3 hrs</span><div class="act-tip">Open 6AM–11PM · Waterfront park — great for an afternoon stroll</div></div></li>
           <li><span class="act-icon">🌊</span><div class="act-main"><span class="act-name">Shenzhen Bay Park 深圳灣公園</span> <span class="tag tip">Sunset walk</span><div class="act-tip">Coastal park with views of Hong Kong across the water · Bring binoculars!</div></div></li>
+          <li><span class="act-icon">🌃</span><div class="act-main"><span class="act-name">Shenzhen Bay light show — first night</span> <span class="tag show">19:00 / 20:00 / 21:00</span><div class="act-tip">Tonight is a Saturday, so the show runs. Watch from the room, or walk to Talent Park 人才公园 for the front row — 15 minutes a show, free.</div></div></li>
         </ul>
       </div>
     </div>
