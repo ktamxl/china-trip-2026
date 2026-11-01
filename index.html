@@ -180,6 +180,28 @@
     .show-table tr:not(.on) td:nth-child(4) { display:none; }
   }
 
+  /* ── HONG KONG DRONE SHOW ── */
+  .drone { background:linear-gradient(140deg,#2a1245 0%,#3b1f5e 50%,#5c3585 100%); color:#efe9f8; border-radius:var(--radius); padding:19px 21px; margin:0 0 14px; }
+  .drone-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:7px; }
+  .drone-kicker { font-family:sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:#c9b3e8; }
+  .drone-badge { background:rgba(220,200,255,.16); border:1px solid rgba(220,200,255,.45); color:#e6dcf8; font-family:sans-serif; font-size:.66rem; letter-spacing:.05em; padding:2px 9px; border-radius:20px; }
+  .drone-title { font-size:1.02rem; color:#fff; font-weight:normal; font-style:italic; margin-bottom:6px; }
+  .drone-lede { font-size:.83rem; line-height:1.6; color:#d3c6e6; font-family:sans-serif; margin-bottom:14px; }
+  .drone-lede strong { color:#fff; }
+  .drone-opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .drone-opt { background:rgba(255,255,255,.07); border:1px solid rgba(220,200,255,.22); border-radius:8px; padding:12px 13px; }
+  .drone-opt .o-label { font-family:sans-serif; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:#c9b3e8; margin-bottom:4px; }
+  .drone-opt .o-name { font-size:.9rem; color:#fff; font-weight:bold; margin-bottom:5px; }
+  .drone-opt p { font-size:.78rem; line-height:1.55; color:#d3c6e6; font-family:sans-serif; margin:0; }
+  .drone-opt p + p { margin-top:5px; }
+  .drone-note { margin-top:12px; padding-top:9px; border-top:1px dashed rgba(220,200,255,.28); font-size:.73rem; line-height:1.6; color:#b9a8d0; font-family:sans-serif; }
+  .drone-note strong { color:#efe9f8; }
+  .tag.drone { background:#ede4ff; color:#4b2a75; }
+  @media (max-width:640px) {
+    .drone { padding:15px 16px; }
+    .drone-opts { grid-template-columns:1fr; }
+  }
+
   /* ── PRO TIPS ── */
   .pro-tips { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); margin:0 0 18px; overflow:hidden; border-top:4px solid var(--gold); }
   .pro-tips-header { padding:16px 22px 12px; background:#fffdf5; border-bottom:1px solid rgba(0,0,0,.06); display:flex; align-items:center; gap:8px; }
@@ -611,6 +633,7 @@
         <span class="hotel-chip">🏨 Novotel Citygate HK · Preston &amp; Sophia</span>
         <span class="hotel-chip">🥢 <a href="restaurants.html#hk">The Chairman — Asia's No.1 Restaurant</a></span>
         <span class="hotel-chip">📜 <a href="#epa">Fri 4 Dec · 11:00 AM — EPA signing, Central</a></span>
+        <span class="hotel-chip">🚁 <a href="#drone">Fri 4 Dec · 8:00 PM — drone show, Hung Hom</a></span>
       </div>
     </div>
   </div>
@@ -647,7 +670,7 @@
     <div class="day-card hk" id="epa">
       <div class="day-label"><span class="dn">4</span><span class="dm">Dec</span><span class="dw">Fri</span></div>
       <div class="day-body">
-        <h3>EPA Signing → Mong Kok → Harbour &amp; Symphony of Lights 🌃 — Last Night in HK!</h3>
+        <h3>EPA Signing → Mong Kok → Harbour, Lights &amp; Drone Show 🚁 — Last Night in HK!</h3>
 
         <div class="appt">
           <div class="appt-head">
@@ -677,6 +700,37 @@
             <strong>Family:</strong> Vanessa and Preston stay at the office while you go to the clinic — they must be there anyway, because they are signing. Only you need to attend the doctor.<br>
             <strong>Confirmed:</strong> all three sign, and all three bring photo ID.<br>
             <strong>Tel</strong> 2509-1108 &nbsp;·&nbsp; <strong>Fax</strong> 2509-1109 &nbsp;·&nbsp; Central, MTR Hong Kong Station / Central Station
+          </div>
+        </div>
+
+        <div class="drone" id="drone">
+          <div class="drone-head">
+            <span class="drone-kicker">Victoria Harbour · Friday only</span>
+            <span class="drone-badge">2,000 drones · 15 minutes · 8:00 PM</span>
+          </div>
+          <div class="drone-title">Drone show over the harbour 🚁</div>
+          <div class="drone-lede">
+            The Hung Hom waterfront runs a drone show <strong>every Friday and Saturday at 8:00 PM</strong> through the
+            end of 2026 — about 2,000 drones, fifteen minutes. <strong>Tonight is the only chance on this trip:</strong>
+            tomorrow you fly at 01:00. It starts at the same time as the Symphony of Lights, so pick one of two ways to see it.
+          </div>
+          <div class="drone-opts">
+            <div class="drone-opt">
+              <div class="o-label">Option A · easiest</div>
+              <div class="o-name">Stay on the TST promenade</div>
+              <p>After Spring Moon, walk to the Avenue of Stars and stay put. The 8:00 PM Symphony of Lights is in front of you; the drones are across the water over Hung Hom.</p>
+              <p>No extra travel, both shows in the same fifteen minutes — the drones read smaller from here.</p>
+            </div>
+            <div class="drone-opt">
+              <div class="o-label">Option B · best view</div>
+              <div class="o-name">Front row at Hung Hom</div>
+              <p>Taxi east from The Peninsula (~10 min) to the Hung Hom waterfront promenade. This is where the show is staged — 2,000 drones directly overhead.</p>
+              <p>Move the Symphony of Lights to Thursday: it runs nightly at 8:00 PM, so nothing is lost.</p>
+            </div>
+          </div>
+          <div class="drone-note">
+            <strong>Either way:</strong> confirm on the day — drone shows are cancelled for weather or airspace at short notice.
+            The light show is nightly; the drones are not.
           </div>
         </div>
 
