@@ -54,6 +54,7 @@
   .hotel-photo-banner { width:100%; height:420px; object-fit:cover; display:block; }
   .hotel-content { padding:36px 40px; }
   .hotel-eyebrow { font-family:sans-serif; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px; }
+  .hotel-eyebrow .bk-ok { color:#1c7c3c; border:1px solid #1c7c3c; border-radius:12px; padding:1px 8px; margin-left:8px; font-weight:bold; }
   .hotel-content h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:normal; margin-bottom:4px; color:var(--ink); }
   .hotel-sub { font-size:.85rem; opacity:.6; margin-bottom:16px; font-style:italic; }
   .hotel-desc { font-size:.88rem; line-height:1.85; margin-bottom:20px; color:#333; }
@@ -66,6 +67,12 @@
   .why-stay { background:#f8f6f0; border-radius:10px; padding:14px 16px; font-size:.82rem; color:#444; line-height:1.7; margin-bottom:16px; }
   .why-stay strong { color:var(--ink); }
   .price-note { font-family:sans-serif; font-size:.78rem; color:#888; font-style:italic; }
+  .bk-strip { background:linear-gradient(135deg,#f6f9f4,#eef5ea); border:1px solid #cfe3c8; border-radius:10px; padding:16px 18px; margin-bottom:18px; font-family:sans-serif; font-size:.8rem; line-height:1.9; color:#2c3a28; }
+  .bk-strip .bk-title { font-weight:bold; letter-spacing:.08em; text-transform:uppercase; font-size:.72rem; color:#1c7c3c; margin-bottom:6px; }
+  .bk-strip .bk-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 24px; }
+  .bk-strip .bk-grid div strong { color:#1a1a2e; }
+  .bk-note { font-size:.72rem; opacity:.75; margin-top:6px; }
+  @media (max-width:600px) { .bk-strip .bk-grid { grid-template-columns:1fr; } }
 
   /* Decorative city banners */
   .city-banner { padding:48px 24px 0; }
@@ -95,14 +102,15 @@
 <section class="hero">
   <div class="hero-badge">Tam Family · November – December 2026</div>
   <h1>Where We <em>Sleep</em> 🏨</h1>
-  <p class="hero-sub">Three cities, three exceptional hotels — from an Ian Schrager-designed Shanghai icon to a 600-year-old courtyard sanctuary in Zhujiajiao.</p>
-  <div class="hero-tagline">Shanghai · Shenzhen · Hong Kong</div>
+  <p class="hero-sub">Four addresses across three cities — an Ian Schrager-designed Shanghai icon, a 600-year-old courtyard sanctuary in Zhujiajiao, a bayfront tower in Shenzhen, and our confirmed Hong Kong base at the airport's doorstep.</p>
+  <div class="hero-tagline">Shanghai · Zhujiajiao · Shenzhen · Hong Kong</div>
 </section>
 
 <nav class="sticky-nav">
   <a href="#shanghai">Shanghai</a>
   <a href="#zhujiajiao">Zhujiajiao</a>
   <a href="#shenzhen">Shenzhen</a>
+  <a href="#hongkong">Hong Kong</a>
   <a href="index.html">← Trip Home</a>
 </nav>
 
@@ -233,6 +241,66 @@
           <span class="chip">🚇 Metro nearby</span>
         </div>
         <div class="price-note">~¥1,500–2,800/night. Exceptional value for a hotel of this quality — often half the price of equivalent Hong Kong properties.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HONG KONG -->
+<div class="city-banner hk" id="hongkong">
+  <div class="city-banner-inner">
+    <div class="eyebrow">City 03 · Nights 9–12 of 12 · Preston &amp; Sophia's booking</div>
+    <h2>Novotel Citygate Hong Kong</h2>
+    <div class="dates-tag">Tuesday, December 1 – Saturday, December 5, 2026 · 4 nights · Booked ✓</div>
+  </div>
+</div>
+
+<div class="hotel-section" style="padding-bottom:64px;">
+  <div class="hotel-card">
+    <div class="hotel-card-inner">
+      <img class="hotel-photo-banner" src="imgs/novotel-citygate-lobby.jpg" alt="Novotel Citygate Hong Kong lobby" onerror="this.style.display='none'">
+      <div class="hotel-content">
+        <div class="hotel-eyebrow" style="color:var(--hk-mid);">★★★★ · Accor · Tung Chung<span class="bk-ok">✓ BOOKED · PAID</span></div>
+        <h2>Novotel Citygate Hong Kong</h2>
+        <div class="hotel-sub">No. 51 Man Tung Road, Tung Chung, Islands District, Lantau</div>
+        <div class="hotel-desc">
+          Preston &amp; Sophia's Hong Kong base — and the whole family's meeting point on departure day. The Novotel stands right beside Citygate Outlets and Tung Chung MTR, one stop from the airport: Disneyland is a 25-minute train ride away, the Ngong Ping 360 cable car to the Big Buddha is next door, and the airport shuttle runs from the lobby for the 1:00 AM flight home. It is the most practical address in Hong Kong for this trip's Lantau-first itinerary — no other hotel puts the cable car, the park, and the airport all within reach.
+        </div>
+        <div class="why-stay">
+          <strong>Why we chose it:</strong> Booked through Trip.com for Preston &amp; Sophia (guest: Ken Kwok Wai Tam) — Standard Double Room, 1 queen bed, sleep up to 2. Prepaid $817.27 (taxes and service included), free cancellation until 6:00 PM Hong Kong time on Nov 30. On Dec 5 all eight travelers gather in this lobby for the airport shuttle — book your goodbyes here.
+        </div>
+        <div class="bk-strip">
+          <div class="bk-title">📋 Booking Confirmation — Trip.com</div>
+          <div class="bk-grid">
+            <div>Confirmation <strong>#2612010614</strong> · PIN <strong>3840</strong></div>
+            <div>Booking No. <strong>1359049006311302</strong></div>
+            <div><strong>Check-in</strong> Tue Dec 1, after 2:00 PM</div>
+            <div><strong>Check-out</strong> Sat Dec 5, before 12:00 PM</div>
+            <div><strong>Room</strong> Standard Double · 1 queen bed</div>
+            <div><strong>Guests</strong> Ken Kwok Wai Tam (+1 companion)</div>
+            <div><strong>Total</strong> $817.27 USD — prepaid</div>
+            <div><strong>Includes</strong> Tax $21.70 · Service $72.33</div>
+          </div>
+          <div class="bk-note">⚠️ Free cancellation ends <strong>6:00 PM HKT, Nov 30</strong> — the night before check-in. After that, a $185.74 fee applies.</div>
+        </div>
+        <div class="specs-grid">
+          <div class="spec-item"><span class="spec-label">Chain</span><span class="spec-value">Novotel · Accor</span></div>
+          <div class="spec-item"><span class="spec-label">Room</span><span class="spec-value">Standard Double · 1 queen</span></div>
+          <div class="spec-item"><span class="spec-label">Getting around</span><span class="spec-value">Tung Chung MTR (next door)</span></div>
+          <div class="spec-item"><span class="spec-label">Airport</span><span class="spec-value">1 MTR stop to HKG</span></div>
+          <div class="spec-item"><span class="spec-label">Phone</span><span class="spec-value">+852 3602 8888</span></div>
+          <div class="spec-item"><span class="spec-label">Meals</span><span class="spec-value">No meals included</span></div>
+          <div class="spec-item" style="grid-column:1/3;"><span class="spec-label">Address</span><span class="spec-value">No. 51 Man Tung Road, Tung Chung, Islands District, Hong Kong</span></div>
+        </div>
+        <div class="amenity-chips">
+          <span class="chip">🛍️ Citygate Outlets next door</span>
+          <span class="chip">🚡 Ngong Ping 360 nearby</span>
+          <span class="chip">🚇 1 stop from HK Airport</span>
+          <span class="chip">🎢 25 min to Disneyland</span>
+          <span class="chip">🧴 Bathrobes &amp; 24-hr hot water</span>
+          <span class="chip">🚐 Airport shuttle</span>
+        </div>
+        <div class="price-note">Paid in full via Trip.com — $817.27 for 4 nights, taxes and service charge included. Photo: hotel lobby, via Wikimedia Commons (CC BY 3.0).</div>
       </div>
     </div>
   </div>
